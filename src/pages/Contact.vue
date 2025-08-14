@@ -205,7 +205,7 @@ import { computed, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 
 
-const heroBackgroundImage = `images/hero3.jpg`
+const heroBackgroundImage = `${import.meta.env.BASE_URL}images/hero3.jpg`
 const footer1BackgroundImage = `footer/footer1.jpg`
 
 const bgStyle = computed(() => ({ backgroundImage: `url('${heroBackgroundImage}')` }))

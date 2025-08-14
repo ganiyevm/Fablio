@@ -619,23 +619,27 @@
 <script setup lang="ts">
 import { reactive, ref, onMounted, onBeforeUnmount, computed } from 'vue'
 
+/** Public papkadagi faylga to‘g‘ri URL yasash (GitHub Pages uchun ham to‘g‘ri) */
+const asset = (p: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${p.replace(/^\//, '')}`
+
 // SLIDES: fon rasm + chap matn + o'ng kartadagi matn
 const slides = [
   {
-    bg: '/images/hero1.jpg',
+    bg: asset('images/hero1.jpg'),
     kicker: 'The Ultimate Textile Collection.',
     titleHtml: 'World Class Textile<br/>Engineering Solutions.',
     cardKicker: 'The intelligent way to plan.',
     cardTitleHtml: 'Our Reputation Is<br/>Built On Solid Ground',
   },
   {
-    bg: '/images/hero2.jpg',
+    bg: asset('images/hero2.jpg'),
     kicker: 'The intelligent way to plan.',
     titleHtml: 'Our Reputation Is<br/>Built On Solid Ground',
     cardKicker: 'The intelligent way to plan.',
     cardTitleHtml: 'Our Reputation Is<br/>Built On Solid Ground',
   },
-  // Istasangiz yana qo‘shing
+  // istasangiz yana qo‘shing
 ]
 
 const idx = ref(0)
@@ -651,23 +655,24 @@ function goPrev() {
 }
 
 // Auto-play (12s)
-let timer: number | undefined
+let timer: ReturnType<typeof setInterval> | null = null
 function startAutoplay() {
   stopAutoplay()
-  timer = window.setInterval(() => { goNext() }, 12000)
+  timer = setInterval(goNext, 12000)
 }
 function stopAutoplay() {
-  if (timer) { clearInterval(timer); timer = undefined }
+  if (timer) {
+    clearInterval(timer)
+    timer = null
+  }
 }
 function restartAutoplay() {
-  // qo'lda bosilganda ham vaqtni yangilab olamiz
   startAutoplay()
 }
+onMounted(startAutoplay)
+onBeforeUnmount(stopAutoplay)
 
-onMounted(() => { startAutoplay() })
-onBeforeUnmount(() => { stopAutoplay() })
-
-// (ixtiyoriy) kirish animlar uchun observer
+// (ixtiyoriy) kirish animlar uchun flaglar
 const leftIn = ref(true)
 const rightIn = ref(true)
 
@@ -676,4 +681,5 @@ interface ContactForm { name: string; email: string; phone: string; message: str
 const form = reactive<ContactForm>({ name: '', email: '', phone: '', message: '' })
 function submitForm() { console.log('Form submitted:', form) }
 </script>
+
 
