@@ -205,6 +205,12 @@ import { computed, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 
 
+interface ImportMeta {
+  env: {
+    BASE_URL: string;
+  }
+}
+
 const heroBackgroundImage = `${import.meta.env.BASE_URL}images/hero3.jpg`
 const footer1BackgroundImage = `footer/footer1.jpg`
 
