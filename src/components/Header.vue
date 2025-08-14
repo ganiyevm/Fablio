@@ -90,7 +90,7 @@ const menu = [
   { to: '/about', key: 'menu.about' },
   { to: '/products', key: 'menu.products' },
   { to: '/production', key: 'menu.production' },
-  { to: '/blog', key: 'menu.blog' },
+  // { to: '/blog', key: 'menu.blog' },
   { to: '/contact', key: 'menu.contact' },
 ]
 </script>
@@ -117,9 +117,9 @@ const menu = [
   <RouterLink to="/production" class="hover:text-green-600 font-medium" active-class="text-green-600 font-semibold">
     {{ $t('menu.production') }}
   </RouterLink>
-  <RouterLink to="/blog" class="hover:text-green-600 font-medium" active-class="text-green-600 font-semibold">
+  <!-- <RouterLink to="/blog" class="hover:text-green-600 font-medium" active-class="text-green-600 font-semibold">
     {{ $t('menu.blog') }}
-  </RouterLink>
+  </RouterLink> -->
   <RouterLink to="/contact" class="hover:text-green-600 font-medium" active-class="text-green-600 font-semibold">
     {{ $t('menu.contact') }}
   </RouterLink>

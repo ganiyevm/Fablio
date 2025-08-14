@@ -2,7 +2,98 @@
 
 
   <!-- HERO SECTION (headerdan keyin qo'ying) -->
-  <section class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- <section class="relative min-h-screen flex items-center overflow-hidden">
+  
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat animate-kenburns transition-all duration-[2000ms]"
+    :style="{ backgroundImage: `url(${currentSlide.bg})` }"
+  >
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
+
+  
+  <div class="relative z-10 mx-auto px-4">
+    <div class="grid lg:grid-cols-12 gap-32 items-center">
+      
+      <div
+        data-obsid="left"
+        :class="leftIn ? 'animate-fade-up' : 'opacity-0 translate-y-4'"
+        class="lg:col-span-7 text-white"
+      >
+        <p class="text-white/80 mb-4">{{ currentSlide.kicker }}</p>
+        <h1 class="text-4xl md:text-7xl font-extrabold leading-tight tracking-tight drop-shadow"
+            v-html="currentSlide.titleHtml"></h1>
+
+        <button
+          class="mt-8 bg-green-500 hover:bg-black text-white px-8 py-3 rounded-md inline-flex items-center gap-2 text-xl"
+        >
+          All Cases
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+    
+      <div
+        data-obsid="right"
+        :class="rightIn ? 'animate-slide-in-right' : 'opacity-0 translate-x-5'"
+        class="lg:col-span-5"
+      >
+        <div class="relative ml-auto max-w-[560px]">
+          <div class="rounded-md shadow-2xl overflow-hidden bg-green-500">
+            <div class="p-8 md:p-10">
+              <p class="text-white/80 text-sm mb-2">{{ currentSlide.cardKicker }}</p>
+              <h2 class="text-white text-2xl md:text-3xl font-bold leading-tight"
+                  v-html="currentSlide.cardTitleHtml"></h2>
+            </div>
+
+            <div class="bg-neutral-900/95 text-white px-6 md:px-8 py-5 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="inline-flex w-6 h-6 rounded-full bg-white/10 items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M19 12H5"/>
+                  </svg>
+                </span>
+                <span class="font-medium">Submit Now</span>
+              </div>
+              <button
+                class="shrink-0 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+                aria-label="Submit"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <button @click.stop="goPrev"
+    class="absolute left-[30px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-black/70 text-white flex items-center justify-center"
+    aria-label="Previous slide">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+  <button @click.stop="goNext"
+    class="absolute right-[30px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-black/70 text-white flex items-center justify-center"
+    aria-label="Next slide">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+</section> -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
   <!-- Background + overlay -->
   <div
     class="absolute inset-0 bg-cover bg-center bg-no-repeat animate-kenburns transition-all duration-[2000ms]"
@@ -76,6 +167,76 @@
     </div>
   </div>
 
+  <!-- ✅ Bottom strip: 3 text + 3 image cards -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 px-4">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
+        <!-- TEXT 1 -->
+        <a href="#"
+           class="snap-start shrink-0 w-[320px] bg-black/80 hover:bg-black/90 text-white rounded-md p-6 transition-colors">
+          <div class="text-lg font-semibold leading-snug">Core Value We<br/>Provide</div>
+          <div class="mt-6 inline-flex items-center gap-2 text-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M7 7h10v10"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- IMAGE 1 -->
+        <a href="#"
+           class="snap-start shrink-0 w-[320px] bg-black/80 rounded-md overflow-hidden group">
+          <div class="h-[150px] overflow-hidden">
+            <img src="/images/n1.jpg" alt="thumb 1"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+        </a>
+
+        <!-- TEXT 2 -->
+        <a href="#"
+           class="snap-start shrink-0 w-[320px] bg-black/80 hover:bg-black/90 text-white rounded-md p-6 transition-colors">
+          <div class="text-lg font-semibold leading-snug">Products And<br/>Accessories</div>
+          <div class="mt-6 inline-flex items-center gap-2 text-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M7 7h10v10"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- IMAGE 2 -->
+        <a href="#"
+           class="snap-start shrink-0 w-[320px] bg-black/80 rounded-md overflow-hidden group">
+          <div class="h-[150px] overflow-hidden">
+            <img src="/images/n2.jpg" alt="thumb 2"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+        </a>
+
+        <!-- TEXT 3 -->
+        <a href="#"
+           class="snap-start shrink-0 w-[320px] bg-black/80 hover:bg-black/90 text-white rounded-md p-6 transition-colors">
+          <div class="text-lg font-semibold leading-snug">Global Fabrics<br/>Distributor</div>
+          <div class="mt-6 inline-flex items-center gap-2 text-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M7 7h10v10"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- IMAGE 3 -->
+        <a href="#"
+           class="snap-start shrink-0 w-[320px] bg-black/80 rounded-md overflow-hidden group">
+          <div class="h-[150px] overflow-hidden">
+            <img src="/images/n3.jpg" alt="thumb 3"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Nav arrows -->
   <button @click.stop="goPrev"
     class="absolute left-[30px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-black/70 text-white flex items-center justify-center"
@@ -94,6 +255,7 @@
     </svg>
   </button>
 </section>
+
 
 
  <!-- Hero-like section -->
@@ -399,6 +561,53 @@
     </div>
   </div>
 </section>
+
+<section class="relative min-h-[70vh] md:min-h-[82vh] flex items-center overflow-hidden">
+  <!-- BACKGROUND: 2 ta rasm, chap mirror -->
+  <div class="absolute inset-0 grid grid-cols-2">
+    <!-- Chap: oynalangan + qoramtir -->
+    <div class="relative">
+      <img src="/images/hero1.jpg"
+           alt="" class="absolute inset-0 w-full h-full object-cover transform scale-x-[-1]">
+      <div class="absolute inset-0 bg-black/70"></div>
+    </div>
+    <!-- O‘ng: oddiy rasm -->
+    <div class="relative">
+      <img src="/images/hero1.jpg"
+           alt="" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/10"></div>
+    </div>
+  </div>
+
+  <!-- Markaziy yumshatish (ixtiyoriy) -->
+  <div class="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/10 via-transparent to-black/10"></div>
+
+  <!-- CONTENT -->
+  <div class="relative mx-auto w-full px-[30px]">
+    <div class="max-w-4xl text-white">
+      <a href="#" class="inline-block text-sm md:text-base underline underline-offset-4 decoration-white/70">
+        Good Look To Good Work
+      </a>
+
+      <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+        The <span class="text-green-500">ULTIMATE</span> Textile
+        <br class="hidden md:block">
+        Collection For <span class="text-green-500">THE CLASSY</span>
+      </h1>
+
+      <a href="#"
+         class="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-md border border-white/70 text-white hover:bg-white/10">
+        Discover More
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
 
 
 
