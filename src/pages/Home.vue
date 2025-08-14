@@ -622,14 +622,14 @@ import { reactive, ref, onMounted, onBeforeUnmount, computed } from 'vue'
 // SLIDES: fon rasm + chap matn + o'ng kartadagi matn
 const slides = [
   {
-    bg: '/images/hero1.jpg',
+    bg: './images/hero1.jpg',
     kicker: 'The Ultimate Textile Collection.',
     titleHtml: 'World Class Textile<br/>Engineering Solutions.',
     cardKicker: 'The intelligent way to plan.',
     cardTitleHtml: 'Our Reputation Is<br/>Built On Solid Ground',
   },
   {
-    bg: '/images/hero2.jpg',
+    bg: './images/hero2.jpg',
     kicker: 'The intelligent way to plan.',
     titleHtml: 'Our Reputation Is<br/>Built On Solid Ground',
     cardKicker: 'The intelligent way to plan.',
