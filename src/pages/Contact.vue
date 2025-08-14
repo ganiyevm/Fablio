@@ -1,0 +1,262 @@
+<template>
+  <div class="min-h-screen bg-white">
+    <!-- Hero Section -->
+    <section
+      class="relative h-96 bg-cover bg-center bg-no-repeat"
+      :style="bgStyle"
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative container mx-auto px-4 h-full flex items-center justify-center">
+        <div class="text-center text-white">
+          <h1 class="text-5xl font-bold mb-4">Contact Us</h1>
+          <nav class="text-sm">
+  <router-link
+    to="/"
+    class="hover:text-green-400 transition-colors underline-offset-4 hover:underline"
+  >
+    Home
+  </router-link>
+  <span class="mx-2">•</span>
+  <span class="text-green-400">Contact Us</span>
+</nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-5xl font-bold text-gray-800 mb-4">Contact Form</h2>
+          <p class="text-gray-600">
+            Feel free to contact us through
+            <span class="text-green-500 font-semibold">Twitter</span> or
+            <span class="text-green-500 font-semibold">Facebook</span> if you prefer.
+          </p>
+        </div>
+
+        <div class="max-w-8xl mx-auto">
+          <form @submit.prevent="submitForm" class="bg-white p-8 rounded-lg shadow-lg">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <input v-model="form.name" type="text" placeholder="Your Name*"
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+              <input v-model="form.email" type="email" placeholder="Your Email*"
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+              <input v-model="form.phone" type="tel" placeholder="Phone Number*"
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <input v-model="form.company" type="text" placeholder="Company Name*"
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+              <input v-model="form.subject" type="text" placeholder="Subject*"
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+            </div>
+
+            <div class="mb-6">
+              <textarea v-model="form.message" placeholder="Message*" rows="6"
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none" required></textarea>
+            </div>
+
+            <div class="mb-6">
+              <label class="flex items-center">
+                <input v-model="form.agreeToData" type="checkbox"
+                       class="mr-3 w-4 h-4 text-green-500 border border-gray-300 rounded focus:ring-green-500" required />
+                <span class="text-gray-600">I agree that my submitted data is being collected and stored.</span>
+              </label>
+            </div>
+
+            <div class="text-center">
+              <button type="submit"
+                      class="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
+                Send Now!
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Map -->
+          <div class="rounded-xl overflow-hidden shadow">
+              <iframe
+                class="w-full h-125"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19800.796!2d-0.1195!3d51.505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzE4LjAiTiAwwrAwNycwMC4wIlc!5e0!3m2!1sen!2suk!4v1680000000000">
+              </iframe>
+            </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Get In Touch!</h2>
+            <p class="text-gray-600 mb-8">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <!-- Head Office -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">Head Office</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-4 mt-1">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
+                    <p class="text-gray-600">123 King Street, Melbourne</p>
+                    <p class="text-gray-600">Victoria 5000, New York.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-4 mt-1">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Call Us / Email</h4>
+                    <p class="text-gray-600">+1800-200-123456</p>
+                    <p class="text-gray-600">fablio.support@yourmail.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Branch Office -->
+            <div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">Branch Office</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-4 mt-1">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
+                    <p class="text-gray-600">123 King Street, Melbourne</p>
+                    <p class="text-gray-600">Victoria 5000, New York.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-green-100 p-2 rounded-lg mr-4 mt-1">
+                    <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-1">Call Us / Email</h4>
+                    <p class="text-gray-600">+1800-200-543211</p>
+                    <p class="text-gray-600">fablio.sales@yourmail.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Logos Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-60">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-gray-400">Best Tailor</div>
+            <div class="text-sm text-gray-400">CUSTOM CLOTHING</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-gray-400">Sewing Shop</div>
+            <div class="text-sm text-gray-400">TAILORED SERVICE</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-gray-400">Best Sewing</div>
+            <div class="text-sm text-gray-400">HAND MADE</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-gray-400">Tailor Shop</div>
+            <div class="text-sm text-gray-400">PREMIUM QUALITY</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-gray-400">Sewing Shop</div>
+            <div class="text-sm text-gray-400">TAILORED SERVICE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+   
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, reactive } from 'vue'
+import { RouterLink } from 'vue-router'
+
+
+const heroBackgroundImage = `images/hero3.jpg`
+const footer1BackgroundImage = `footer/footer1.jpg`
+
+const bgStyle = computed(() => ({ backgroundImage: `url('${heroBackgroundImage}')` }))
+const footer1 = computed(() => ({ backgroundImage: `url('${footer1BackgroundImage}')` }))
+
+type ContactForm = {
+  name: string
+  email: string
+  phone: string
+  company: string
+  subject: string
+  message: string
+  agreeToData: boolean
+}
+
+const form = reactive<ContactForm>({
+  name: '',
+  email: '',
+  phone: '',
+  company: '',
+  subject: '',
+  message: '',
+  agreeToData: false
+})
+
+function submitForm() {
+  if (!form.agreeToData) {
+    alert('Please agree to data collection and storage.')
+    return
+  }
+
+  console.log('Form submitted:', { ...form })
+  alert('Form submitted successfully!')
+
+  // Reset
+  form.name = ''
+  form.email = ''
+  form.phone = ''
+  form.company = ''
+  form.subject = ''
+  form.message = ''
+  form.agreeToData = false
+}
+</script>
+
+<style scoped>
+.container { max-width: 1200px; }
+* { transition: all 0.3s ease; }
+input:focus, textarea:focus { outline: none; }
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+</style>
