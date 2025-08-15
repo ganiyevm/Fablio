@@ -1,15 +1,19 @@
 <template>
-  <div class="min-h-dvh flex flex-col bg-background">
-    <!-- Fixed header -->
-    <HeaderComponent />
+  <!-- Header balandligi uchun CSS o'zgaruvchi: mobile=64px, md+=88px -->
+  <div class="min-h-dvh flex flex-col bg-background [--header-h:64px] md:[--header-h:88px]">
+    <!-- FIXED header -->
+    <HeaderComponent class="fixed inset-x-0 top-0 z-50" />
 
-    <!-- Sahifa kontenti -->
-    <main class="flex-1 pt-20">
-      <RouterView />
+    <!-- Sahifa kontenti (header balandligiga teng padding) -->
+    <main class="flex-1 pt-[calc(var(--header-h)+env(safe-area-inset-top))]">
+      <!-- Istasangiz umumiy ichki chetlar -->
+      <div class="px-4 sm:px-6 lg:px-8">
+        <RouterView />
+      </div>
     </main>
 
-    <!-- Footer doim pastda -->
-    <FooterComponent class="mt-auto" />
+    <!-- Footer doim pastda + iOS safe area -->
+    <FooterComponent class="mt-auto pb-[env(safe-area-inset-bottom)]" />
   </div>
 </template>
 

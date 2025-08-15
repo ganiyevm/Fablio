@@ -8,16 +8,16 @@
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto px-4 h-full flex items-center justify-center">
         <div class="text-center text-white">
-          <h1 class="text-5xl font-bold mb-4">Contact Us</h1>
+          <h1 class="text-5xl font-bold mb-4">Контакты</h1>
           <nav class="text-sm">
   <router-link
     to="/"
     class="hover:text-green-400 transition-colors underline-offset-4 hover:underline"
   >
-    Home
+  Главная
   </router-link>
   <span class="mx-2">•</span>
-  <span class="text-green-400">Contact Us</span>
+  <span class="text-green-400">Контакты</span>
 </nav>
         </div>
       </div>
@@ -27,34 +27,34 @@
     <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-5xl font-bold text-gray-800 mb-4">Contact Form</h2>
+          <h2 class="text-5xl font-bold text-gray-800 mb-4">Свяжитесь с нами
+</h2>
           <p class="text-gray-600">
-            Feel free to contact us through
-            <span class="text-green-500 font-semibold">Twitter</span> or
-            <span class="text-green-500 font-semibold">Facebook</span> if you prefer.
+            Мы всегда рады помочь с выбором пряжи и ответить на ваши вопросы.
+           
           </p>
         </div>
 
         <div class="max-w-8xl mx-auto">
           <form @submit.prevent="submitForm" class="bg-white p-8 rounded-lg shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-              <input v-model="form.name" type="text" placeholder="Your Name*"
+              <input v-model="form.name" type="text" placeholder="Имя"
                      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
-              <input v-model="form.email" type="email" placeholder="Your Email*"
+              <input v-model="form.email" type="email" placeholder="Email"
                      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
-              <input v-model="form.phone" type="tel" placeholder="Phone Number*"
+              <input v-model="form.phone" type="tel" placeholder="Телефон"
                      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <input v-model="form.company" type="text" placeholder="Company Name*"
+              <input v-model="form.company" type="text" placeholder="Компания"
                      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
-              <input v-model="form.subject" type="text" placeholder="Subject*"
+              <input v-model="form.subject" type="text" placeholder="Вопрос"
                      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
             </div>
 
             <div class="mb-6">
-              <textarea v-model="form.message" placeholder="Message*" rows="6"
+              <textarea v-model="form.message" placeholder="Сообщение" rows="6"
                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none" required></textarea>
             </div>
 
@@ -62,14 +62,14 @@
               <label class="flex items-center">
                 <input v-model="form.agreeToData" type="checkbox"
                        class="mr-3 w-4 h-4 text-green-500 border border-gray-300 rounded focus:ring-green-500" required />
-                <span class="text-gray-600">I agree that my submitted data is being collected and stored.</span>
+                <span class="text-gray-600">Оставьте своё сообщение — мы свяжемся с вами.</span>
               </label>
             </div>
 
             <div class="text-center">
               <button type="submit"
                       class="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
-                Send Now!
+                      Отправить!
               </button>
             </div>
           </form>
@@ -93,9 +93,9 @@
 
           <!-- Contact Info -->
           <div>
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">Get In Touch!</h2>
+            <h2 class="text-4xl font-bold text-gray-800 mb-6">Свяжитесь мгновенно!</h2>
             <p class="text-gray-600 mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Оставьте сообщение или позвоните — мы ответим в ближайшее время.
             </p>
 
             <!-- Head Office -->
@@ -109,9 +109,10 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
-                    <p class="text-gray-600">123 King Street, Melbourne</p>
-                    <p class="text-gray-600">Victoria 5000, New York.</p>
+                    <h4 class="font-semibold text-gray-800 mb-1">Адрес</h4>
+                    <p class="text-gray-600">Республика Узбекистан, г.Ташкент</p>
+                    <p class="text-gray-600">Мирзо-улугбекский район, ТТЗ Промзона, ТехноПарк
+</p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -122,16 +123,17 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="font-semibold text-gray-800 mb-1">Call Us / Email</h4>
-                    <p class="text-gray-600">+1800-200-123456</p>
-                    <p class="text-gray-600">fablio.support@yourmail.com</p>
+                    <h4 class="font-semibold text-gray-800 mb-1">Телефон / Email</h4>
+                    <p class="text-gray-600">+99890 809-05-50</p>
+                    <p class="text-gray-600">souleymanovamir@gmail.com
+</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Branch Office -->
-            <div>
+            <!-- <div>
               <h3 class="text-2xl font-bold text-gray-800 mb-4">Branch Office</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="flex items-start">
@@ -160,7 +162,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>

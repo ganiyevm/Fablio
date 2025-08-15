@@ -12,8 +12,12 @@
       "resolveJsonModule": true,
       "allowJs": true,
       "types": ["vite/client"],             // import.meta.env tiplari
-      "forceConsistentCasingInFileNames": true
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
     },
-    "include": ["src/**/*", "env.d.ts"]
+    "include": ["src/**/*.ts", "src/**/*.vue", "src/types/**/*.d.ts"]
   }
   
