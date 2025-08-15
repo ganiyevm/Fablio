@@ -83,13 +83,14 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Map -->
           <div class="rounded-xl overflow-hidden shadow">
-              <iframe
-                class="w-full h-125"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19800.796!2d-0.1195!3d51.505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzE4LjAiTiAwwrAwNycwMC4wIlc!5e0!3m2!1sen!2suk!4v1680000000000">
-              </iframe>
-            </div>
+  <iframe
+    class="w-full h-96"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://maps.google.com/maps?q=41.3439722,69.4010833&z=17&output=embed">
+  </iframe>
+</div>
+
 
           <!-- Contact Info -->
           <div>

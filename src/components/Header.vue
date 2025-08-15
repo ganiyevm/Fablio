@@ -21,7 +21,7 @@ function closeMenu() { isOpen.value = false }
   <header
     class="fixed inset-x-0 top-0 z-50 bg-white/70 dark:bg-neutral-900/60 backdrop-blur border-b border-black/10 [--header-h:64px] md:[--header-h:88px]"
   >
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
       <!-- Top bar -->
       <div class="h-[var(--header-h)] flex items-center justify-between gap-3">
         <!-- Left: logo -->
