@@ -1,6 +1,6 @@
 <template>
   <!-- Top CTA strip -->
-  <section class="bg-green-500 py-4 sm:py-6">
+  <section class="bg-amber-500 py-4 sm:py-6">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex items-center text-white">
@@ -31,11 +31,8 @@
         <div>
           <div class="flex items-center gap-3 mb-4">
             <!-- Vite public/ -> foydalanishda / bilan boshlang -->
-            <img src="../public/logo/image.png" alt="Rainbow-Teks" class="h-10 w-auto" />
-            <div class="text-2xl font-bold">
-              Rainbow-Teks
-              <span class="inline-block w-3 h-3 bg-green-500 rounded-full ml-1 align-middle"></span>
-            </div>
+            <img src="../public/logo/logo.png" alt="Rainbow-Teks" class="h-14 w-auto" />
+            
           </div>
 
           <p class="text-gray-400 mb-5">
@@ -65,7 +62,7 @@
         <!-- Address -->
         <div>
           <div class="flex items-start gap-3 mb-4">
-            <div class="bg-green-500 p-2 rounded-lg">
+            <div class="bg-amber-500 p-2 rounded-lg">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
               </svg>
@@ -80,7 +77,7 @@
         <!-- Email -->
         <div>
           <div class="flex items-start gap-3 mb-4">
-            <div class="bg-green-500 p-2 rounded-lg">
+            <div class="bg-amber-500 p-2 rounded-lg">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>

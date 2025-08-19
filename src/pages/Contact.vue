@@ -12,12 +12,12 @@
           <nav class="text-sm">
   <router-link
     to="/"
-    class="hover:text-green-400 transition-colors underline-offset-4 hover:underline"
+    class="hover:text-amber-600 transition-colors underline-offset-4 hover:underline"
   >
   Главная
   </router-link>
   <span class="mx-2">•</span>
-  <span class="text-green-400">Контакты</span>
+  <span class="text-amber-600">Контакты</span>
 </nav>
         </div>
       </div>
@@ -39,36 +39,36 @@
           <form @submit.prevent="submitForm" class="bg-white p-8 rounded-lg shadow-lg">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               <input v-model="form.name" type="text" placeholder="Имя"
-                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" required />
               <input v-model="form.email" type="email" placeholder="Email"
-                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" required />
               <input v-model="form.phone" type="tel" placeholder="Телефон"
-                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" required />
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <input v-model="form.company" type="text" placeholder="Компания"
-                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" required />
               <input v-model="form.subject" type="text" placeholder="Вопрос"
-                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required />
+                     class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" required />
             </div>
 
             <div class="mb-6">
               <textarea v-model="form.message" placeholder="Сообщение" rows="6"
-                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none" required></textarea>
+                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none" required></textarea>
             </div>
 
             <div class="mb-6">
               <label class="flex items-center">
                 <input v-model="form.agreeToData" type="checkbox"
-                       class="mr-3 w-4 h-4 text-green-500 border border-gray-300 rounded focus:ring-green-500" required />
+                       class="mr-3 w-4 h-4 text-green-500 border border-gray-300 rounded focus:ring-amber-500" required />
                 <span class="text-gray-600">Оставьте своё сообщение — мы свяжемся с вами.</span>
               </label>
             </div>
 
             <div class="text-center">
               <button type="submit"
-                      class="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
+                      class="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-lg transition duration-300">
                       Отправить!
               </button>
             </div>

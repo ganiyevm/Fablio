@@ -3,7 +3,7 @@
       <!-- Trigger -->
       <button
         type="button"
-        class="flex items-center gap-1 px-3 py-1.5 rounded-md text-black-700 hover:text-green-600
+        class="flex items-center gap-1 px-3 py-1.5 rounded-md text-black-700 hover:text-yellow-600
                focus:outline-none focus:ring-2 focus:ring-white/30"
         @click="toggle"
         aria-haspopup="listbox"

@@ -1,8 +1,14 @@
 <template>
   <!-- SECTION: Hero slider + bottom strip -->
-  <section class="relative min-h-[calc(100vh-var(--header-h,0px))] flex items-center overflow-hidden">
+  <section
+    ref="heroSec"
+    @touchstart.passive="onTouchStart"
+    @touchend.passive="onTouchEnd"
+    class="relative min-h-[calc(125vh-var(--header-h,0px))] flex overflow-hidden"
+  >
     <!-- Background + overlay -->
     <div
+      :key="currentSlide.bg"
       class="absolute inset-0 bg-cover bg-center bg-no-repeat animate-kenburns transition-all duration-[2000ms]"
       :style="{ backgroundImage: `url(${currentSlide.bg})` }"
     >
@@ -10,9 +16,9 @@
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 mx-auto px-4 w-full">
+    <div class="relative z-10 mx-auto pt-10 md:pt-36 lg:pt-60">
       <div class="mx-auto max-w-7xl">
-        <div class="grid lg:grid-cols-12 items-center gap-8 md:gap-16 xl:gap-32">
+        <div class="grid lg:grid-cols-12 items-center gap-12 md:gap-16 xl:gap-33">
           <!-- Left: text -->
           <div
             data-obsid="left"
@@ -21,12 +27,12 @@
           >
             <p class="text-white/80 mb-3 text-sm sm:text-base">{{ currentSlide.kicker }}</p>
             <h1
-              class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight drop-shadow"
+              class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight drop-shadow"
               v-html="currentSlide.titleHtml"
             ></h1>
 
             <button
-              class="mt-6 sm:mt-8 bg-green-500 hover:bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-md inline-flex items-center gap-2 text-base sm:text-xl"
+              class="mt-6 sm:mt-8 bg-yellow-600 hover:bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-md inline-flex items-center gap-2 text-base sm:text-xl"
             >
               Подробно
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
@@ -36,16 +42,16 @@
             </button>
           </div>
 
-          <!-- Right: green card -->
+          <!-- Right: yellow card -->
           <div
             data-obsid="right"
             :class="rightIn ? 'animate-slide-in-right' : 'opacity-0 translate-x-5'"
             class="lg:col-span-5"
           >
             <div class="relative lg:ml-auto max-w-[560px]">
-              <div class="rounded-md shadow-2xl overflow-hidden bg-green-500">
-                <div class="p-6 sm:p-8 md:p-10">
-                  <p class="text-white/80 text-xs sm:text-sm mb-2">{{ currentSlide.cardKicker }}</p>
+              <div class="rounded-md shadow-2xl overflow-hidden bg-yellow-700">
+                <div class="p-6 sm:p-8 md:p-16">
+                  <p class="text-white/80 text-xl sm:text-sm mb-2">{{ currentSlide.cardKicker }}</p>
                   <h2
                     class="text-white text-xl sm:text-2xl md:text-3xl font-bold leading-tight"
                     v-html="currentSlide.cardTitleHtml"
@@ -53,7 +59,7 @@
                 </div>
 
                 <!-- Bottom dark strip -->
-                <div class="bg-neutral-900/95 text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 flex items-center justify-between">
+                <div class="bg-neutral-900/95 text-white px-4 sm:px-6 md:px-10 py-4 sm:py-10 flex items-center justify-between">
                   <div class="flex items-center gap-2 sm:gap-3">
                     <span class="inline-flex w-6 h-6 rounded-full bg-white/10 items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
@@ -61,9 +67,9 @@
                         <path d="M12 5v14M19 12H5"/>
                       </svg>
                     </span>
-                    <span class="font-medium text-sm sm:text-base">Свяжитесь</span>
+                    <span class="font-medium text-lg sm:text-lg">Свяжитесь</span>
                   </div>
-                  <button
+                  <!-- <button
                     class="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
                     aria-label="Submit"
                   >
@@ -71,7 +77,7 @@
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M9 5l7 7-7 7"/>
                     </svg>
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -81,88 +87,95 @@
     </div>
 
     <!-- ✅ Bottom strip: 3 text + 3 image cards -->
-    <div class="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-10 px-4 w-full">
-      <div class="mx-auto max-w-7xl">
-        <div class="flex gap-4 sm:gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
-          <!-- TEXT 1 -->
-          <a href="#"
-             class="snap-start shrink-0 w-[260px] sm:w-[320px] bg-black/80 hover:bg-black/90 text-white rounded-md p-5 sm:p-6 transition-colors">
-            <div class="text-base sm:text-lg font-semibold leading-snug">Core Value We<br/>Provide</div>
-            <div class="mt-5 sm:mt-6 inline-flex items-center gap-2 text-green-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7M7 7h10v10"/>
-              </svg>
-            </div>
-          </a>
+<div class="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-10 px-4 w-full flex items-center">
+  <div class="mx-auto max-w-8xl">
+    <div class="flex gap-4 sm:gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
 
-          <!-- IMAGE 1 -->
-          <a href="#"
-             class="snap-start shrink-0 w-[260px] sm:w-[320px] bg-black/80 rounded-md overflow-hidden group">
-            <div class="h-[130px] sm:h-[150px] overflow-hidden">
-              <img :src="asset('images/n1.jpg')" alt="thumb 1" loading="lazy" decoding="async"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-          </a>
-
-          <!-- TEXT 2 -->
-          <a href="#"
-             class="snap-start shrink-0 w-[260px] sm:w-[320px] bg-black/80 hover:bg-black/90 text-white rounded-md p-5 sm:p-6 transition-colors">
-            <div class="text-base sm:text-lg font-semibold leading-snug">Products And<br/>Accessories</div>
-            <div class="mt-5 sm:mt-6 inline-flex items-center gap-2 text-green-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7M7 7h10v10"/>
-              </svg>
-            </div>
-          </a>
-
-          <!-- IMAGE 2 -->
-          <a href="#"
-             class="snap-start shrink-0 w-[260px] sm:w-[320px] bg-black/80 rounded-md overflow-hidden group">
-            <div class="h-[130px] sm:h-[150px] overflow-hidden">
-              <img :src="asset('images/n2.jpg')" alt="thumb 2" loading="lazy" decoding="async"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-          </a>
-
-          <!-- TEXT 3 -->
-          <a href="#"
-             class="snap-start shrink-0 w-[260px] sm:w-[320px] bg-black/80 hover:bg-black/90 text-white rounded-md p-5 sm:p-6 transition-colors">
-            <div class="text-base sm:text-lg font-semibold leading-snug">Global Fabrics<br/>Distributor</div>
-            <div class="mt-5 sm:mt-6 inline-flex items-center gap-2 text-green-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7M7 7h10v10"/>
-              </svg>
-            </div>
-          </a>
-
-          <!-- IMAGE 3 -->
-          <a href="#"
-             class="snap-start shrink-0 w-[260px] sm:w-[320px] bg-black/80 rounded-md overflow-hidden group">
-            <div class="h-[130px] sm:h-[150px] overflow-hidden">
-              <img :src="asset('images/n3.jpg')" alt="thumb 3" loading="lazy" decoding="async"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            </div>
-          </a>
-        </div>
-      </div>
+      <!-- CARD 1 -->
+<a href="#"
+   class="hero-card snap-start shrink-0 w-[300px] sm:w-[400px] h-36 sm:h-[130px] rounded-md overflow-hidden ring-1 ring-white/10 bg-black/80 group"
+   style="--i:0">
+  <div class="grid grid-cols-[1.15fr_1fr] h-full">
+    <div class="card-text text-white p-5 sm:p-6 flex flex-col justify-between">
+      <div class="text-lg font-semibold leading-snug">Core Value We<br/>Provide</div>
+      <span class="inline-flex w-5 h-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
+        <!-- icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M7 7h10v10"/>
+        </svg>
+      </span>
     </div>
+    <div class="relative card-img">
+      <img :src="asset('images/n1.jpg')" alt="thumb 1"
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+    </div>
+  </div>
+</a>
+
+<!-- CARD 2 -->
+<a href="#"
+   class="hero-card snap-start shrink-0 w-[300px] sm:w-[400px] h-36 sm:h-[130px] rounded-md overflow-hidden ring-1 ring-white/10 bg-black/80 group"
+   style="--i:1">
+  <div class="grid grid-cols-[1.15fr_1fr] h-full">
+    <div class="card-text text-white p-5 sm:p-6 flex flex-col justify-between">
+      <div class="text-lg font-semibold leading-snug">Products And<br/>Accessories</div>
+      <span class="inline-flex w-5 h-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M7 7h10v10"/>
+        </svg>
+      </span>
+    </div>
+    <div class="relative card-img">
+      <img :src="asset('images/n2.jpg')" alt="thumb 2"
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+    </div>
+  </div>
+</a>
+
+<!-- CARD 3 -->
+<a href="#"
+   class="hero-card snap-start shrink-0 w-[300px] sm:w-[400px] h-36 sm:h-[130px] rounded-md overflow-hidden ring-1 ring-white/10 bg-black/80 group"
+   style="--i:2">
+  <div class="grid grid-cols-[1.15fr_1fr] h-full">
+    <div class="card-text text-white p-5 sm:p-6 flex flex-col justify-between">
+      <div class="text-lg font-semibold leading-snug">Global Fabrics<br/>Distributor</div>
+      <span class="inline-flex w-5 h-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M7 7h10v10"/>
+        </svg>
+      </span>
+    </div>
+    <div class="relative card-img">
+      <img :src="asset('images/n3.jpg')" alt="thumb 3"
+           class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+    </div>
+  </div>
+</a>
+
+
+     
+
+    </div>
+  </div>
+</div>
+
 
     <!-- Nav arrows (kattaroq hit-area) -->
     <button @click.stop="goPrev"
-      class="absolute left-3 sm:left-[30px] top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-black/70 text-white flex items-center justify-center"
+      class="absolute left-3 sm:left-[32px] top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/90 text-white flex items-center justify-center z-30"
       aria-label="Previous slide">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M15 19l-7-7 7-7"/>
       </svg>
     </button>
     <button @click.stop="goNext"
-      class="absolute right-3 sm:right-[30px] top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/60 hover:bg-black/70 text-white flex items-center justify-center"
+      class="absolute right-3 sm:right-[30px] top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/50 hover:bg-black/90 text-white flex items-center justify-center z-30"
       aria-label="Next slide">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 5l7 7-7 7"/>
       </svg>
@@ -198,7 +211,7 @@
           <a href="#"
              class="mt-6 sm:mt-8 inline-flex items-center gap-4 group">
             <span
-              class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-green-500 flex items-center justify-center
+              class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-amber-500 flex items-center justify-center
                      transition-transform group-hover:scale-105 group-active:scale-95"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -208,7 +221,7 @@
               </svg>
             </span>
             <span class="text-left">
-              <span class="block font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
+              <span class="block font-semibold text-gray-900 group-hover:text-amber-600 transition-colors">
                 О нас & Продукция!
               </span>
             </span>
@@ -297,7 +310,7 @@
 
         <div class="mt-8 md:mt-10 flex justify-center">
           <a href="#" class="inline-flex items-center gap-4 group">
-            <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-green-500 flex items-center justify-center transition-transform group-hover:scale-105 group-active:scale-95">
+            <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-amber-500 flex items-center justify-center transition-transform group-hover:scale-105 group-active:scale-95">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                    fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    class="w-6 h-6">
@@ -305,7 +318,7 @@
               </svg>
             </span>
             <span class="text-left">
-              <span class="block font-semibold text-gray-900 group-hover:text-green-600 transition-colors">О нас & Продукция!</span>
+              <span class="block font-semibold text-gray-900 group-hover:text-amber-600 transition-colors">О нас & Продукция!</span>
             </span>
           </a>
         </div>
@@ -335,11 +348,11 @@
 
           <div class="mt-6 md:mt-8 grid sm:grid-cols-2 gap-3 md:gap-4">
             <div class="bg-white/10 backdrop-blur rounded-lg px-4 md:px-5 py-3 md:py-4 flex items-center gap-3">
-              <span class="inline-flex w-6 h-6 rounded-full bg-green-500 items-center justify-center">›</span>
+              <span class="inline-flex w-6 h-6 rounded-full bg-amber-500 items-center justify-center">›</span>
               <span class="font-semibold">Тенденции цветовых решений</span>
             </div>
             <div class="bg-white/10 backdrop-blur rounded-lg px-4 md:px-5 py-3 md:py-4 flex items-center gap-3">
-              <span class="inline-flex w-6 h-6 rounded-full bg-green-500 items-center justify-center">›</span>
+              <span class="inline-flex w-6 h-6 rounded-full bg-amber-500 items-center justify-center">›</span>
               <span class="font-semibold">Лабораторно протестировано</span>
             </div>
           </div>
@@ -365,7 +378,7 @@
     <div class="absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 z-30 w-full px-4">
       <div class="relative mx-auto max-w-xl bg-white text-gray-800 rounded-lg shadow-xl p-5 md:p-6 lg:p-8 transition-all duration-700 ease-in-out">
         <div class="absolute -top-6 left-1/2 -translate-x-1/2
-                    w-12 h-12 rounded-full bg-green-500 text-white
+                    w-12 h-12 rounded-full bg-amber-500 text-white
                     border-4 border-white shadow-md flex items-center justify-center text-xl">“”</div>
 
         <p class="text-gray-600 italic">
@@ -385,7 +398,7 @@
     <div class="container mx-auto px-4">
       <div class="mx-auto max-w-7xl grid lg:grid-cols-4 gap-8 items-start">
         <div class="lg:col-span-3">
-          <!-- Your stats / members (qoldirildi) -->
+          <!-- Your stats / members -->
         </div>
       </div>
     </div>
@@ -418,9 +431,9 @@
         </a>
 
         <h1 class="mt-3 md:mt-4 text-3xl md:text-6xl font-extrabold leading-tight tracking-tight">
-          Каждая партия <span class="text-green-500">проходит путь</span> от сырья до
+          Каждая партия <span class="text-amber-500">проходит путь</span> от сырья до
           <br class="hidden md:block">
-          уникального оттенка под <span class="text-green-500">ваш заказ</span>
+          уникального оттенка под <span class="text-amber-500">ваш заказ</span>
         </h1>
 
         <a href="#"
@@ -436,8 +449,33 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import ExportMap from '@/components/ExportMap.vue'
+// <script setup> ichiga qo'shing
+
+let heroCardsObserver: IntersectionObserver | null = null
+
+onMounted(() => {
+  heroCardsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        const el = e.target as HTMLElement
+        if (e.isIntersecting) {
+          el.classList.add('in')       // trigger enter animation
+          heroCardsObserver?.unobserve(el)
+        }
+      })
+    },
+    { threshold: 0.25 } // 25% ko‘ringanda
+  )
+
+  document
+    .querySelectorAll<HTMLElement>('.hero-card')
+    .forEach((el) => heroCardsObserver?.observe(el))
+})
+
+onBeforeUnmount(() => heroCardsObserver?.disconnect())
+
 
 /** Public yoki dist uchun BASE_URL ga mos to‘g‘ri URL yasash */
 const asset = (p: string) =>
@@ -483,21 +521,21 @@ onBeforeUnmount(() => {
 const slides = [
   {
     bg: asset('images/hero1.jpg'),
-    kicker: 'Каждая нить — история цвета.',
+    kicker: 'Крашеная пряжа. Цвет, которому доверяют.',
     titleHtml:
-      'Мы создаём устойчивые оттенки,<br/> которые сохраняют глубину и насыщенность на <br/>протяжении всего срока службы изделия',
-    cardKicker: 'Крашеная пряжа премиум-класса',
+      'Уникальные оттенки — под ваш запрос и стиль',
+    cardKicker: 'Качество, подтверждённое испытаниями',
     cardTitleHtml:
-      'Совершенные оттенки. Совершенное качество. Совершенные изделия.',
+      'Каждая партия проходит строгий контроль.',
   },
   {
     bg: asset('images/hero2.jpg'),
-    kicker: 'Крашеная пряжа. Цвет, которому доверяют.',
+    kicker: 'Каждая нить — история цвета.',
     titleHtml:
-      'Уникальные оттенки из натурального,<br/> искусственного и смешанного <br/>сырья — под ваш запрос и ваш стиль',
-    cardKicker: 'Качество, подтверждённое испытаниями.',
+      'Цвет, который держит насыщенность.',
+    cardKicker: 'Крашеная пряжа премиум-класса.',
     cardTitleHtml:
-      'Каждая партия проходит строгий контроль и тестирование, чтобы ваш продукт выглядел идеально',
+      'Каждая партия проходит строгий контроль.',
   },
 ]
 
@@ -529,11 +567,22 @@ function restartAutoplay() { startAutoplay() }
 onMounted(startAutoplay)
 onBeforeUnmount(stopAutoplay)
 
-// (ixtiyoriy) kirish animlar uchun flaglar
+// Kirish animlari flaglari
 const leftIn = ref(true)
 const rightIn = ref(true)
 
-// Touch swipe (mobil uchun): simple threshold
+// Slayd almashganda animlarni qayta yoqish
+watch(idx, () => {
+  leftIn.value = false
+  rightIn.value = false
+  requestAnimationFrame(() => {
+    leftIn.value = true
+    rightIn.value = true
+  })
+})
+
+// Touch swipe (mobil)
+const heroSec = ref<HTMLElement | null>(null)
 let touchStartX = 0, touchEndX = 0
 function onTouchStart(e: TouchEvent) { touchStartX = e.changedTouches[0].clientX }
 function onTouchEnd(e: TouchEvent) {
@@ -541,16 +590,6 @@ function onTouchEnd(e: TouchEvent) {
   const dx = touchEndX - touchStartX
   if (Math.abs(dx) > 40) (dx < 0 ? goNext() : goPrev())
 }
-onMounted(() => {
-  const sec = document.querySelector('section.relative.min-h-\\[calc\\(100vh-var\\(--header-h,0px\\)\\)\\]')
-  sec?.addEventListener('touchstart', onTouchStart, { passive: true })
-  sec?.addEventListener('touchend', onTouchEnd, { passive: true })
-})
-onBeforeUnmount(() => {
-  const sec = document.querySelector('section.relative.min-h-\\[calc\\(100vh-var\\(--header-h,0px\\)\\)\\]')
-  sec?.removeEventListener('touchstart', onTouchStart)
-  sec?.removeEventListener('touchend', onTouchEnd)
-})
 
 // Kontakt form (agar kerak bo‘lsa)
 interface ContactForm { name: string; email: string; phone: string; message: string }
@@ -559,6 +598,43 @@ function submitForm() { console.log('Form submitted:', form) }
 </script>
 
 <style scoped>
+
+/* Bottom-strip cards enter animation */
+.hero-card { transform: translateZ(0); }
+
+.hero-card .card-text,
+.hero-card .card-img {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    transform 1500ms cubic-bezier(.22,.61,.36,1),
+    opacity   1500ms cubic-bezier(.22,.61,.36,1);
+}
+
+/* start positions: text chapdan, rasm o'ngdan */
+.hero-card .card-text { transform: translateX(-22px); }
+.hero-card .card-img  { transform: translateX( 22px); }
+
+/* when visible */
+.hero-card.in .card-text,
+.hero-card.in .card-img {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* stagger: har karta uchun kechikish (style="--i:0/1/2") */
+.hero-card .card-text { transition-delay: calc(var(--i, 0) * 300ms); }
+.hero-card .card-img  { transition-delay: calc(var(--i, 0) * 300ms + 90ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card .card-text,
+  .hero-card .card-img {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
 /* Ken Burns */
 @keyframes kenburns {
   0% { transform: scale(1) }
@@ -573,10 +649,10 @@ function submitForm() { console.log('Form submitted:', form) }
 
 /* Fallback enter animations */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px) } to { opacity: 1; transform: translateY(0) } }
-.animate-fade-up { animation: fadeUp 700ms ease-out both }
+.animate-fade-up { animation: fadeUp 3000ms ease-out both }
 
 @keyframes slideInRight { from { opacity: 0; transform: translateX(20px) } to { opacity: 1; transform: translateX(0) } }
-.animate-slide-in-right { animation: slideInRight 700ms ease-out both }
+.animate-slide-in-right { animation: slideInRight 3000ms ease-out both }
 
 /* 3D spin shortcut (ikonlar uchun) */
 @keyframes spin-y { from { transform: rotateY(0) } to { transform: rotateY(360deg) } }

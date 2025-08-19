@@ -21,12 +21,12 @@ function closeMenu() { isOpen.value = false }
   <header
     class="fixed inset-x-0 top-0 z-50 bg-white/70 dark:bg-neutral-900/60 backdrop-blur border-b border-black/10 [--header-h:64px] md:[--header-h:88px]"
   >
-    <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-15">
       <!-- Top bar -->
       <div class="h-[var(--header-h)] flex items-center justify-between gap-3">
         <!-- Left: logo -->
         <RouterLink to="/" class="shrink-0 flex items-center gap-2" @click="closeMenu">
-          <img src="../public/logo/image.png" alt="Logo" class="h-8 md:h-10 w-auto" />
+          <img src="../public/logo/logo.png" alt="Logo" class="h-8 md:h-18 w-auto" />
           <!-- <span class="hidden sm:block text-xl font-bold text-gray-900">Zelal Tekstil</span> -->
         </RouterLink>
 
@@ -36,8 +36,8 @@ function closeMenu() { isOpen.value = false }
             v-for="item in menu"
             :key="item.to"
             :to="item.to"
-            class="hover:text-green-600 font-medium transition-colors"
-            active-class="text-green-600 font-semibold"
+            class="hover:text-yellow-600 font-medium transition-colors"
+            active-class="text-yellow-600 font-semibold"
           >
             {{ $t(item.key) }}
           </RouterLink>
@@ -53,17 +53,17 @@ function closeMenu() { isOpen.value = false }
             class="hidden md:flex items-center divide-x divide-gray-300 border border-gray-200 rounded-md overflow-hidden shrink-0 bg-white/80 dark:bg-neutral-900/40"
           >
             <a href="tel:+998908090550" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition">
-              <Phone class="w-6 h-6 md:w-7 md:h-7 text-green-600" />
+              <Phone class="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
               <div class="leading-tight">
                 <span class="text-xs md:text-sm text-gray-700">{{ $t('contactText') }}</span>
-                <strong class="block text-sm md:text-base text-gray-900 hover:text-green-600">+998908090550</strong>
+                <strong class="block text-sm md:text-base text-gray-900 hover:text-yellow-600">+998908090550</strong>
               </div>
             </a>
             <a href="mailto:souleymanovamir@gmail.com" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition">
-              <Mail class="w-6 h-6 md:w-7 md:h-7 text-green-600" />
+              <Mail class="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
               <div class="leading-tight">
                 <span class="text-xs md:text-sm text-gray-700">{{ $t('contactMail') }}</span>
-                <strong class="block text-sm md:text-base text-gray-900 hover:text-green-600">souleymanovamir@gmail.com</strong>
+                <strong class="block text-sm md:text-base text-gray-900 hover:text-yellow-600">souleymanovamir@gmail.com</strong>
               </div>
             </a>
           </div>
@@ -72,10 +72,10 @@ function closeMenu() { isOpen.value = false }
           <div class="flex md:hidden items-center gap-2">
             <LanguageSwitcher />
             <a href="tel:+998908090550" class="p-2 rounded hover:bg-black/5" aria-label="Call">
-              <Phone class="w-5 h-5 text-green-600" />
+              <Phone class="w-5 h-5 yellow-600" />
             </a>
             <a href="mailto:souleymanovamir@gmail.com" class="p-2 rounded hover:bg-black/5" aria-label="Mail">
-              <Mail class="w-5 h-5 text-green-600" />
+              <Mail class="w-5 h-5 yellow-600" />
             </a>
 
             <!-- Burger -->
@@ -125,11 +125,11 @@ function closeMenu() { isOpen.value = false }
           <!-- Mobile contact block -->
           <div class="mt-4 grid gap-2">
             <a href="tel:+998908090550" class="flex items-center gap-3 px-2 py-2 rounded hover:bg-black/5">
-              <Phone class="w-5 h-5 text-green-600" />
+              <Phone class="w-5 h-5 text-yellow-600" />
               <span class="text-sm">+998908090550</span>
             </a>
             <a href="mailto:souleymanovamir@gmail.com" class="flex items-center gap-3 px-2 py-2 rounded hover:bg-black/5">
-              <Mail class="w-5 h-5 text-green-600" />
+              <Mail class="w-5 h-5 text-yellow-600" />
               <span class="text-sm">souleymanovamir@gmail.com</span>
             </a>
           </div>

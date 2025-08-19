@@ -7,7 +7,7 @@
     <!-- Sahifa kontenti (header balandligiga teng padding) -->
     <main class="flex-1 pt-[calc(var(--header-h)+env(safe-area-inset-top))]">
       <!-- Istasangiz umumiy ichki chetlar -->
-      <div class="px-4 sm:px-6 lg:px-8">
+      <div class="px-4 sm:px-6 lg:px-0">
         <RouterView />
       </div>
     </main>
