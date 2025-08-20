@@ -19,7 +19,7 @@ function closeMenu() { isOpen.value = false }
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-50 bg-white/70 dark:bg-neutral-900/60 backdrop-blur border-b border-black/10 [--header-h:64px] md:[--header-h:88px]"
+    class="fixed inset-x-0 top-0 z-50 bg-emerald-950 dark:bg-neutral-900/60 backdrop-blur border-b border-black/10 [--header-h:64px] md:[--header-h:88px]"
   >
     <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-15">
       <!-- Top bar -->
@@ -31,7 +31,7 @@ function closeMenu() { isOpen.value = false }
         </RouterLink>
 
         <!-- Center: nav (desktop) -->
-        <nav class="hidden md:flex items-center gap-8 text-gray-700">
+        <nav class="hidden md:flex items-center gap-8 text-zinc-300">
           <RouterLink
             v-for="item in menu"
             :key="item.to"

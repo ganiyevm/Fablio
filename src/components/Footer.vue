@@ -24,7 +24,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white pt-12 pb-8">
+  <footer class="bg-emerald-950 text-white pt-12 pb-8">
     <div class="mx-auto max-w-7xl px-4">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <!-- Company Info -->

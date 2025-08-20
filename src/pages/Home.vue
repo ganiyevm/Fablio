@@ -97,7 +97,7 @@
    style="--i:0">
   <div class="grid grid-cols-[1.15fr_1fr] h-full">
     <div class="card-text text-white p-5 sm:p-6 flex flex-col justify-between">
-      <div class="text-lg font-semibold leading-snug">Core Value We<br/>Provide</div>
+      <div class="text-lg font-semibold leading-snug">Живой цвет</div>
       <span class="inline-flex w-5 h-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
         <!-- icon -->
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
@@ -119,7 +119,7 @@
    style="--i:1">
   <div class="grid grid-cols-[1.15fr_1fr] h-full">
     <div class="card-text text-white p-5 sm:p-6 flex flex-col justify-between">
-      <div class="text-lg font-semibold leading-snug">Products And<br/>Accessories</div>
+      <div class="text-lg font-semibold leading-snug">Прочная нить</div>
       <span class="inline-flex w-5 h-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -140,7 +140,7 @@
    style="--i:2">
   <div class="grid grid-cols-[1.15fr_1fr] h-full">
     <div class="card-text text-white p-5 sm:p-6 flex flex-col justify-between">
-      <div class="text-lg font-semibold leading-snug">Global Fabrics<br/>Distributor</div>
+      <div class="text-lg font-semibold leading-snug">Прочная нить</div>
       <span class="inline-flex w-5 h-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

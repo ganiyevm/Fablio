@@ -5,12 +5,12 @@
                   Мы экспортируем свою <br> продукцию в 17 стран,
                   обеспечивая<br> высокий уровень партнёрства.
                 </h1>
-        <div class="grid lg:grid-cols-12 gap-16 items-center min-h-[120vh]">
+        <div class="grid lg:grid-cols-12 gap-10 items-center min-h-[100vh]">
             
           <!-- KATTA GLOBUS -->
           <div class="lg:col-span-8">
             <div
-              class="relative mx-auto aspect-square w-full max-w-[600px] xl:max-w-[980px]  overflow-hidden"
+              class="relative mx-auto aspect-square w-full max-w-[540px] xl:max-w-[900px]  overflow-hidden"
             >
               <canvas ref="canvas" class="w-full h-full block"></canvas>
   
@@ -133,9 +133,9 @@
     ctx.value = c
   
     projection = geoOrthographic()
-      .translate([size / 2, size / 2])
-      .scale(size * 0.47)   // kerak bo‘lsa 0.5 gacha oshiring
-      .precision(0.1)
+  .translate([size / 2, size / 2])
+  .scale(size * 0.35)   // oldin 0.47 edi — globus biroz kichikroq ko'rinadi
+  .precision(0.1)
   
     path = geoPath(projection, c)
   }
