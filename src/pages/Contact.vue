@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
     <section
-      class="relative h-96 bg-cover bg-center bg-no-repeat"
+      class="relative h-75 bg-cover bg-center bg-no-repeat"
       :style="bgStyle"
     >
       <div class="absolute inset-0 bg-black/50"></div>
@@ -214,7 +214,7 @@ interface ImportMeta {
   }
 }
 
-const heroBackgroundImage = `${import.meta.env.BASE_URL}images/hero3.jpg`
+const heroBackgroundImage = `https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2022/05/page-titlebar.jpg`
 const footer1BackgroundImage = `footer/footer1.jpg`
 
 const bgStyle = computed(() => ({ backgroundImage: `url('${heroBackgroundImage}')` }))
