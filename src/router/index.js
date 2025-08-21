@@ -5,7 +5,8 @@ import Production from '../pages/Production.vue'
 import Products from '../pages/Products.vue'
 import Blog from '../pages/Blog.vue'
 import Contact from '../pages/Contact.vue'
-import ProductionInformation from '@/components/production_information.vue'
+import ProductionInformation from '@/components/ProductionInformation.vue'
+
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
