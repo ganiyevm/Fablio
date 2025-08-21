@@ -340,7 +340,7 @@
           <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
             Окрашенная пряжа — больше,<br> чем цвет
           </h2>
-          <p class="mt-3 md:mt-4 text-white/80 max-w-2xl">
+          <p class="text-lg mt-3 md:mt-4 text-white/80 max-w-2xl">
             Мы создаём не просто нити, а основу для вдохновляющих коллекций.
             Наши оттенки сочетают в себе эстетику, долговечность и экологичность,
             чтобы ваши изделия выделялись среди остальных.
@@ -349,17 +349,17 @@
           <div class="mt-6 md:mt-8 grid sm:grid-cols-2 gap-3 md:gap-4">
             <div class="bg-white/10 backdrop-blur rounded-lg px-4 md:px-5 py-3 md:py-4 flex items-center gap-3">
               <span class="inline-flex w-6 h-6 rounded-full bg-amber-500 items-center justify-center">›</span>
-              <span class="font-semibold">Тенденции цветовых решений</span>
+              <span class="font-semibold text-xl">Тенденции цветовых решений</span>
             </div>
             <div class="bg-white/10 backdrop-blur rounded-lg px-4 md:px-5 py-3 md:py-4 flex items-center gap-3">
               <span class="inline-flex w-6 h-6 rounded-full bg-amber-500 items-center justify-center">›</span>
-              <span class="font-semibold">Лабораторно протестировано</span>
+              <span class="font-semibold text-xl">Лабораторно протестировано</span>
             </div>
           </div>
 
           <div class="mt-6 md:mt-8 flex items-start gap-3 md:gap-4">
             <img :src="asset('icons/machine.png')" class="w-9 h-9 md:w-10 md:h-10" alt="machine" loading="lazy" decoding="async">
-            <p class="text-white/90">
+            <p class="text-white/90 text-lg">
               Мы имеем <span class="text-green-400 font-semibold underline">3+ лет</span> опыта, чтобы гарантировать
               стабильное качество окрашенной пряжи для текстильных
               производств и промышленных заказчиков
