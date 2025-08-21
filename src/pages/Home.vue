@@ -413,7 +413,7 @@
             <div
               v-for="(s, i) in stats"
               :key="s.label"
-              :ref="el => (statEls[i] = el)"
+              :ref="el => (statEls[i] = el as HTMLElement)"
               class="select-none"
             >
               <div class="text-5xl sm:text-6xl font-extrabold text-yellow-600 leading-none">
@@ -526,6 +526,7 @@ import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import ExportMap from '@/components/ExportMap.vue'
 
 
+
 /** ====== 1) COUNTERS DATA ====== */
 const stats = reactive([
   { label: 'Projects And Software', to: 1460 },
@@ -535,7 +536,7 @@ const stats = reactive([
 
 /** Ko‘rinishda 0 → to gacha sanaladigan qiymatlar */
 const displayValues = ref<number[]>(stats.map(() => 0))
-const statEls = ref<HTMLElement[]>([] as unknown as HTMLElement[])
+const statEls = ref<(HTMLElement | null)[]>([] as unknown as (HTMLElement | null)[])
 
 /** Yumshoq animatsiya */
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
