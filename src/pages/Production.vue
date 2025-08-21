@@ -42,7 +42,7 @@
               decoding="async"
             />
             <div
-              class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300"
+              class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300"
             />
             <div
               class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -51,7 +51,7 @@
                 <!-- zoom / preview -->
                 <button
                   @click.prevent="openViewer(p.image, p.title)"
-                  class="rounded-md bg-white/95 p-3 shadow-md ring-1 ring-black/10 hover:bg-white"
+                  class="rounded-md bg-amber-500 p-3 shadow-md ring-1 ring-black/10 hover:bg-emerald-950"
                   aria-label="Preview image"
                 >
                   <!-- magnifier icon -->
@@ -62,20 +62,18 @@
                 </button>
 
                 <!-- link to details (optional) -->
-                <a
-                  :href="p.href || '#'"
-                  @click.stop
-                  class="rounded-md bg-white/95 p-3 shadow-md ring-1 ring-black/10 hover:bg-white"
-                  aria-label="Open details"
-                >
-                  <!-- link icon -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M13.06 7.06a5.5 5.5 0 0 1 7.78 7.78l-2.12 2.12a5.5 5.5 0 0 1-7.78 0 1 1 0 1 1 1.42-1.42 3.5 3.5 0 0 0 4.95 0l2.12-2.12a3.5 3.5 0 1 0-4.95-4.95 1 1 0 0 1-1.42-1.41z" />
-                    <path
-                      d="M10.94 16.94a5.5 5.5 0 0 1-7.78-7.78l2.12-2.12a5.5 5.5 0 0 1 7.78 0 1 1 0 1 1-1.42 1.42 3.5 3.5 0 0 0-4.95 0L4.57 10.6a3.5 3.5 0 1 0 4.95 4.95 1 1 0 1 1 1.42 1.41z" />
-                  </svg>
-                </a>
+                <RouterLink
+  :to=" { name: 'ProductionInformation' }"
+  @click.stop
+  class="rounded-md bg-amber-500 p-3 shadow-md ring-1 ring-black/10 hover:bg-emerald-950"
+  aria-label="Open details"
+>
+  <!-- link icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M13.06 7.06a5.5 5.5 0 0 1 7.78 7.78l-2.12 2.12a5.5 5.5 0 0 1-7.78 0 1 1 0 1 1 1.42-1.42 3.5 3.5 0 0 0 4.95 0l2.12-2.12a3.5 3.5 0 1 0-4.95-4.95 1 1 0 0 1-1.42-1.41z"/>
+    <path d="M10.94 16.94a5.5 5.5 0 0 1-7.78-7.78l2.12-2.12a5.5 5.5 0 0 1 7.78 0 1 1 0 1 1-1.42 1.42 3.5 3.5 0 0 0-4.95 0L4.57 10.6a3.5 3.5 0 1 0 4.95 4.95 1 1 0 1 1 1.42 1.41z"/>
+  </svg>
+</RouterLink>
               </div>
             </div>
           </div>

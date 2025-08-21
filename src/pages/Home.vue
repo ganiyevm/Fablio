@@ -394,16 +394,89 @@
   </section>
 
   <!-- SECTION: Stats + Team -->
-  <section class="relative bg-white pt-28 md:pt-32 lg:pt-36 pb-12 md:pb-16">
+  <!-- <section class="relative bg-white pt-28 md:pt-32 lg:pt-36 pb-12 md:pb-16">
     <div class="container mx-auto px-4">
       <div class="mx-auto max-w-7xl grid lg:grid-cols-4 gap-8 items-start">
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-3"> -->
           <!-- Your stats / members -->
+        <!-- </div>
+      </div>
+    </div>
+  </section> -->
+  <section class="py-50">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-8">
+        <!-- ===== LEFT: stats + 2 cards ===== -->
+        <div class="lg:col-span-8">
+          <!-- Stats faqat chap tomonda -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10 text-center">
+            <div
+              v-for="(s, i) in stats"
+              :key="s.label"
+              :ref="el => (statEls[i] = el)"
+              class="select-none"
+            >
+              <div class="text-5xl sm:text-6xl font-extrabold text-yellow-600 leading-none">
+                {{ displayValues[i].toLocaleString() }}
+              </div>
+              <div class="mt-2 text-gray-700 font-medium">{{ s.label }}</div>
+            </div>
+          </div>
+
+          <!-- Ikki karta: rasmlar balandroq -->
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div class="flex">
+              <div class="flex flex-col rounded-xl overflow-hidden bg-white shadow-sm border border-gray-100 h-full w-full">
+                <div class="w-full h-[300px] md:h-[360px] xl:h-[420px] overflow-hidden">
+                  <img src="/images/member1.jpg" alt="Michal Wincent" class="w-full h-full object-cover" />
+                </div>
+                <div class="p-6 text-center">
+                  <div class="text-lg font-semibold text-gray-900">Michal Wincent</div>
+                  <div class="text-gray-500">Product Designer</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex flex-col rounded-xl overflow-hidden bg-white shadow-sm border border-gray-100 h-full w-full">
+                <div class="w-full h-[300px] md:h-[360px] xl:h-[420px] overflow-hidden">
+                  <img src="/images/member2.jpg" alt="Andrew Jackson" class="w-full h-full object-cover" />
+                </div>
+                <div class="p-6 text-center">
+                  <div class="text-lg font-semibold text-gray-900">Andrew Jackson</div>
+                  <div class="text-gray-500">Material Designer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== RIGHT: green panel (balandroq va yuqoridan boshlanadi) ===== -->
+        <div class="lg:col-span-4">
+          <div class="bg-yellow-600 rounded-xl p-8 text-white shadow-lg h-full lg:min-h-[570px] xl:min-h-[650px] flex flex-col">
+            <h2 class="text-4xl font-extrabold leading-tight mb-4">
+              Our Leadership<br /> Team
+            </h2>
+            <p class="text-white/90 mb-6 text-base">
+              Unbeatable and more talented team work is the pillar of success & we’re
+              thankful to each member who belongs to Fablio.
+            </p>
+            <a
+              href="#"
+              class="inline-block bg-white text-yellow-700 font-medium px-5 py-2 rounded-md hover:bg-gray-100"
+            >
+              Meet Our Team
+            </a>
+
+            <!-- pastki rasm panel pastiga tayanadi -->
+            <div class="mt-auto rounded-lg overflow-hidden">
+              <img src="/images/team-small.jpg" alt="Team" class="w-full h-[240px] md:h-[260px] xl:h-[300px] object-cover" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
   <ExportMap />
 
   <!-- SECTION: Split background mirror -->
@@ -451,30 +524,54 @@
 <script setup lang="ts">
 import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import ExportMap from '@/components/ExportMap.vue'
-// <script setup> ichiga qo'shing
 
-let heroCardsObserver: IntersectionObserver | null = null
+
+/** ====== 1) COUNTERS DATA ====== */
+const stats = reactive([
+  { label: 'Projects And Software', to: 1460 },
+  { label: 'Qualified Employers', to: 4565 },
+  { label: 'Satisfied Clients', to: 1784 },
+])
+
+/** Ko‘rinishda 0 → to gacha sanaladigan qiymatlar */
+const displayValues = ref<number[]>(stats.map(() => 0))
+const statEls = ref<HTMLElement[]>([] as unknown as HTMLElement[])
+
+/** Yumshoq animatsiya */
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
+
+/** Har bir element ko‘ringanda ishga tushadi */
+function startCount(index: number, to: number, duration = 1400) {
+  const startTime = performance.now()
+
+  function tick(now: number) {
+    const p = Math.min(1, (now - startTime) / duration)
+    displayValues.value[index] = Math.round(to * easeOutCubic(p))
+    if (p < 1) requestAnimationFrame(tick)
+    else displayValues.value[index] = to
+  }
+  requestAnimationFrame(tick)
+}
 
 onMounted(() => {
-  heroCardsObserver = new IntersectionObserver(
+  const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
-        const el = e.target as HTMLElement
-        if (e.isIntersecting) {
-          el.classList.add('in')       // trigger enter animation
-          heroCardsObserver?.unobserve(el)
+        if (!e.isIntersecting) return
+        const idx = (statEls.value as HTMLElement[]).findIndex((el) => el === e.target)
+        if (idx !== -1 && displayValues.value[idx] === 0) {
+          startCount(idx, stats[idx].to, 1600) // bu yerda tezlikni sozlashing mumkin
         }
       })
     },
-    { threshold: 0.25 } // 25% ko‘ringanda
+    { threshold: 0.35 }
   )
 
-  document
-    .querySelectorAll<HTMLElement>('.hero-card')
-    .forEach((el) => heroCardsObserver?.observe(el))
+  // Reflarni observe qilamiz
+  ;(statEls.value as unknown as HTMLElement[]).forEach((el) => el && io.observe(el))
 })
 
-onBeforeUnmount(() => heroCardsObserver?.disconnect())
+
 
 
 /** Public yoki dist uchun BASE_URL ga mos to‘g‘ri URL yasash */

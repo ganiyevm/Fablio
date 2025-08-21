@@ -5,6 +5,7 @@ import Production from '../pages/Production.vue'
 import Products from '../pages/Products.vue'
 import Blog from '../pages/Blog.vue'
 import Contact from '../pages/Contact.vue'
+import ProductionInformation from '@/components/production_information.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -13,6 +14,7 @@ const routes = [
   { path: '/products', name: 'Products', component: Products },
   { path: '/blog', name: 'Blog', component: Blog },
   { path: '/contact', name: 'Contact', component: Contact },
+  { path: '/production_information', name: 'ProductionInformation', component: ProductionInformation },
 ]
 
 const router = createRouter({
