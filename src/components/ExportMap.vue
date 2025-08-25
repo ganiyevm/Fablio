@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <section class="bg-neutral-700 text-white py-16 md:py-24">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight drop-shadow">
@@ -7,23 +7,23 @@
                 </h1>
         <div class="grid lg:grid-cols-12 gap-10 items-center min-h-[100vh]">
             
-          <!-- KATTA GLOBUS -->
+          
           <div class="lg:col-span-8">
             <div
               class="relative mx-auto aspect-square w-full max-w-[540px] xl:max-w-[900px]  overflow-hidden"
             >
               <canvas ref="canvas" class="w-full h-full block"></canvas>
   
-              <!-- gradient biroz o‘qilishi uchun -->
+
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-neutral-700 to-transparent"></div>
   
-              <!-- KATTA MATN: GLOBUS USTIDA -->
+
               <div class="absolute left-0 top-0 p-6 sm:p-8 md:p-10 max-w-[70%]">
                 <p class="text-emerald-400 uppercase tracking-wide mb-3 opacity-90">География экспорта</p>
                
               </div>
   
-              <!-- Aktiv mamlakat label + strelka -->
+
               <div
                 v-if="active?.name && labelPos"
                 class="pointer-events-none absolute z-20"
@@ -42,7 +42,7 @@
             </div>
           </div>
   
-          <!-- RO‘YXAT (o‘ngda) -->
+          
           <div class="lg:col-span-4">
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <li
@@ -55,7 +55,7 @@
                 <span class="text-white/90">{{ c.name }}</span>
               </li>
             </ul>
-            <!-- <div class="mt-4 text-xs text-white/50">* Globusni drag qilib aylantirish mumkin.</div> -->
+
           </div>
         </div>
       </div>
@@ -249,5 +249,409 @@
   
   <style scoped>
   .container { max-width: 1280px; } /* sectionni kengaytirdim */
+  </style>
+   -->
+   <template>
+    <section class="bg-neutral-900 text-white py-16 md:py-24">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight drop-shadow">
+          Мы экспортируем свою <br /> продукцию в 17 стран,
+          обеспечивая<br /> высокий уровень партнёрства.
+        </h1>
+  
+        <div class="grid lg:grid-cols-12 gap-10 items-center min-h-[90vh]">
+          <!-- 3D GLOBUS (SAL KICHIKROQ + RESPONSIVE) -->
+          <div class="lg:col-span-8">
+            <div
+            class="relative mx-auto aspect-square
+         min-h-[220px]
+         w-full
+         max-w-[260px] sm:max-w-[340px] md:max-w-[420px]
+         lg:max-w-[520px] xl:max-w-[640px]
+         overflow-hidden rounded-full"
+>
+              <!-- 3D renderer -->
+              <div ref="globeEl" class="w-full h-full"></div>
+  
+              <!-- LABEL/ARROW OVERLAY (tepada tursin) -->
+              <canvas ref="labelCv" class="pointer-events-none absolute inset-0 z-30"></canvas>
+  
+              <!-- radial highlight (canvasdan pastda) -->
+              <div
+                class="pointer-events-none absolute inset-0 z-10
+                       bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.18),transparent_65%)]"
+              ></div>
+  
+              <!-- kichik caption -->
+              <!-- <div class="absolute left-0 top-0 p-4 sm:p-6 md:p-8 max-w-[75%]">
+                <p class="text-emerald-400 uppercase tracking-wide mb-3 opacity-90">
+                  География экспорта
+                </p>
+              </div> -->
+            </div>
+          </div>
+  
+          <!-- RO‘YXAT / LEGEND (MATN KATTAROQ) -->
+          <div class="lg:col-span-4">
+            <ul class="grid grid-cols-2 md:grid-cols-2 gap-x-6 gap-y-3 md:gap-y-5">
+              <li
+                v-for="c in COUNTRIES"
+                :key="c.id"
+                class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 cursor-pointer transition"
+                @mouseenter="focusCountry(c.id)"
+                @click="focusCountry(c.id)"
+              >
+                <span
+                  class="inline-flex w-3.5 h-3.5 rounded-full ring-2 ring-white/20"
+                  :style="{ background: c.color }"
+                ></span>
+                <span
+                  class="text-white/80 text-[15px] sm:text-base md:text-lg xl:text-xl"
+                  :class="{ 'text-white font-semibold': activeId === c.id }"
+                >
+                  {{ c.name }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  
+  <script setup lang="ts">
+  import { onMounted, onBeforeUnmount, ref, shallowRef } from 'vue'
+  import * as THREE from 'three'
+  import ThreeGlobe from 'three-globe'
+  import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+  import { geoCentroid } from 'd3-geo'
+  import * as topojson from 'topojson-client'
+  
+  type Feature = GeoJSON.Feature<GeoJSON.MultiPolygon | GeoJSON.Polygon, any>
+  type FeatureCollection = GeoJSON.FeatureCollection<GeoJSON.Geometry, any>
+  type Country = { id: number; name: string; color: string }
+  
+  // 17 ta davlat
+  const COUNTRIES: Country[] = [
+    { id: 410, name: 'Республика Корея', color: '#22c55e' },
+    { id: 818, name: 'Египет',            color: '#14b8a6' },
+    { id: 504, name: 'Марокко',           color: '#f59e0b' },
+    { id: 380, name: 'Италия',            color: '#f97316' },
+    { id: 643, name: 'Россия',            color: '#ef4444' },
+    { id: 398, name: 'Казахстан',         color: '#c084fc' },
+    { id: 417, name: 'Киргизстан',        color: '#22d3ee' },
+    { id: 364, name: 'Иран',              color: '#84cc16' },
+    { id: 724, name: 'Испания',           color: '#a78bfa' },
+    { id: 620, name: 'Португалия',        color: '#06b6d4' },
+    { id: 56,  name: 'Бельгия',           color: '#2563eb' },
+    { id: 276, name: 'Германия',          color: '#0ea5e9' },
+    { id: 616, name: 'Польша',            color: '#10b981' },
+    { id: 804, name: 'Украина',           color: '#f43f5e' },
+    { id: 112, name: 'Белоруссия',        color: '#3b82f6' },
+    { id: 792, name: 'Турция',            color: '#eab308' },
+    { id: 100, name: 'Болгария',          color: '#8b5cf6' }
+  ]
+  
+  const globeEl = ref<HTMLDivElement | null>(null)
+  const labelCv = ref<HTMLCanvasElement | null>(null)
+  
+  let renderer: THREE.WebGLRenderer | null = null
+  let scene: THREE.Scene | null = null
+  let camera: THREE.PerspectiveCamera | null = null
+  let controls: OrbitControls | null = null
+  let globe: any = null
+  let rafId: number | null = null
+  let flyRafId: number | null = null
+  
+  const worldFeatures = shallowRef<Feature[]>([])
+  const activeId = ref<number | null>(null)
+  const activeLonLat = ref<[number, number] | null>(null) // [lon, lat]
+  
+  // GEO yuklash
+  async function loadCountries() {
+    const res = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+    const topo = await res.json()
+    const fc = topojson.feature(topo, topo.objects.countries) as FeatureCollection
+    worldFeatures.value = fc.features.map((f: any) => ({ ...f, id: Number(f.id) }))
+  }
+  
+  // 3D
+  function init3D() {
+    const container = globeEl.value!
+    const { clientWidth: w, clientHeight: h } = container
+  
+    scene = new THREE.Scene()
+  
+    camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1200)
+    camera.position.set(0, 0, 300)
+  
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
+    renderer.setSize(w, h)
+    renderer.outputColorSpace = THREE.SRGBColorSpace
+    renderer.domElement.style.cursor = 'grab'
+    container.appendChild(renderer.domElement)
+  
+    fitLabelCanvas()
+  
+    scene.add(new THREE.AmbientLight(0xffffff, 0.95))
+    const dir = new THREE.DirectionalLight(0xffffff, 0.85)
+    dir.position.set(-90, 120, 260)
+    scene.add(dir)
+  
+    globe = new ThreeGlobe()
+      .globeImageUrl('') // oq sfera
+      .polygonsData(worldFeatures.value)
+      .polygonSideColor(() => 'rgba(0,0,0,0.08)')
+      .polygonStrokeColor(() => 'rgba(0,0,0,0.25)')
+      .polygonsTransitionDuration(300)
+      .showAtmosphere(true)
+      .atmosphereColor('#b7d7ff')
+      .atmosphereAltitude(0.22)
+  
+    const mat = globe.globeMaterial()
+    mat.map = null
+    mat.color.set('#f3f4f6')
+    mat.emissive.set('#ffffff')
+    mat.emissiveIntensity = 0.06
+    mat.shininess = 6
+  
+    updatePolygonStyles()
+    scene.add(globe)
+  
+    globe.onPolygonHover?.((poly: any) => {
+      if (!renderer) return
+      renderer.domElement.style.cursor = poly ? 'pointer' : 'grab'
+    })
+    globe.onPolygonClick?.((poly: any) => {
+      if (!poly) return
+      focusCountry(Number(poly.id))
+    })
+  
+    controls = new OrbitControls(camera!, renderer.domElement)
+    controls.enableDamping = true
+    controls.dampingFactor = 0.06
+    controls.enablePan = false
+    controls.minDistance = 160
+    controls.maxDistance = 520
+    controls.autoRotate = true
+    controls.autoRotateSpeed = 0.12
+  
+    renderer.domElement.addEventListener('pointerdown', () => controls && (controls.autoRotate = false))
+    renderer.domElement.addEventListener('pointerup',   () => setTimeout(() => controls && (controls.autoRotate = true), 600))
+  
+    const tick = () => {
+      controls!.update()
+      renderer!.render(scene!, camera!)
+      drawLabelOverlay()
+      rafId = requestAnimationFrame(tick)
+    }
+    tick()
+  
+    window.addEventListener('resize', onResize)
+  }
+  
+  function onResize() {
+    if (!globeEl.value || !renderer || !camera) return
+    const { clientWidth: w, clientHeight: h } = globeEl.value
+    renderer.setSize(w, h)
+    camera.aspect = w / h
+    camera.updateProjectionMatrix()
+    fitLabelCanvas()
+  }
+  
+  function fitLabelCanvas() {
+    const cv = labelCv.value!
+    const box = globeEl.value!.getBoundingClientRect()
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    cv.width = Math.floor(box.width * dpr)
+    cv.height = Math.floor(box.height * dpr)
+    cv.style.width = `${Math.floor(box.width)}px`
+    cv.style.height = `${Math.floor(box.height)}px`
+    const ctx = cv.getContext('2d')!
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+  }
+  
+  // ranglar
+  function updatePolygonStyles() {
+    const meta = activeId.value ? COUNTRIES.find(c => c.id === activeId.value) : null
+    globe
+      .polygonCapColor((d: any) =>
+        activeId.value && Number(d.id) === activeId.value
+          ? (meta?.color || '#2dd4bf')
+          : '#e5e7eb'
+      )
+      .polygonAltitude((d: any) => Number(d.id) === activeId.value ? 0.022 : 0.005)
+  }
+  
+  // FOCUS
+  const toRad = THREE.MathUtils.degToRad
+  function quaternionToFace(lon: number, lat: number) {
+    const phi = toRad(90 - lat)
+    const theta = toRad(lon)
+    const v = new THREE.Vector3().setFromSpherical(new THREE.Spherical(1, phi, theta)).normalize()
+    const zAxis = new THREE.Vector3(0, 0, 1)
+    return new THREE.Quaternion().setFromUnitVectors(v, zAxis)
+  }
+  function rotateGlobeTo(lon: number, lat: number, duration = 1100) {
+    if (!globe) return
+    const qStart = globe.quaternion.clone()
+    const qEnd = quaternionToFace(lon, lat)
+    const t0 = performance.now()
+    if (flyRafId) cancelAnimationFrame(flyRafId)
+    const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+    const step = () => {
+      const t = Math.min(1, (performance.now() - t0) / duration)
+      const qt = qStart.clone().slerp(qEnd, ease(t))
+      globe.quaternion.copy(qt)
+      if (t < 1) { flyRafId = requestAnimationFrame(step) } else { flyRafId = null }
+    }
+    step()
+    if (controls) {
+      controls.autoRotate = false
+      setTimeout(() => { if (controls) controls.autoRotate = true }, duration + 500)
+    }
+  }
+  
+  // ====== LABEL / ARROW overlay (responsive font) ======
+  function getLabelFontPx() {
+    if (!renderer) return 22
+    const w = renderer.domElement.clientWidth
+    // 3.2% width, 18..34px oralig‘ida
+    return Math.max(18, Math.min(34, Math.round(w * 0.032)))
+  }
+  
+  function lonLatToWorldLocal(lon: number, lat: number, k = 1.008) {
+    const R = typeof globe?.getGlobeRadius === 'function' ? globe.getGlobeRadius() : 100
+    const phi = toRad(90 - lat)
+    const theta = toRad(lon)
+    return new THREE.Vector3().setFromSpherical(new THREE.Spherical(R * k, phi, theta))
+  }
+  function worldToScreen(vWorld: THREE.Vector3): [number, number] {
+    const p = vWorld.clone().project(camera!)
+    const w = renderer!.domElement.clientWidth
+    const h = renderer!.domElement.clientHeight
+    return [(p.x * 0.5 + 0.5) * w, (-p.y * 0.5 + 0.5) * h]
+  }
+  
+  function drawLabelOverlay() {
+    const cv = labelCv.value!, ctx = cv.getContext('2d')!
+    ctx.clearRect(0, 0, cv.width, cv.height)
+    if (!activeId.value || !activeLonLat.value) return
+  
+    const [lon, lat] = activeLonLat.value
+  
+    const pLocal = lonLatToWorldLocal(lon, lat, 1.006)
+    const pWorld = pLocal.clone()
+    globe.localToWorld(pWorld)
+  
+    // nuqta kameraning OLD tomonida bo'lsin
+    const camPos = new THREE.Vector3()
+    const camDir = new THREE.Vector3()
+    camera!.getWorldPosition(camPos)
+    camera!.getWorldDirection(camDir)
+    const vToPoint = pWorld.clone().sub(camPos).normalize()
+    if (vToPoint.dot(camDir) <= 0) return
+  
+    const [px, py] = worldToScreen(pWorld)
+  
+    // label joylashuvi
+    const cx = renderer!.domElement.clientWidth / 2
+    const cy = renderer!.domElement.clientHeight / 2
+    const vx = px - cx, vy = py - cy
+    const L = Math.hypot(vx, vy) || 1
+  
+    const fontPx = getLabelFontPx()
+    const offset = Math.max(48, fontPx * 2) // labeldan nuqtaga masofa
+  
+    let lx = px + (vx / L) * offset
+    let ly = py + (vy / L) * offset
+  
+    const pad = 10
+    const maxX = renderer!.domElement.clientWidth
+    const maxY = renderer!.domElement.clientHeight
+    lx = Math.min(Math.max(pad, lx), maxX - pad)
+    ly = Math.min(Math.max(pad, ly), maxY - pad)
+  
+    const meta = COUNTRIES.find(c => c.id === activeId.value)!
+    ctx.save()
+    ctx.font = `800 ${fontPx}px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial`
+    ctx.textBaseline = 'top'
+  
+    // qora kontur + oq to‘ldirish
+    ctx.lineWidth = Math.max(4, Math.round(fontPx * 0.22))
+    ctx.strokeStyle = 'rgba(17,24,39,0.85)'
+    ctx.fillStyle = '#ffffff'
+    ctx.strokeText(meta.name, lx, ly)
+    ctx.fillText(meta.name, lx, ly)
+  
+    const textW = ctx.measureText(meta.name).width
+    const underlineY = ly + fontPx + 2
+    const startX = lx + 2
+    const endX = lx + textW + 2
+  
+    // tagiga chiziq
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'rgba(17,24,39,0.85)'
+    ctx.beginPath()
+    ctx.moveTo(startX, underlineY)
+    ctx.lineTo(endX, underlineY)
+    ctx.stroke()
+  
+    // strelka
+    ctx.lineWidth = 1.4
+    ctx.beginPath()
+    ctx.moveTo(startX, underlineY)
+    ctx.lineTo(px, py)
+    ctx.stroke()
+    const ang = Math.atan2(py - underlineY, px - startX)
+    const ah = Math.max(8, Math.round(fontPx * 0.35))
+    ctx.beginPath()
+    ctx.moveTo(px, py)
+    ctx.lineTo(px - Math.cos(ang - Math.PI / 6) * ah, py - Math.sin(ang - Math.PI / 6) * ah)
+    ctx.lineTo(px - Math.cos(ang + Math.PI / 6) * ah, py - Math.sin(ang + Math.PI / 6) * ah)
+    ctx.closePath()
+    ctx.fillStyle = 'rgba(17,24,39,0.85)'
+    ctx.fill()
+    ctx.restore()
+  }
+  
+  // API
+  function focusCountry(id: number) {
+    const feat = worldFeatures.value.find(f => Number(f.id) === id)
+    const meta = COUNTRIES.find(c => c.id === id)
+    if (!feat || !meta) return
+  
+    activeId.value = id
+    updatePolygonStyles()
+  
+    const [lon, lat] = geoCentroid(feat) as [number, number]
+    activeLonLat.value = [lon, lat]
+    rotateGlobeTo(lon, lat, 1100)
+  }
+  
+  onMounted(async () => {
+    await loadCountries()
+    init3D()
+    focusCountry(380) // start
+  })
+  
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', onResize)
+    if (rafId) cancelAnimationFrame(rafId)
+    if (flyRafId) cancelAnimationFrame(flyRafId)
+    controls?.dispose()
+    renderer?.dispose()
+    if (renderer?.domElement?.parentElement) {
+      renderer.domElement.parentElement.removeChild(renderer.domElement)
+    }
+    scene = null
+    camera = null
+    renderer = null
+  })
+  </script>
+  
+  <style scoped>
+  .container { max-width: 1280px; }
   </style>
   
