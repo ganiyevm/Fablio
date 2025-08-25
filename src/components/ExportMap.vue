@@ -252,14 +252,14 @@
   </style>
    -->
    <template>
-    <section class="bg-neutral-900 text-white py-16 md:py-24">
+    <section class="bg-neutral-900 text-white py-16 md:py-2">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold leading-tight drop-shadow">
           Мы экспортируем свою <br /> продукцию в 17 стран,
           обеспечивая<br /> высокий уровень партнёрства.
         </h1>
   
-        <div class="grid lg:grid-cols-12 gap-10 items-center min-h-[90vh]">
+        <div class="grid lg:grid-cols-14 gap-30 items-center min-h-[90vh]">
           <!-- 3D GLOBUS (SAL KICHIKROQ + RESPONSIVE) -->
           <div class="lg:col-span-8">
             <div
@@ -293,27 +293,30 @@
   
           <!-- RO‘YXAT / LEGEND (MATN KATTAROQ) -->
           <div class="lg:col-span-4">
-            <ul class="grid grid-cols-2 md:grid-cols-2 gap-x-6 gap-y-3 md:gap-y-5">
-              <li
-                v-for="c in COUNTRIES"
-                :key="c.id"
-                class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 cursor-pointer transition"
-                @mouseenter="focusCountry(c.id)"
-                @click="focusCountry(c.id)"
-              >
-                <span
-                  class="inline-flex w-3.5 h-3.5 rounded-full ring-2 ring-white/20"
-                  :style="{ background: c.color }"
-                ></span>
-                <span
-                  class="text-white/80 text-[15px] sm:text-base md:text-lg xl:text-xl"
-                  :class="{ 'text-white font-semibold': activeId === c.id }"
-                >
-                  {{ c.name }}
-                </span>
-              </li>
-            </ul>
-          </div>
+  <ul class="grid grid-cols-2 md:grid-cols-3 gap-x-30 gap-y-3 md:gap-y-5">
+    <li
+      v-for="c in COUNTRIES"
+      :key="c.id"
+      class="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 cursor-pointer transition"
+      @mouseenter="focusCountry(c.id)"
+      @click="focusCountry(c.id)"
+    >
+      <!-- DOT: o‘lcham va rang to‘g‘ridan-to‘g‘ri style bilan -->
+      <span
+        class="block shrink-0 rounded-full border border-white/30"
+        style="width:14px;height:14px"
+        :style="{ backgroundColor: c.color }"
+      ></span>
+
+      <span
+        class="text-white/80 text-[15px] sm:text-base md:text-lg xl:text-xl"
+        :class="{ 'text-white font-semibold': activeId === c.id }"
+      >
+        {{ c.name }}
+      </span>
+    </li>
+  </ul>
+</div>
         </div>
       </div>
     </section>
