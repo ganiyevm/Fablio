@@ -16,9 +16,9 @@
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 mx-auto pt-10 pb-40 md:pt-36 md:pb-44 lg:pt-60">
+    <div class="relative z-10 mx-auto pt-10 md:pt-36 lg:pt-60">
       <div class="mx-auto max-w-7xl">
-        <div class="grid items-center gap-12 md:gap-16 lg:grid-cols-12 xl:gap-[33px]">
+        <div class="grid lg:grid-cols-12 items-center gap-12 md:gap-16 xl:gap-33">
           <!-- Left: text -->
           <div
             data-obsid="left"
