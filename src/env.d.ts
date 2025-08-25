@@ -1,1 +1,1 @@
-declare module 'vite/client';
+declare module 'vite/client'

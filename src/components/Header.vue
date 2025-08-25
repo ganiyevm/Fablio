@@ -14,29 +14,31 @@ const menu = [
   { to: '/contact', key: 'menu.contact' },
 ]
 
-function closeMenu() { isOpen.value = false }
+function closeMenu() {
+  isOpen.value = false
+}
 </script>
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-50 bg-emerald-950 dark:bg-neutral-900/60 backdrop-blur border-b border-black/10 [--header-h:64px] md:[--header-h:88px]"
+    class="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-emerald-950 backdrop-blur [--header-h:64px] md:[--header-h:88px] dark:bg-neutral-900/60"
   >
-    <div class="mx-auto max-w-8xl px-4 sm:px-6 lg:px-15">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-15">
       <!-- Top bar -->
-      <div class="h-[var(--header-h)] flex items-center justify-between gap-3">
+      <div class="flex h-[var(--header-h)] items-center justify-between gap-3">
         <!-- Left: logo -->
-        <RouterLink to="/" class="shrink-0 flex items-center gap-2" @click="closeMenu">
-          <img src="../public/logo/logo.png" alt="Logo" class="h-8 md:h-18 w-auto" />
+        <RouterLink to="/" class="flex shrink-0 items-center gap-2" @click="closeMenu">
+          <img src="../public/logo/logo.png" alt="Logo" class="h-8 w-auto md:h-18" />
           <!-- <span class="hidden sm:block text-xl font-bold text-gray-900">Zelal Tekstil</span> -->
         </RouterLink>
 
         <!-- Center: nav (desktop) -->
-        <nav class="hidden md:flex items-center gap-8 text-zinc-300">
+        <nav class="hidden items-center gap-8 text-zinc-300 md:flex">
           <RouterLink
             v-for="item in menu"
             :key="item.to"
             :to="item.to"
-            class="hover:text-yellow-600 font-medium transition-colors"
+            class="font-medium transition-colors hover:text-yellow-600"
             active-class="text-yellow-600 font-semibold"
           >
             {{ $t(item.key) }}
@@ -50,43 +52,57 @@ function closeMenu() { isOpen.value = false }
 
           <!-- Contacts (desktop: to'liq; mobile: ikon) -->
           <div
-            class="hidden md:flex items-center divide-x divide-gray-300 border border-gray-200 rounded-md overflow-hidden shrink-0 bg-white/80 dark:bg-neutral-900/40"
+            class="hidden shrink-0 items-center divide-x divide-gray-300 overflow-hidden rounded-md border border-gray-200 bg-white/80 md:flex dark:bg-neutral-900/40"
           >
-            <a href="tel:+998908090550" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition">
-              <Phone class="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
+            <a
+              href="tel:+998908090550"
+              class="flex items-center gap-3 px-4 py-2 transition hover:bg-gray-50"
+            >
+              <Phone class="h-6 w-6 text-yellow-600 md:h-7 md:w-7" />
               <div class="leading-tight">
-                <span class="text-xs md:text-sm text-gray-700">{{ $t('contactText') }}</span>
-                <strong class="block text-sm md:text-base text-gray-900 hover:text-yellow-600">+998908090550</strong>
+                <span class="text-xs text-gray-700 md:text-sm">{{ $t('contactText') }}</span>
+                <strong class="block text-sm text-gray-900 hover:text-yellow-600 md:text-base"
+                  >+998908090550</strong
+                >
               </div>
             </a>
-            <a href="mailto:souleymanovamir@gmail.com" class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition">
-              <Mail class="w-6 h-6 md:w-7 md:h-7 text-yellow-600" />
+            <a
+              href="mailto:souleymanovamir@gmail.com"
+              class="flex items-center gap-3 px-4 py-2 transition hover:bg-gray-50"
+            >
+              <Mail class="h-6 w-6 text-yellow-600 md:h-7 md:w-7" />
               <div class="leading-tight">
-                <span class="text-xs md:text-sm text-gray-700">{{ $t('contactMail') }}</span>
-                <strong class="block text-sm md:text-base text-gray-900 hover:text-yellow-600">souleymanovamir@gmail.com</strong>
+                <span class="text-xs text-gray-700 md:text-sm">{{ $t('contactMail') }}</span>
+                <strong class="block text-sm text-gray-900 hover:text-yellow-600 md:text-base"
+                  >souleymanovamir@gmail.com</strong
+                >
               </div>
             </a>
           </div>
 
           <!-- Mobile: language small + contact icons -->
-          <div class="flex md:hidden items-center gap-2">
+          <div class="flex items-center gap-2 md:hidden">
             <LanguageSwitcher />
-            <a href="tel:+998908090550" class="p-2 rounded hover:bg-black/5" aria-label="Call">
-              <Phone class="w-5 h-5 yellow-600" />
+            <a href="tel:+998908090550" class="rounded p-2 hover:bg-black/5" aria-label="Call">
+              <Phone class="yellow-600 h-5 w-5" />
             </a>
-            <a href="mailto:souleymanovamir@gmail.com" class="p-2 rounded hover:bg-black/5" aria-label="Mail">
-              <Mail class="w-5 h-5 yellow-600" />
+            <a
+              href="mailto:souleymanovamir@gmail.com"
+              class="rounded p-2 hover:bg-black/5"
+              aria-label="Mail"
+            >
+              <Mail class="yellow-600 h-5 w-5" />
             </a>
 
             <!-- Burger -->
             <button
-              class="ml-1 p-2 rounded hover:bg-black/5"
+              class="ml-1 rounded p-2 hover:bg-black/5"
               :aria-expanded="isOpen"
               aria-controls="mobile-menu"
               @click="isOpen = !isOpen"
             >
-              <Menu v-if="!isOpen" class="w-6 h-6" />
-              <X v-else class="w-6 h-6" />
+              <Menu v-if="!isOpen" class="h-6 w-6" />
+              <X v-else class="h-6 w-6" />
               <span class="sr-only">Menu</span>
             </button>
           </div>
@@ -106,15 +122,15 @@ function closeMenu() { isOpen.value = false }
       <div
         v-show="isOpen"
         id="mobile-menu"
-        class="md:hidden bg-white/95 dark:bg-neutral-900/95 backdrop-blur border-t border-black/10"
+        class="border-t border-black/10 bg-white/95 backdrop-blur md:hidden dark:bg-neutral-900/95"
       >
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+        <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <nav class="grid gap-2">
             <RouterLink
               v-for="item in menu"
               :key="item.to"
               :to="item.to"
-              class="px-2 py-3 rounded-lg text-base font-medium text-gray-800 hover:bg-black/5 active:bg-black/10"
+              class="rounded-lg px-2 py-3 text-base font-medium text-gray-800 hover:bg-black/5 active:bg-black/10"
               active-class="text-green-600 font-semibold bg-black/5"
               @click="closeMenu"
             >
@@ -124,12 +140,18 @@ function closeMenu() { isOpen.value = false }
 
           <!-- Mobile contact block -->
           <div class="mt-4 grid gap-2">
-            <a href="tel:+998908090550" class="flex items-center gap-3 px-2 py-2 rounded hover:bg-black/5">
-              <Phone class="w-5 h-5 text-yellow-600" />
+            <a
+              href="tel:+998908090550"
+              class="flex items-center gap-3 rounded px-2 py-2 hover:bg-black/5"
+            >
+              <Phone class="h-5 w-5 text-yellow-600" />
               <span class="text-sm">+998908090550</span>
             </a>
-            <a href="mailto:souleymanovamir@gmail.com" class="flex items-center gap-3 px-2 py-2 rounded hover:bg-black/5">
-              <Mail class="w-5 h-5 text-yellow-600" />
+            <a
+              href="mailto:souleymanovamir@gmail.com"
+              class="flex items-center gap-3 rounded px-2 py-2 hover:bg-black/5"
+            >
+              <Mail class="h-5 w-5 text-yellow-600" />
               <span class="text-sm">souleymanovamir@gmail.com</span>
             </a>
           </div>

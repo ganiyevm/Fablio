@@ -29,7 +29,7 @@ const savedLocale = localStorage.getItem('locale') || 'ru'
 const i18n = createI18n({
   locale: savedLocale,
   fallbackLocale: 'en',
-  messages
+  messages,
 })
 
 createApp(App).use(router).use(pinia).use(i18n).mount('#app')

@@ -7,7 +7,6 @@ import Blog from '../pages/Blog.vue'
 import Contact from '../pages/Contact.vue'
 import ProductionInformation from '@/components/ProductionInformation.vue'
 
-
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/about', name: 'About', component: About },
@@ -15,7 +14,11 @@ const routes = [
   { path: '/products', name: 'Products', component: Products },
   { path: '/blog', name: 'Blog', component: Blog },
   { path: '/contact', name: 'Contact', component: Contact },
-  { path: '/production_information', name: 'ProductionInformation', component: ProductionInformation },
+  {
+    path: '/production_information',
+    name: 'ProductionInformation',
+    component: ProductionInformation,
+  },
 ]
 
 const router = createRouter({

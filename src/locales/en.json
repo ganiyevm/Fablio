@@ -1,50 +1,46 @@
 {
-    "menu": {
-      "home": "Home",
-      "about": "About",
-      "production": "Production",
-      "products": "Products",
-      "blog": "Blog",
-      "contact": "Contact"
-    },
-    "welcome": "Welcome to Zelal Tekstil",
-    "aboutText": "Zelal Tekstil is a leading textile manufacturer in Uzbekistan.",
-    "productionText": "High quality production.",
-    "productsText": "Our Products",
-    "blogText": "Latest News",
-    "contactText": "Contact Us",
-    "contactMail": "Talk to us",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "send": "Send",
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "production": "Production",
+    "products": "Products",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "welcome": "Welcome to Zelal Tekstil",
+  "aboutText": "Zelal Tekstil is a leading textile manufacturer in Uzbekistan.",
+  "productionText": "High quality production.",
+  "productsText": "Our Products",
+  "blogText": "Latest News",
+  "contactText": "Contact Us",
+  "contactMail": "Talk to us",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "send": "Send",
 
-      "bread": { "home": "Home", "contact": "Contact Us" },
-      "contact": {
-        "title": "Contact Us",
-        "formTitle": "Contact Form",
-        "formSubtitle": "Feel free to contact us through Twitter or Facebook if you prefer.",
-        "headOffice": "Head Office",
-        "branchOffice": "Branch Office",
-        "address": "Address",
-        "callEmail": "Call Us / Email"
-      },
-      "form": {
-        "name": "Your Name*",
-        "email": "Your Email*",
-        "phone": "Phone Number*",
-        "company": "Company Name*",
-        "subject": "Subject*",
-        "message": "Message*",
-        "consent": "I agree that my submitted data is being collected and stored.",
-        "sendNow": "Send Now!"
-      },
-      "cta": {
-        "left": "New Services Fablio? No Problem",
-        "right": "Just Call Us!"
-      }
-    
-    
+  "bread": { "home": "Home", "contact": "Contact Us" },
+  "contact": {
+    "title": "Contact Us",
+    "formTitle": "Contact Form",
+    "formSubtitle": "Feel free to contact us through Twitter or Facebook if you prefer.",
+    "headOffice": "Head Office",
+    "branchOffice": "Branch Office",
+    "address": "Address",
+    "callEmail": "Call Us / Email"
+  },
+  "form": {
+    "name": "Your Name*",
+    "email": "Your Email*",
+    "phone": "Phone Number*",
+    "company": "Company Name*",
+    "subject": "Subject*",
+    "message": "Message*",
+    "consent": "I agree that my submitted data is being collected and stored.",
+    "sendNow": "Send Now!"
+  },
+  "cta": {
+    "left": "New Services Fablio? No Problem",
+    "right": "Just Call Us!"
   }
-
-  
+}

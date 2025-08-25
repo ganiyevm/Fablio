@@ -1,5 +1,4 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 /* --- senga tegishli custom ranglar/tema --- */
 @custom-variant dark (&:is(.dark *));
@@ -55,8 +54,12 @@
 }
 
 @layer base {
-  * { @apply border-border outline-ring/50; }
-  body { @apply bg-background text-foreground; }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -187,7 +190,9 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      sans-serif;
   }
 
   /* Smooth scrolling */
@@ -218,7 +223,7 @@
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
 @layer base {
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
     h1 {
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);
@@ -277,8 +282,12 @@ html {
 @layer utilities {
   /* Fon uchun Ken Burns effekti */
   @keyframes kenburns {
-    0%   { transform: scale(1) translateZ(0); }
-    100% { transform: scale(1.08) translateZ(0); }
+    0% {
+      transform: scale(1) translateZ(0);
+    }
+    100% {
+      transform: scale(1.08) translateZ(0);
+    }
   }
   .animate-kenburns {
     animation: kenburns 35s ease-in-out infinite alternate; /* oldin 18s edi */
@@ -287,8 +296,14 @@ html {
 
   /* Chap matn uchun fade-up */
   @keyframes fadeUp {
-    0%   { opacity: 0; transform: translateY(16px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .animate-fade-up {
     animation: fadeUp 8s ease-out both; /* oldin 0.7s edi */
@@ -296,14 +311,24 @@ html {
 
   /* Forma uchun slide-in o‘ngdan */
   @keyframes slideInRight {
-    0%   { opacity: 0; transform: translateX(24px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
   .animate-slide-in-right {
     animation: slideInRight 5s ease-out 0.3s both; /* oldin 0.7s edi */
   }
   @keyframes spin-y {
-    from { transform: rotateY(0deg); }
-    to   { transform: rotateY(360deg); }
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
   }
 }

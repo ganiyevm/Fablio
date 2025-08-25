@@ -1,49 +1,46 @@
 {
-    "menu": {
-      "home": "Главная",
-      "about": "О компании",
-      "production": "Производство",
-      "products": "Продукция",
-      "blog": "Блог",
-      "contact": "Контакты"
-    },
-    "welcome": "Добро пожаловать в Zelal Tekstil",
-    "aboutText": "Zelal Tekstil — крупный производитель текстиля в Узбекистане.",
-    "productionText": "Производство высочайшего качества.",
-    "productsText": "Наши продукты",
-    "blogText": "Последние новости",
-    "contactText": "Связаться с нами",
-    "contactMail": "Напишите нам",
-    "name": "Имя",
-    "email": "Эл. почта",
-    "message": "Сообщение",
-    "send": "Отправить",
-    
-      "bread": { "home": "Главная", "contact": "Связаться с нами" },
-      "contact": {
-        "title": "Связаться с нами",
-        "formTitle": "Контактная форма",
-        "formSubtitle": "Вы также можете написать нам в Twitter или Facebook.",
-        "headOffice": "Головной офис",
-        "branchOffice": "Филиал",
-        "address": "Адрес",
-        "callEmail": "Позвонить / Email"
-      },
-      "form": {
-        "name": "Ваше имя*",
-        "email": "Эл. почта*",
-        "phone": "Телефон*",
-        "company": "Название компании*",
-        "subject": "Тема*",
-        "message": "Сообщение*",
-        "consent": "Я согласен(а) на сбор и хранение предоставленных данных.",
-        "sendNow": "Отправить!"
-      },
-      "cta": {
-        "left": "Новые услуги Fablio? Не проблема",
-        "right": "Просто позвоните!"
-      }
-    
-    
+  "menu": {
+    "home": "Главная",
+    "about": "О компании",
+    "production": "Производство",
+    "products": "Продукция",
+    "blog": "Блог",
+    "contact": "Контакты"
+  },
+  "welcome": "Добро пожаловать в Zelal Tekstil",
+  "aboutText": "Zelal Tekstil — крупный производитель текстиля в Узбекистане.",
+  "productionText": "Производство высочайшего качества.",
+  "productsText": "Наши продукты",
+  "blogText": "Последние новости",
+  "contactText": "Связаться с нами",
+  "contactMail": "Напишите нам",
+  "name": "Имя",
+  "email": "Эл. почта",
+  "message": "Сообщение",
+  "send": "Отправить",
+
+  "bread": { "home": "Главная", "contact": "Связаться с нами" },
+  "contact": {
+    "title": "Связаться с нами",
+    "formTitle": "Контактная форма",
+    "formSubtitle": "Вы также можете написать нам в Twitter или Facebook.",
+    "headOffice": "Головной офис",
+    "branchOffice": "Филиал",
+    "address": "Адрес",
+    "callEmail": "Позвонить / Email"
+  },
+  "form": {
+    "name": "Ваше имя*",
+    "email": "Эл. почта*",
+    "phone": "Телефон*",
+    "company": "Название компании*",
+    "subject": "Тема*",
+    "message": "Сообщение*",
+    "consent": "Я согласен(а) на сбор и хранение предоставленных данных.",
+    "sendNow": "Отправить!"
+  },
+  "cta": {
+    "left": "Новые услуги Fablio? Не проблема",
+    "right": "Просто позвоните!"
   }
-  
+}
