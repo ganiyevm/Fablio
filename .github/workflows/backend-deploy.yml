@@ -1,34 +1,41 @@
 name: Deploy backend to VPS
+
 on:
   push:
     branches: [main]
-    paths: ['backend/**', '.github/workflows/backend-deploy.yml']
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-deploy.yml'
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: backend
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20' }
 
-      - name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build (backend)
+        working-directory: backend
         run: |
           npm ci
           npm run build
+          # bundle only what's needed on the server
           tar -czf backend.tar.gz dist package.json package-lock.json ecosystem.config.js
 
-      - name: Upload bundle
+      - name: Upload bundle to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "backend/backend.tar.gz"
+          source: "backend/backend.tar.gz"     # workspace rootdan nisbiy
           target: "/home/${{ secrets.SSH_USER }}/"
 
       - name: Unpack & reload pm2
@@ -39,14 +46,21 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
-            APP_DIR="${{ secrets.SERVER_DIR:-/var/www/backend }}"
+            APP_DIR="${{ secrets.SERVER_DIR || '/var/www/backend' }}"   # << tuzatildi
             mkdir -p "$APP_DIR/releases/${GITHUB_SHA}"
-            tar -xzf ~/backend.tar.gz -C "$APP_DIR/releases/${GITHUB_SHA}"
-            rm ~/backend.tar.gz
+            tar -xzf "$HOME/backend.tar.gz" -C "$APP_DIR/releases/${GITHUB_SHA}"
+            rm "$HOME/backend.tar.gz"
+
             cd "$APP_DIR/releases/${GITHUB_SHA}"
+            # .env ni secretsdan yozamiz (bitta ENV_FILE bo'lishi eng qulay)
             printf "%s" "${{ secrets.ENV_FILE }}" > .env
+
             npm ci --omit=dev
+
+            # current symlinkni yangilash
             ln -sfn "$APP_DIR/releases/${GITHUB_SHA}" "$APP_DIR/current"
             cd "$APP_DIR/current"
+
+            # PM2 reload (ecosystem.config.js backend rootida bo'lishi kerak)
             pm2 startOrReload ecosystem.config.js --update-env
             pm2 save
