@@ -3,9 +3,7 @@ name: Deploy backend to VPS
 on:
   push:
     branches: [main]
-    paths:
-      - 'backend/**'
-      - '.github/workflows/backend-deploy.yml'
+    paths: ['backend/**', '.github/workflows/backend-deploy.yml']
   workflow_dispatch:
 
 jobs:
@@ -16,17 +14,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (with npm cache)
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
 
-      - name: Build (backend)
+      - name: Configure npm retry/timeouts
+        run: |
+          npm config set fetch-retries 5
+          npm config set fetch-retry-factor 2
+          npm config set fetch-retry-mintimeout 20000
+          npm config set fetch-retry-maxtimeout 600000
+          npm config set registry https://registry.npmjs.org/
+
+      - name: Build (backend) with retry
         working-directory: backend
         run: |
-          npm ci
+          # 3 marta urinamiz: 429 bo'lsa yana urinadi
+          for i in 1 2 3; do
+            npm ci --no-audit --no-fund && break || (echo "npm ci failed, retry $i/3"; sleep 10)
+          done
           npm run build
-          # bundle only what's needed on the server
           tar -czf backend.tar.gz dist package.json package-lock.json ecosystem.config.js
 
       - name: Upload bundle to server
@@ -35,7 +45,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "backend/backend.tar.gz"     # workspace rootdan nisbiy
+          source: "backend/backend.tar.gz"
           target: "/home/${{ secrets.SSH_USER }}/"
 
       - name: Unpack & reload pm2
@@ -46,21 +56,21 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
-            APP_DIR="${{ secrets.SERVER_DIR || '/var/www/backend' }}"   # << tuzatildi
+            APP_DIR="${{ secrets.SERVER_DIR || '/var/www/backend' }}"
             mkdir -p "$APP_DIR/releases/${GITHUB_SHA}"
             tar -xzf "$HOME/backend.tar.gz" -C "$APP_DIR/releases/${GITHUB_SHA}"
             rm "$HOME/backend.tar.gz"
 
             cd "$APP_DIR/releases/${GITHUB_SHA}"
-            # .env ni secretsdan yozamiz (bitta ENV_FILE bo'lishi eng qulay)
             printf "%s" "${{ secrets.ENV_FILE }}" > .env
-
             npm ci --omit=dev
 
-            # current symlinkni yangilash
             ln -sfn "$APP_DIR/releases/${GITHUB_SHA}" "$APP_DIR/current"
             cd "$APP_DIR/current"
 
-            # PM2 reload (ecosystem.config.js backend rootida bo'lishi kerak)
-            pm2 startOrReload ecosystem.config.js --update-env
+            if pm2 describe backend >/dev/null 2>&1; then
+              pm2 reload backend --update-env
+            else
+              pm2 start dist/main.js --name backend
+            fi
             pm2 save
