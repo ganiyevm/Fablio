@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fronted   # <— MUHIM: fronted papkasi
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,12 +29,19 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: fronted/package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build project
+        # Agar Vite ishlatsa: npm run build dist'ga chiqaradi
         run: npm run build
+
+      - name: Create SPA 404 and .nojekyll
+        run: |
+          cp -f dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -39,7 +49,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: 'fronted/dist'   # <— MUHIM: to‘liq yo‘l
 
   deploy:
     environment:
