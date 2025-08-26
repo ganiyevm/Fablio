@@ -15,8 +15,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["fronted/src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue", "src/types/**/*.d.ts"]
+  "include": ["fronted/src/**/*.ts", "fronted/src/**/*.vue", "fronted/src/types/**/*.d.ts"],
+  "exclude": ["../backend/**"]
 }

@@ -138,11 +138,13 @@
       <div
         class="mt-8 grid grid-cols-2 gap-3 border-t border-gray-800 pt-8 text-sm sm:gap-4 md:grid-cols-5"
       >
-        <a href="#" class="text-gray-400 hover:text-white">Главная</a>
-        <a href="#" class="text-gray-400 hover:text-white">О нас</a>
-        <a href="#" class="text-gray-400 hover:text-white">Производство</a>
-        <a href="#" class="text-gray-400 hover:text-white">Продукция</a>
-        <a href="#" class="text-gray-400 hover:text-white">Контакты</a>
+        <RouterLink to="/" class="text-gray-400 hover:text-white">Главная</RouterLink>
+        <RouterLink to="/about" class="text-gray-400 hover:text-white">О нас</RouterLink>
+        <RouterLink to="/production" class="text-gray-400 hover:text-white"
+          >Производство</RouterLink
+        >
+        <RouterLink to="/products" class="text-gray-400 hover:text-white">Продукция</RouterLink>
+        <RouterLink to="/contact" class="text-gray-400 hover:text-white">Контакты</RouterLink>
       </div>
 
       <!-- Copyright -->
@@ -172,6 +174,7 @@
 </template>
 
 <script setup lang="ts">
+import { Route } from 'lucide-vue-next'
 import { computed } from 'vue'
 
 /** Public/ dagi fayllar uchun BASE_URL mos yo'l */

@@ -12,13 +12,12 @@
       class="animate-kenburns absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-[2000ms]"
       :style="{ backgroundImage: `url(${currentSlide.bg})` }"
     >
-      <div class="pointer-events-none absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 bg-black/40"></div>
     </div>
-
     <!-- Content -->
     <div class="relative z-10 mx-auto pt-10 md:pt-36 lg:pt-60">
       <div class="mx-auto max-w-7xl">
-        <div class="grid lg:grid-cols-12 items-center gap-12 md:gap-16 xl:gap-33">
+        <div class="grid items-center gap-12 md:gap-16 lg:grid-cols-13 xl:gap-33">
           <!-- Left: text -->
           <div
             data-obsid="left"
@@ -30,11 +29,11 @@
               class="text-3xl leading-tight font-extrabold tracking-tight drop-shadow sm:text-5xl md:text-6xl"
               v-html="currentSlide.titleHtml"
             ></h1>
-
-            <button
+            <RouterLink
+              to="/contact"
               class="mt-6 inline-flex items-center gap-2 rounded-md bg-yellow-600 px-6 py-2.5 text-base text-white hover:bg-black sm:mt-8 sm:px-8 sm:py-3 sm:text-xl"
             >
-              Подробно
+              <span>Подробно</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -49,9 +48,8 @@
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </button>
+            </RouterLink>
           </div>
-
           <!-- Right: yellow card -->
           <div
             data-obsid="right"
@@ -67,30 +65,34 @@
                     v-html="currentSlide.cardTitleHtml"
                   ></h2>
                 </div>
-
                 <!-- Bottom dark strip -->
                 <div
                   class="flex items-center justify-between bg-neutral-900/95 px-4 py-4 text-white sm:px-6 sm:py-10 md:px-10"
                 >
                   <div class="flex items-center gap-2 sm:gap-3">
-                    <span
-                      class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-4 w-4"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    <RouterLink to="/contact" class="flex items-center gap-2 sm:gap-3">
+                      <span
+                        class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10"
                       >
-                        <path d="M12 5v14M19 12H5" />
-                      </svg>
-                    </span>
-                    <span class="text-lg font-medium sm:text-lg">Свяжитесь</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M12 5v14M19 12H5" />
+                        </svg>
+                      </span>
+                      <span class="text-lg font-medium hover:text-amber-600 sm:text-lg"
+                        >Свяжитесь</span
+                      >
+                    </RouterLink>
                   </div>
+                  <!-- <button class="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center" aria-label="Submit" > <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 5l7 7-7 7"/> </svg> </button> -->
                 </div>
               </div>
             </div>
@@ -283,7 +285,7 @@
             Идеальная текстура и насыщенность цвета делают ваши изделия премиальными.
           </p>
 
-          <a href="#" class="group mt-6 inline-flex items-center gap-4 sm:mt-8">
+          <RouterLink to="/products" class="group mt-6 inline-flex items-center gap-4 sm:mt-8">
             <span
               class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
             >
@@ -307,7 +309,7 @@
                 О нас & Продукция!
               </span>
             </span>
-          </a>
+          </RouterLink>
         </div>
       </div>
     </div>
@@ -436,7 +438,7 @@
         </div>
 
         <div class="mt-8 flex justify-center md:mt-10">
-          <a href="#" class="group inline-flex items-center gap-4">
+          <RouterLink to="/products" class="group inline-flex items-center gap-4">
             <span
               class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
             >
@@ -459,7 +461,7 @@
                 >О нас & Продукция!</span
               >
             </span>
-          </a>
+          </RouterLink>
         </div>
       </div>
     </div>

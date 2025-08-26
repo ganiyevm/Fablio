@@ -237,6 +237,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
 
 interface ImportMeta {
   env: {
@@ -270,24 +271,29 @@ const form = reactive<ContactForm>({
   agreeToData: false,
 })
 
-function submitForm() {
-  if (!form.agreeToData) {
-    alert('Please agree to data collection and storage.')
-    return
+const API = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+const loading = ref(false)
+
+async function submitForm() {
+  if (!form.agreeToData) return alert('Rozilikni tasdiqlang.')
+  loading.value = true
+  try {
+    const res = await fetch(`${API}/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...form, channel: 'both' })
+    })
+    const data = await res.json()
+    console.log(data)
+    alert(data.ok ? 'Yuborildi!' : 'Xatolik: ' + JSON.stringify(data.results))
+    Object.assign(form, { name:'', email:'', phone:'', company:'', subject:'', message:'', agreeToData:false })
+  } catch (e) {
+    alert('Tarmoq xatosi.')
+  } finally {
+    loading.value = false
   }
-
-  console.log('Form submitted:', { ...form })
-  alert('Form submitted successfully!')
-
-  // Reset
-  form.name = ''
-  form.email = ''
-  form.phone = ''
-  form.company = ''
-  form.subject = ''
-  form.message = ''
-  form.agreeToData = false
 }
+
 </script>
 
 <style scoped>
