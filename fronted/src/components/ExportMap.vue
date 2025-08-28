@@ -435,6 +435,17 @@ function init3D() {
   controls.autoRotate = true
   controls.autoRotateSpeed = 0.12
 
+  controls.mouseButtons = {
+  LEFT: THREE.MOUSE.NONE,
+  MIDDLE: THREE.MOUSE.NONE,
+  RIGHT: THREE.MOUSE.NONE,
+}
+controls.touches = {
+  ONE: THREE.TOUCH.NONE,
+  TWO: THREE.TOUCH.NONE,
+}
+controls.enableZoom = false
+
   renderer.domElement.addEventListener(
     'pointerdown',
     () => controls && (controls.autoRotate = false)
