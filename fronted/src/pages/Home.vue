@@ -266,7 +266,7 @@
         <div class="md:col-span-6">
           <figure class="aspect-[16/11] overflow-hidden rounded-xl shadow-sm">
             <img
-              :src="asset('images/s2.jpg')"
+              :src="asset('images/HS2.jpg')"
               alt="Textile factory"
               loading="lazy"
               decoding="async"
@@ -337,7 +337,7 @@
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
-                :src="asset('images/1.jpg')"
+                :src="asset('images/HS31.jpg')"
                 alt="Fabric Printing"
                 loading="lazy"
                 decoding="async"
@@ -354,7 +354,7 @@
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
-                :src="asset('images/2.jpg')"
+                :src="asset('images/HS32.jpg')"
                 alt="Fabric Dyeing"
                 loading="lazy"
                 decoding="async"
@@ -371,7 +371,7 @@
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
-                :src="asset('images/3.jpg')"
+                :src="asset('images/HS33.jpg')"
                 alt="Engineering"
                 loading="lazy"
                 decoding="async"
@@ -468,11 +468,13 @@
   </section>
 
   <!-- SECTION: Hero + Testimonial (overlap) -->
-  <section class="relative overflow-visible bg-neutral-900 pb-36 text-white md:pb-40">
+  <section class="relative overflow-visible bg-neutral-700 pb-36 text-white md:pb-40"
+  :style="{ backgroundImage: `url(${asset('images/HS41.jpg')})` }">
+  <div class="absolute inset-0 bg-black/40"></div>
     <div class="absolute inset-0 -z-10">
       <div
         class="absolute inset-0 bg-cover bg-center"
-        :style="{ backgroundImage: `url(${asset('images/hero1.jpg')})` }"
+        :style="{ backgroundImage: `url(${asset('images/HS41.jpg')})` }"
       ></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/10"></div>
     </div>
@@ -530,7 +532,7 @@
         <div class="lg:col-span-6">
           <figure class="overflow-hidden rounded-xl border-8 border-white/10 bg-white/5 shadow-2xl">
             <img
-              :src="asset('images/hero2.jpg')"
+              :src="asset('images/HS41.jpg')"
               class="h-[360px] w-full object-cover md:h-[520px]"
               alt="hero2"
             />
@@ -595,7 +597,7 @@
               >
                 <div class="h-[300px] w-full overflow-hidden md:h-[360px] xl:h-[420px]">
                   <img
-                    src="/images/member1.jpg"
+                    src="/images/HS51.jpg"
                     alt="Michal Wincent"
                     class="h-full w-full object-cover"
                   />
@@ -613,7 +615,7 @@
               >
                 <div class="h-[300px] w-full overflow-hidden md:h-[360px] xl:h-[420px]">
                   <img
-                    src="/images/member2.jpg"
+                    src="/images/HS2.jpg"
                     alt="Andrew Jackson"
                     class="h-full w-full object-cover"
                   />
@@ -668,7 +670,7 @@
     <div class="absolute inset-0 grid grid-cols-2">
       <div class="relative">
         <img
-          :src="asset('images/hero1.jpg')"
+          :src="asset('images/HS71.jpg')"
           alt="left bg"
           class="absolute inset-0 h-full w-full scale-x-[-1] transform object-cover"
         />
@@ -676,7 +678,7 @@
       </div>
       <div class="relative">
         <img
-          :src="asset('images/hero1.jpg')"
+          :src="asset('images/HS71.jpg')"
           alt="right bg"
           class="absolute inset-0 h-full w-full object-cover"
         />
@@ -820,14 +822,21 @@ onBeforeUnmount(() => {
    ========================= */
 const slides = [
   {
-    bg: asset('images/hero1.jpg'),
+    bg: asset('images/D1.jpg'),
     kicker: 'Крашеная пряжа. Цвет, которому доверяют.',
     titleHtml: 'Уникальные оттенки — под ваш запрос и стиль',
     cardKicker: 'Качество, подтверждённое испытаниями',
     cardTitleHtml: 'Каждая партия проходит строгий контроль.',
   },
   {
-    bg: asset('images/hero2.jpg'),
+    bg: asset('images/D2.jpg'),
+    kicker: 'Каждая нить — история цвета.',
+    titleHtml: 'Цвет, который держит насыщенность.',
+    cardKicker: 'Крашеная пряжа премиум-класса.',
+    cardTitleHtml: 'Каждая партия проходит строгий контроль.',
+  },
+  {
+    bg: asset('images/D3.jpg'),
     kicker: 'Каждая нить — история цвета.',
     titleHtml: 'Цвет, который держит насыщенность.',
     cardKicker: 'Крашеная пряжа премиум-класса.',

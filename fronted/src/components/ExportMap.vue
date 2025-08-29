@@ -433,7 +433,7 @@ function init3D() {
   controls.minDistance = 160
   controls.maxDistance = 520
   controls.autoRotate = true
-  controls.autoRotateSpeed = 0.12
+  controls.autoRotateSpeed = 0
 
   controls.mouseButtons = {
   LEFT: THREE.MOUSE.NONE,

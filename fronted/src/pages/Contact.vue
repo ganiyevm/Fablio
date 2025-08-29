@@ -1,7 +1,9 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
-    <section class="relative h-75 bg-cover bg-center bg-no-repeat" :style="bgStyle">
+    <section class="relative h-75 bg-cover bg-center bg-no-repeat"
+    :style="{ backgroundImage: `url(${('images/HK1.jpg')})` }"
+ >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
         <div class="text-center text-white">
@@ -245,7 +247,7 @@ interface ImportMeta {
   }
 }
 
-const heroBackgroundImage = `https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2022/05/page-titlebar.jpg`
+const heroBackgroundImage = `images/HC1.jpg`
 const footer1BackgroundImage = `footer/footer1.jpg`
 
 const bgStyle = computed(() => ({ backgroundImage: `url('${heroBackgroundImage}')` }))
