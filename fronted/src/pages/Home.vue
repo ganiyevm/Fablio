@@ -6,14 +6,20 @@
     @touchend.passive="onTouchEnd"
     class="relative flex min-h-[calc(125vh-var(--header-h,0px))] overflow-hidden"
   >
-    <!-- Background + overlay -->
-    <div
-      :key="currentSlide.bg"
-      class="animate-kenburns absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-[2000ms]"
-      :style="{ backgroundImage: `url(${currentSlide.bg})` }"
-    >
+    <!-- Background + overlay (IMG bilan – yuqori prioritet) -->
+    <div class="absolute inset-0">
+      <img
+        :key="currentSlide.bg"
+        :src="currentSlide.bg"
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover animate-kenburns"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
       <div class="absolute inset-0 bg-black/40"></div>
     </div>
+
     <!-- Content -->
     <div class="relative z-10 mx-auto pt-10 md:pt-36 lg:pt-60">
       <div class="mx-auto max-w-7xl">
@@ -41,15 +47,11 @@
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </RouterLink>
           </div>
+
           <!-- Right: yellow card -->
           <div
             data-obsid="right"
@@ -65,71 +67,42 @@
                     v-html="currentSlide.cardTitleHtml"
                   ></h2>
                 </div>
+
                 <!-- Bottom dark strip -->
-                <div
-                  class="flex items-center justify-between bg-neutral-900/95 px-4 py-4 text-white sm:px-6 sm:py-10 md:px-10"
-                >
+                <div class="flex items-center justify-between bg-neutral-900/95 px-4 py-4 text-white sm:px-6 sm:py-10 md:px-10">
                   <div class="flex items-center gap-2 sm:gap-3">
                     <RouterLink to="/contact" class="flex items-center gap-2 sm:gap-3">
-                      <span
-                        class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        >
+                      <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <path d="M12 5v14M19 12H5" />
                         </svg>
                       </span>
-                      <span class="text-lg font-medium hover:text-amber-600 sm:text-lg"
-                        >Свяжитесь</span
-                      >
+                      <span class="text-lg font-medium hover:text-amber-600 sm:text-lg">Свяжитесь</span>
                     </RouterLink>
                   </div>
-                  <!-- <button class="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center" aria-label="Submit" > <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 5l7 7-7 7"/> </svg> </button> -->
                 </div>
               </div>
             </div>
           </div>
+          <!-- /Right -->
         </div>
       </div>
     </div>
 
     <!-- ✅ Bottom strip: 3 text + 3 image cards -->
-    <div
-      class="absolute bottom-4 left-1/2 z-10 flex w-full -translate-x-1/2 items-center px-4 md:bottom-6"
-    >
+    <div class="absolute bottom-4 left-1/2 z-10 flex w-full -translate-x-1/2 items-center px-4 md:bottom-6">
       <div class="max-w-8xl mx-auto">
-        <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:gap-6">
+        <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:gap-6 no-scrollbar">
           <!-- CARD 1 -->
-          <a
-            href="#"
-            class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
-            style="--i: 0"
-          >
+          <a href="#" class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
+             style="--i: 0">
             <div class="grid h-full grid-cols-[1.15fr_1fr]">
               <div class="card-text flex flex-col justify-between p-5 text-white sm:p-6">
                 <div class="text-lg leading-snug font-semibold">Живой цвет</div>
-                <span
-                  class="inline-flex h-5 w-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1"
-                >
-                  <!-- icon -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                <span class="inline-flex h-5 w-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </span>
@@ -139,32 +112,21 @@
                   :src="asset('images/n1.jpg')"
                   alt="thumb 1"
                   class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy" decoding="async"
                 />
               </div>
             </div>
           </a>
+
           <!-- CARD 2 -->
-          <a
-            href="#"
-            class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
-            style="--i: 1"
-          >
+          <a href="#" class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
+             style="--i: 1">
             <div class="grid h-full grid-cols-[1.15fr_1fr]">
               <div class="card-text flex flex-col justify-between p-5 text-white sm:p-6">
                 <div class="text-lg leading-snug font-semibold">Прочная нить</div>
-                <span
-                  class="inline-flex h-5 w-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                <span class="inline-flex h-5 w-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </span>
@@ -174,32 +136,21 @@
                   :src="asset('images/n2.jpg')"
                   alt="thumb 2"
                   class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy" decoding="async"
                 />
               </div>
             </div>
           </a>
+
           <!-- CARD 3 -->
-          <a
-            href="#"
-            class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
-            style="--i: 2"
-          >
+          <a href="#" class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
+             style="--i: 2">
             <div class="grid h-full grid-cols-[1.15fr_1fr]">
               <div class="card-text flex flex-col justify-between p-5 text-white sm:p-6">
                 <div class="text-lg leading-snug font-semibold">Прочная нить</div>
-                <span
-                  class="inline-flex h-5 w-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                <span class="inline-flex h-5 w-5 items-center justify-center text-amber-500 transition-transform group-hover:translate-x-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 </span>
@@ -209,6 +160,7 @@
                   :src="asset('images/n3.jpg')"
                   alt="thumb 3"
                   class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy" decoding="async"
                 />
               </div>
             </div>
@@ -217,22 +169,14 @@
       </div>
     </div>
 
-    <!-- Nav arrows (kattaroq hit-area) -->
+    <!-- Nav arrows -->
     <button
       @click.stop="goPrev"
       class="absolute top-1/2 left-3 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/90 sm:left-[32px] sm:h-12 sm:w-12"
       aria-label="Previous slide"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M15 19l-7-7 7-7" />
       </svg>
     </button>
@@ -241,16 +185,8 @@
       class="absolute top-1/2 right-3 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/90 sm:right-[30px] sm:h-12 sm:w-12"
       aria-label="Next slide"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-8 w-8"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M9 5l7 7-7 7" />
       </svg>
     </button>
@@ -259,9 +195,7 @@
   <!-- SECTION: Big image + text -->
   <section class="relative overflow-hidden bg-white">
     <div class="container mx-auto w-full px-4">
-      <div
-        class="mx-auto grid max-w-7xl items-center gap-8 py-10 md:grid-cols-12 md:gap-10 md:py-20"
-      >
+      <div class="mx-auto grid max-w-7xl items-center gap-8 py-10 md:grid-cols-12 md:gap-10 md:py-20">
         <!-- Left: big image -->
         <div class="md:col-span-6">
           <figure class="aspect-[16/11] overflow-hidden rounded-xl shadow-sm">
@@ -286,26 +220,15 @@
           </p>
 
           <RouterLink to="/products" class="group mt-6 inline-flex items-center gap-4 sm:mt-8">
-            <span
-              class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-6 w-6"
-              >
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="h-6 w-6">
                 <path d="M12 5v14M19 12H5" />
               </svg>
             </span>
             <span class="text-left">
-              <span
-                class="block font-semibold text-gray-900 transition-colors group-hover:text-amber-600"
-              >
+              <span class="block font-semibold text-gray-900 transition-colors group-hover:text-amber-600">
                 О нас & Продукция!
               </span>
             </span>
@@ -330,9 +253,7 @@
 
         <div class="mt-8 grid items-start gap-6 sm:grid-cols-3 md:mt-12 md:gap-8">
           <div>
-            <h3
-              class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl"
-            >
+            <h3 class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl">
               Окрашивание пряжи
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
@@ -347,9 +268,7 @@
           </div>
 
           <div>
-            <h3
-              class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl"
-            >
+            <h3 class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl">
               Лаборатория
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
@@ -364,9 +283,7 @@
           </div>
 
           <div>
-            <h3
-              class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl"
-            >
+            <h3 class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl">
               Отгрузка
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
@@ -384,9 +301,7 @@
         <div class="mt-10 border-t border-gray-200 md:mt-12"></div>
 
         <div class="mt-8 grid gap-6 sm:grid-cols-2 md:mt-12 md:gap-8 lg:grid-cols-4">
-          <div
-            class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10"
-          >
+          <div class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10">
             <img
               :src="asset('icons/textile.svg')"
               alt="fiber"
@@ -397,9 +312,7 @@
             <div class="font-semibold text-gray-900">Выбор <br />волокна</div>
           </div>
 
-          <div
-            class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10"
-          >
+          <div class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10">
             <img
               :src="asset('icons/yarn.svg')"
               alt="yarn"
@@ -410,9 +323,7 @@
             <div class="font-semibold text-gray-900">Разработка<br />оттенка</div>
           </div>
 
-          <div
-            class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10"
-          >
+          <div class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10">
             <img
               :src="asset('icons/cloth.svg')"
               alt="quality"
@@ -423,9 +334,7 @@
             <div class="font-semibold text-gray-900">Тестирование &<br />качества</div>
           </div>
 
-          <div
-            class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10"
-          >
+          <div class="group rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm [perspective:1000px] hover:shadow-md md:p-10">
             <img
               :src="asset('icons/portfolio.svg')"
               alt="logistics"
@@ -439,27 +348,17 @@
 
         <div class="mt-8 flex justify-center md:mt-10">
           <RouterLink to="/products" class="group inline-flex items-center gap-4">
-            <span
-              class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-6 w-6"
-              >
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="h-6 w-6">
                 <path d="M12 5v14M19 12H5" />
               </svg>
             </span>
             <span class="text-left">
-              <span
-                class="block font-semibold text-gray-900 transition-colors group-hover:text-amber-600"
-                >О нас & Продукция!</span
-              >
+              <span class="block font-semibold text-gray-900 transition-colors group-hover:text-amber-600">
+                О нас & Продукция!
+              </span>
             </span>
           </RouterLink>
         </div>
@@ -467,15 +366,16 @@
     </div>
   </section>
 
-  <!-- SECTION: Hero + Testimonial (overlap) -->
-  <section class="relative overflow-visible bg-neutral-700 pb-36 text-white md:pb-40"
-  :style="{ backgroundImage: `url(${asset('images/HS41.jpg')})` }">
-  <div class="absolute inset-0 bg-black/40"></div>
+  <!-- SECTION: Hero + Testimonial (overlap) – bitta fon manbasi -->
+  <section class="relative overflow-visible bg-neutral-700 pb-36 text-white md:pb-40">
     <div class="absolute inset-0 -z-10">
-      <div
-        class="absolute inset-0 bg-cover bg-center"
-        :style="{ backgroundImage: `url(${asset('images/HS41.jpg')})` }"
-      ></div>
+      <img
+        :src="asset('images/HS41.jpg')"
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager" decoding="async"
+      />
+      <div class="absolute inset-0 bg-black/40"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/10"></div>
     </div>
 
@@ -493,34 +393,18 @@
           </p>
 
           <div class="mt-6 grid gap-3 sm:grid-cols-2 md:mt-8 md:gap-4">
-            <div
-              class="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3 backdrop-blur md:px-5 md:py-4"
-            >
-              <span
-                class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-500"
-                >›</span
-              >
+            <div class="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3 backdrop-blur md:px-5 md:py-4">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-500">›</span>
               <span class="text-xl font-semibold">Тенденции цветовых решений</span>
             </div>
-            <div
-              class="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3 backdrop-blur md:px-5 md:py-4"
-            >
-              <span
-                class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-500"
-                >›</span
-              >
+            <div class="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3 backdrop-blur md:px-5 md:py-4">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-500">›</span>
               <span class="text-xl font-semibold">Лабораторно протестировано</span>
             </div>
           </div>
 
           <div class="mt-6 flex items-start gap-3 md:mt-8 md:gap-4">
-            <img
-              :src="asset('icons/machine.png')"
-              class="h-9 w-9 md:h-10 md:w-10"
-              alt="machine"
-              loading="lazy"
-              decoding="async"
-            />
+            <img :src="asset('icons/machine.png')" class="h-9 w-9 md:h-10 md:w-10" alt="machine" loading="lazy" decoding="async" />
             <p class="text-lg text-white/90">
               Мы имеем <span class="font-semibold text-green-400 underline">3+ лет</span> опыта,
               чтобы гарантировать стабильное качество окрашенной пряжи для текстильных производств и
@@ -531,38 +415,22 @@
 
         <div class="lg:col-span-6">
           <figure class="overflow-hidden rounded-xl border-8 border-white/10 bg-white/5 shadow-2xl">
-            <img
-              :src="asset('images/HS41.jpg')"
-              class="h-[360px] w-full object-cover md:h-[520px]"
-              alt="hero2"
-            />
+            <img :src="asset('images/HS41.jpg')" class="h-[360px] w-full object-cover md:h-[520px]" alt="hero2" loading="lazy" decoding="async" />
           </figure>
         </div>
       </div>
     </div>
 
     <div class="absolute bottom-0 left-1/2 z-30 w-full -translate-x-1/2 translate-y-1/2 px-4">
-      <div
-        class="relative mx-auto max-w-xl rounded-lg bg-white p-5 text-gray-800 shadow-xl transition-all duration-700 ease-in-out md:p-6 lg:p-8"
-      >
-        <div
-          class="absolute -top-6 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-amber-500 text-xl text-white shadow-md"
-        >
-          “”
-        </div>
+      <div class="relative mx-auto max-w-xl rounded-lg bg-white p-5 text-gray-800 shadow-xl transition-all duration-700 ease-in-out md:p-6 lg:p-8">
+        <div class="absolute -top-6 left-1/2 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-amber-500 text-xl text-white shadow-md">“”</div>
 
         <p class="text-gray-600 italic">
           {{ currentReview.text }}
         </p>
 
         <div class="mt-5 flex items-center gap-3 md:mt-6">
-          <img
-            :src="currentReview.img"
-            class="h-9 w-9 rounded-full md:h-10 md:w-10"
-            alt="flag"
-            loading="lazy"
-            decoding="async"
-          />
+          <img :src="currentReview.img" class="h-9 w-9 rounded-full md:h-10 md:w-10" alt="flag" loading="lazy" decoding="async" />
           <div class="font-semibold">{{ currentReview.name }}</div>
         </div>
       </div>
@@ -574,14 +442,9 @@
       <div class="grid gap-8 lg:grid-cols-12">
         <!-- ===== LEFT: stats + 2 cards ===== -->
         <div class="lg:col-span-8">
-          <!-- Stats faqat chap tomonda -->
+          <!-- Stats -->
           <div class="mb-10 grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
-            <div
-              v-for="(s, i) in stats"
-              :key="s.label"
-              :ref="(el) => (statEls[i] = el as HTMLElement)"
-              class="select-none"
-            >
+            <div v-for="(s, i) in stats" :key="s.label" :ref="(el) => (statEls[i] = el as HTMLElement)" class="select-none">
               <div class="text-5xl leading-none font-extrabold text-yellow-600 sm:text-6xl">
                 {{ displayValues[i].toLocaleString() }}
               </div>
@@ -589,18 +452,12 @@
             </div>
           </div>
 
-          <!-- Ikki karta: rasmlar balandroq -->
+          <!-- 2 cards -->
           <div class="grid gap-8 sm:grid-cols-2">
             <div class="flex">
-              <div
-                class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm"
-              >
+              <div class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
                 <div class="h-[300px] w-full overflow-hidden md:h-[360px] xl:h-[420px]">
-                  <img
-                    src="/images/HS51.jpg"
-                    alt="Michal Wincent"
-                    class="h-full w-full object-cover"
-                  />
+                  <img :src="asset('images/HS51.jpg')" alt="Michal Wincent" class="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <div class="p-6 text-center">
                   <div class="text-lg font-semibold text-gray-900">Michal Wincent</div>
@@ -610,15 +467,9 @@
             </div>
 
             <div class="flex">
-              <div
-                class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm"
-              >
+              <div class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
                 <div class="h-[300px] w-full overflow-hidden md:h-[360px] xl:h-[420px]">
-                  <img
-                    src="/images/HS2.jpg"
-                    alt="Andrew Jackson"
-                    class="h-full w-full object-cover"
-                  />
+                  <img :src="asset('images/HS2.jpg')" alt="Andrew Jackson" class="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <div class="p-6 text-center">
                   <div class="text-lg font-semibold text-gray-900">Andrew Jackson</div>
@@ -629,32 +480,22 @@
           </div>
         </div>
 
-        <!-- ===== RIGHT: green panel ===== -->
+        <!-- ===== RIGHT: yellow panel ===== -->
         <div class="lg:col-span-4">
-          <div
-            class="flex h-full flex-col rounded-xl bg-yellow-600 p-8 text-white shadow-lg lg:min-h-[570px] xl:min-h-[650px]"
-          >
+          <div class="flex h-full flex-col rounded-xl bg-yellow-600 p-8 text-white shadow-lg lg:min-h-[570px] xl:min-h-[650px]">
             <h2 class="mb-4 text-4xl leading-tight font-extrabold">
-              Our Leadership<br />
-              Team
+              Our Leadership<br />Team
             </h2>
             <p class="mb-6 text-base text-white/90">
               Unbeatable and more talented team work is the pillar of success & we’re thankful to
               each member who belongs to Fablio.
             </p>
-            <a
-              href="#"
-              class="inline-block rounded-md bg-white px-5 py-2 font-medium text-yellow-700 hover:bg-gray-100"
-            >
+            <a href="#" class="inline-block rounded-md bg-white px-5 py-2 font-medium text-yellow-700 hover:bg-gray-100">
               Meet Our Team
             </a>
 
             <div class="mt-auto overflow-hidden rounded-lg">
-              <img
-                src="/images/team-small.jpg"
-                alt="Team"
-                class="h-[240px] w-full object-cover md:h-[260px] xl:h-[300px]"
-              />
+              <img :src="asset('images/team-small.jpg')" alt="Team" class="h-[240px] w-full object-cover md:h-[260px] xl:h-[300px]" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -666,65 +507,42 @@
 
   <!-- SECTION: Split background mirror -->
   <section class="relative flex min-h-[70vh] items-center overflow-hidden md:min-h-[82vh]">
-    <!-- BACKGROUND: 2 images -->
-    <div class="absolute inset-0 grid grid-cols-2">
-      <div class="relative">
-        <img
+    <img
           :src="asset('images/HS71.jpg')"
           alt="left bg"
           class="absolute inset-0 h-full w-full scale-x-[-1] transform object-cover"
+          loading="lazy" decoding="async"
         />
+    <!-- BACKGROUND: 2 images -->
+    <div class="absolute inset-0 grid grid-cols-2">
+      <div class="relative">
+       
         <div class="absolute inset-0 bg-black/70"></div>
       </div>
       <div class="relative">
-        <img
-          :src="asset('images/HS71.jpg')"
-          alt="right bg"
-          class="absolute inset-0 h-full w-full object-cover"
-        />
+       
         <div class="absolute inset-0 bg-black/10"></div>
       </div>
     </div>
 
-    <div
-      class="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10"
-    ></div>
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10"></div>
 
     <div class="relative mx-auto w-full px-[30px]">
       <div class="mx-auto max-w-4xl text-white">
-        <a
-          href="#"
-          class="inline-block text-sm underline decoration-white/70 underline-offset-4 md:text-base"
-        >
+        <a href="#" class="inline-block text-sm underline decoration-white/70 underline-offset-4 md:text-base">
           Цвет, рождённый в производстве
         </a>
 
-        <h1
-          class="md:6xl mt-3 text-3xl leading-tight font-extrabold tracking-tight md:mt-4 md:text-6xl"
-        >
+        <h1 class="md:6xl mt-3 text-3xl leading-tight font-extrabold tracking-tight md:mt-4 md:text-6xl">
           Каждая партия <span class="text-amber-500">проходит путь</span> от сырья до
           <br class="hidden md:block" />
           уникального оттенка под <span class="text-amber-500">ваш заказ</span>
         </h1>
 
-        <a
-          href="#"
-          class="mt-6 inline-flex items-center gap-3 rounded-md border border-white/70 px-5 py-2.5 text-white hover:bg-white/10 md:mt-8 md:px-6 md:py-3"
-        >
+        <a href="#" class="mt-6 inline-flex items-center gap-3 rounded-md border border-white/70 px-5 py-2.5 text-white hover:bg-white/10 md:mt-8 md:px-6 md:py-3">
           Подробно
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
         </a>
       </div>
@@ -775,11 +593,10 @@ onMounted(() => {
     },
     { threshold: 0.35 }
   )
-
   ;(statEls.value as unknown as HTMLElement[]).forEach((el) => el && io.observe(el))
 })
 
-/** Public yoki dist uchun BASE_URL ga mos to‘g‘ri URL yasash */
+/** Public yoki dist uchun BASE_URL ga mos URL yasash */
 const asset = (p: string) =>
   `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${p.replace(/^\//, '')}`
 
@@ -788,25 +605,29 @@ const asset = (p: string) =>
    ========================= */
 const reviews = [
   {
-    text: 'Сотрудничаем с RAINBOW-TEKS уже больше года. Качество окрашенной пряжи всегда стабильное, оттенки соответствуют нашим требованиям, а доставка происходит вовремя. Рекомендую как надежного поставщика!',
+    text:
+      'Сотрудничаем с RAINBOW-TEKS уже больше года. Качество окрашенной пряжи всегда стабильное, ' +
+      'оттенки соответствуют нашим требованиям, а доставка происходит вовремя. Рекомендую как надежного поставщика!',
     img: asset('images/rflag.png'),
     name: 'Россия',
   },
   {
-    text: 'Заказывали пряжу из хлопка и вискозы для нашей коллекции свитеров. Цвета яркие, нити мягкие, отлично подходят для работы на нашей фабрике. Обслуживание на высшем уровне, менеджеры всегда на связи.',
+    text:
+      'Заказывали пряжу из хлопка и вискозы для нашей коллекции свитеров. Цвета яркие, нити мягкие, ' +
+      'отлично подходят для работы на нашей фабрике. Обслуживание на высшем уровне, менеджеры всегда на связи.',
     img: asset('images/iflag.png'),
     name: 'Италия',
   },
   {
-    text: 'RAINBOW-TEKS — партнер, которому можно доверять. Заказы на акриловую и поли-коттон пряжу приходят быстро, без брака. Особенно нравится гибкость компании в подборе нужных номеров и оттенков.',
+    text:
+      'RAINBOW-TEKS — партнер, которому можно доверять. Заказы на акриловую и поли-коттон пряжу приходят быстро, без брака. ' +
+      'Особенно нравится гибкость компании в подборе нужных номеров и оттенков.',
     img: asset('images/tflag.png'),
     name: 'Турция',
   },
 ]
-
 const index = ref(0)
 const currentReview = computed(() => reviews[index.value])
-
 let reviewTimer: number | null = null
 onMounted(() => {
   reviewTimer = window.setInterval(() => {
@@ -843,42 +664,20 @@ const slides = [
     cardTitleHtml: 'Каждая партия проходит строгий контроль.',
   },
 ]
-
 const idx = ref(0)
 const currentSlide = computed(() => slides[idx.value])
-
-function goNext() {
-  idx.value = (idx.value + 1) % slides.length
-  restartAutoplay()
-}
-function goPrev() {
-  idx.value = (idx.value - 1 + slides.length) % slides.length
-  restartAutoplay()
-}
-
-// Auto-play (12s)
+function goNext() { idx.value = (idx.value + 1) % slides.length; restartAutoplay() }
+function goPrev() { idx.value = (idx.value - 1 + slides.length) % slides.length; restartAutoplay() }
 let slideTimer: number | null = null
-function startAutoplay() {
-  stopAutoplay()
-  slideTimer = window.setInterval(goNext, 12000)
-}
-function stopAutoplay() {
-  if (slideTimer !== null) {
-    window.clearInterval(slideTimer)
-    slideTimer = null
-  }
-}
-function restartAutoplay() {
-  startAutoplay()
-}
+function startAutoplay() { stopAutoplay(); slideTimer = window.setInterval(goNext, 12000) }
+function stopAutoplay() { if (slideTimer !== null) { window.clearInterval(slideTimer); slideTimer = null } }
+function restartAutoplay() { startAutoplay() }
 onMounted(startAutoplay)
 onBeforeUnmount(stopAutoplay)
 
-// Kirish animlari flaglari
+/* Kirish animlari flaglari */
 const leftIn = ref(true)
 const rightIn = ref(true)
-
-// Slayd almashganda animlarni qayta yoqish
 watch(idx, () => {
   leftIn.value = false
   rightIn.value = false
@@ -888,22 +687,17 @@ watch(idx, () => {
   })
 })
 
-// Touch swipe (mobil)
+/* Touch swipe (mobil) */
 const heroSec = ref<HTMLElement | null>(null)
-let touchStartX = 0,
-  touchEndX = 0
-function onTouchStart(e: TouchEvent) {
-  touchStartX = e.changedTouches[0].clientX
-}
+let touchStartX = 0, touchEndX = 0
+function onTouchStart(e: TouchEvent) { touchStartX = e.changedTouches[0].clientX }
 function onTouchEnd(e: TouchEvent) {
   touchEndX = e.changedTouches[0].clientX
   const dx = touchEndX - touchStartX
   if (Math.abs(dx) > 40) dx < 0 ? goNext() : goPrev()
 }
 
-/* =========================
-   Bottom cards: IntersectionObserver (.in class)
-   ========================= */
+/* Bottom cards: IntersectionObserver (.in class) */
 let cardObserver: IntersectionObserver | null = null
 onMounted(() => {
   cardObserver = new IntersectionObserver(
@@ -917,40 +711,23 @@ onMounted(() => {
     },
     { root: heroSec.value ?? null, threshold: 0.35 }
   )
-
   document.querySelectorAll<HTMLElement>('.hero-card').forEach((el) => cardObserver?.observe(el))
 })
-onBeforeUnmount(() => {
-  cardObserver?.disconnect()
-})
+onBeforeUnmount(() => { cardObserver?.disconnect() })
 
 /* Kontakt form (agar kerak bo‘lsa) */
-interface ContactForm {
-  name: string
-  email: string
-  phone: string
-  message: string
-}
+interface ContactForm { name: string; email: string; phone: string; message: string }
 const form = reactive<ContactForm>({ name: '', email: '', phone: '', message: '' })
-function submitForm() {
-  console.log('Form submitted:', form)
-}
+function submitForm() { console.log('Form submitted:', form) }
 </script>
 
 <style scoped>
 /* Hide horizontal scrollbar on the bottom strip */
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
 /* Bottom-strip cards enter animation */
-.hero-card {
-  transform: translateZ(0);
-}
+.hero-card { transform: translateZ(0); }
 .hero-card .card-text,
 .hero-card .card-img {
   opacity: 0;
@@ -959,92 +736,33 @@ function submitForm() {
     transform 1500ms cubic-bezier(0.22, 0.61, 0.36, 1),
     opacity 1500ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-/* start positions: text chapdan, rasm o'ngdan */
-.hero-card .card-text {
-  transform: translateX(-22px);
-}
-.hero-card .card-img {
-  transform: translateX(22px);
-}
+/* start positions */
+.hero-card .card-text { transform: translateX(-22px); }
+.hero-card .card-img { transform: translateX(22px); }
 /* when visible */
 .hero-card.in .card-text,
-.hero-card.in .card-img {
-  transform: translateX(0);
-  opacity: 1;
-}
-/* stagger: har karta uchun kechikish (style="--i:0/1/2") */
-.hero-card .card-text {
-  transition-delay: calc(var(--i, 0) * 300ms);
-}
-.hero-card .card-img {
-  transition-delay: calc(var(--i, 0) * 300ms + 90ms);
-}
+.hero-card.in .card-img { transform: translateX(0); opacity: 1; }
+/* stagger (style="--i:0/1/2") */
+.hero-card .card-text { transition-delay: calc(var(--i, 0) * 300ms); }
+.hero-card .card-img { transition-delay: calc(var(--i, 0) * 300ms + 90ms); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-card .card-text,
-  .hero-card .card-img {
-    transition: none;
-    transform: none;
-    opacity: 1;
-  }
+  .hero-card .card-text, .hero-card .card-img { transition: none; transform: none; opacity: 1; }
 }
 
 /* Ken Burns */
-@keyframes kenburns {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.08);
-  }
-}
-.animate-kenburns {
-  animation: kenburns 20s ease-in-out infinite alternate;
-}
+@keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.08); } }
+.animate-kenburns { animation: kenburns 20s ease-in-out infinite alternate; }
 
-/* Reduce motion hurmati */
-@media (prefers-reduced-motion: reduce) {
-  .animate-kenburns {
-    animation: none;
-  }
-}
+@media (prefers-reduced-motion: reduce) { .animate-kenburns { animation: none; } }
 
 /* Fallback enter animations */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-up {
-  animation: fadeUp 1200ms ease-out both;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-up { animation: fadeUp 1200ms ease-out both; }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.animate-slide-in-right {
-  animation: slideInRight 1200ms ease-out both;
-}
+@keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.animate-slide-in-right { animation: slideInRight 1200ms ease-out both; }
 
 /* 3D spin shortcut (ikonlar uchun) */
-@keyframes spin-y {
-  from {
-    transform: rotateY(0);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
+@keyframes spin-y { from { transform: rotateY(0); } to { transform: rotateY(360deg); } }
 </style>

@@ -498,38 +498,84 @@ function updatePolygonStyles() {
 
 // FOCUS
 const toRad = THREE.MathUtils.degToRad
+function eastTangentLocal(lon: number, lat: number) {
+  const phi = toRad(90 - lat);
+  const theta = toRad(lon);
+  const sinφ = Math.sin(phi), cosφ = Math.cos(phi);
+  const sinθ = Math.sin(theta), cosθ = Math.cos(theta);
+  // ∂/∂lon (theta) – “sharq” yo‘nalishi
+  return new THREE.Vector3(
+    sinφ * cosθ,
+    0,
+    -sinφ * sinθ
+  ).normalize();
+}
+
+function northTangentLocal(lon: number, lat: number) {
+  const phi = toRad(90 - lat);
+  const theta = toRad(lon);
+  const sinφ = Math.sin(phi), cosφ = Math.cos(phi);
+  const sinθ = Math.sin(theta), cosθ = Math.cos(theta);
+  // ∂/∂lat – “shimol” yo‘nalishi (to‘g‘rilangan formula)
+  return new THREE.Vector3(
+    -cosφ * sinθ,
+     sinφ,
+    -cosφ * cosθ
+  ).normalize();
+}
+
+// Tanlangan nuqtani markazga qaratib, so‘ng roll bilan “gorizontal” qilamiz.
+// (East vektorni +X ga to‘g‘rilaymiz)
+function quaternionToFaceHorizontal(lon: number, lat: number) {
+  const qFace = quaternionToFace(lon, lat);
+
+  // qFace qo‘llangandan keyingi east vektori qaysi burchakka qarab turibdi?
+  const eWorld = eastTangentLocal(lon, lat).applyQuaternion(qFace);
+  const angle = Math.atan2(eWorld.y, eWorld.x); // XY tekislikdagi burchak
+
+  // Z o‘qi atrofida −angle ga burab, east’ni +X bilan tekislab qo‘yamiz
+  const qRoll = new THREE.Quaternion().setFromAxisAngle(
+    new THREE.Vector3(0, 0, 1),
+    -angle
+  );
+
+  // MUHIM: roll’ni “keyin” qo‘llash uchun Q_total = qRoll * qFace
+  return qRoll.multiply(qFace);
+}
+
 function quaternionToFace(lon: number, lat: number) {
-  const phi = toRad(90 - lat)
+  const phi = toRad(90-lat)
   const theta = toRad(lon)
   const v = new THREE.Vector3().setFromSpherical(new THREE.Spherical(1, phi, theta)).normalize()
   const zAxis = new THREE.Vector3(0, 0, 1)
   return new THREE.Quaternion().setFromUnitVectors(v, zAxis)
 }
-function rotateGlobeTo(lon: number, lat: number, duration = 1100) {
-  if (!globe) return
-  const qStart = globe.quaternion.clone()
-  const qEnd = quaternionToFace(lon, lat)
-  const t0 = performance.now()
-  if (flyRafId) cancelAnimationFrame(flyRafId)
-  const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+function rotateGlobeTo(lon: number, lat: number, duration = 1100, makeHorizontal = false) {
+  if (!globe) return;
+  const qStart = globe.quaternion.clone();
+  const qEnd = makeHorizontal
+    ? quaternionToFaceHorizontal(lon, lat)
+    : quaternionToFace(lon, lat);
+
+  const t0 = performance.now();
+  if (flyRafId) cancelAnimationFrame(flyRafId);
+  const ease = (t: number) => (t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2);
+
   const step = () => {
-    const t = Math.min(1, (performance.now() - t0) / duration)
-    const qt = qStart.clone().slerp(qEnd, ease(t))
-    globe.quaternion.copy(qt)
-    if (t < 1) {
-      flyRafId = requestAnimationFrame(step)
-    } else {
-      flyRafId = null
-    }
-  }
-  step()
+    const t = Math.min(1, (performance.now() - t0) / duration);
+    const qt = qStart.clone().slerp(qEnd, ease(t));
+    globe.quaternion.copy(qt);
+    if (t < 1) flyRafId = requestAnimationFrame(step);
+    else flyRafId = null;
+  };
+  step();
+
   if (controls) {
-    controls.autoRotate = false
-    setTimeout(() => {
-      if (controls) controls.autoRotate = true
-    }, duration + 500)
+    controls.autoRotate = false;
+    setTimeout(() => { if (controls) controls.autoRotate = true }, duration + 500);
   }
 }
+
 
 // ====== LABEL / ARROW overlay (responsive font) ======
 function getLabelFontPx() {
@@ -638,16 +684,18 @@ function drawLabelOverlay() {
 
 // API
 function focusCountry(id: number) {
-  const feat = worldFeatures.value.find((f) => Number(f.id) === id)
-  const meta = COUNTRIES.find((c) => c.id === id)
-  if (!feat || !meta) return
+  const feat = worldFeatures.value.find((f) => Number(f.id) === id);
+  const meta = COUNTRIES.find((c) => c.id === id);
+  if (!feat || !meta) return;
 
-  activeId.value = id
-  updatePolygonStyles()
+  activeId.value = id;
+  updatePolygonStyles();
 
-  const [lon, lat] = geoCentroid(feat) as [number, number]
-  activeLonLat.value = [lon, lat]
-  rotateGlobeTo(lon, lat, 1100)
+  const [lon, lat] = geoCentroid(feat) as [number, number];
+  activeLonLat.value = [lon, lat];
+
+  const makeHorizontal = id === 643 || id === 398; // Rossiya
+  rotateGlobeTo(lon, lat, 1100, makeHorizontal);
 }
 
 onMounted(async () => {
