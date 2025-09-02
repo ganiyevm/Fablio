@@ -200,7 +200,7 @@
         <div class="md:col-span-6">
           <figure class="aspect-[16/11] overflow-hidden rounded-xl shadow-sm">
             <img
-              :src="asset('images/HS2.jpg')"
+              :src="asset('images/HS2.webp')"
               alt="Textile factory"
               loading="lazy"
               decoding="async"
@@ -258,7 +258,7 @@
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
-                :src="asset('images/HS31.jpg')"
+                :src="asset('images/HS31.webp')"
                 alt="Fabric Printing"
                 loading="lazy"
                 decoding="async"
@@ -273,7 +273,7 @@
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
-                :src="asset('images/HS32.jpg')"
+                :src="asset('images/HS32.webp')"
                 alt="Fabric Dyeing"
                 loading="lazy"
                 decoding="async"
@@ -288,7 +288,7 @@
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
-                :src="asset('images/HS33.jpg')"
+                :src="asset('images/HS33.webp')"
                 alt="Engineering"
                 loading="lazy"
                 decoding="async"
@@ -370,7 +370,7 @@
   <section class="relative overflow-visible bg-neutral-700 pb-36 text-white md:pb-40">
     <div class="absolute inset-0 -z-10">
       <img
-        :src="asset('images/HS41.jpg')"
+        :src="asset('images/HS41.webp')"
         alt=""
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager" decoding="async"
@@ -457,7 +457,7 @@
             <div class="flex">
               <div class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
                 <div class="h-[300px] w-full overflow-hidden md:h-[360px] xl:h-[420px]">
-                  <img :src="asset('images/HS51.jpg')" alt="Michal Wincent" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                  <img :src="asset('images/HS51.webp')" alt="Michal Wincent" class="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <div class="p-6 text-center">
                   <div class="text-lg font-semibold text-gray-900">Michal Wincent</div>
@@ -469,7 +469,7 @@
             <div class="flex">
               <div class="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
                 <div class="h-[300px] w-full overflow-hidden md:h-[360px] xl:h-[420px]">
-                  <img :src="asset('images/HS2.jpg')" alt="Andrew Jackson" class="h-full w-full object-cover" loading="lazy" decoding="async" />
+                  <img :src="asset('images/HS52.webp')" alt="Andrew Jackson" class="h-full w-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <div class="p-6 text-center">
                   <div class="text-lg font-semibold text-gray-900">Andrew Jackson</div>
@@ -508,7 +508,7 @@
   <!-- SECTION: Split background mirror -->
   <section class="relative flex min-h-[70vh] items-center overflow-hidden md:min-h-[82vh]">
     <img
-          :src="asset('images/HS71.jpg')"
+          :src="asset('images/HS71.webp')"
           alt="left bg"
           class="absolute inset-0 h-full w-full scale-x-[-1] transform object-cover"
           loading="lazy" decoding="async"
@@ -643,21 +643,21 @@ onBeforeUnmount(() => {
    ========================= */
 const slides = [
   {
-    bg: asset('images/D1.jpg'),
+    bg: asset('images/D1.webp'),
     kicker: 'Крашеная пряжа. Цвет, которому доверяют.',
     titleHtml: 'Уникальные оттенки — под ваш запрос и стиль',
     cardKicker: 'Качество, подтверждённое испытаниями',
     cardTitleHtml: 'Каждая партия проходит строгий контроль.',
   },
   {
-    bg: asset('images/D2.jpg'),
+    bg: asset('images/D2.webp'),
     kicker: 'Каждая нить — история цвета.',
     titleHtml: 'Цвет, который держит насыщенность.',
     cardKicker: 'Крашеная пряжа премиум-класса.',
     cardTitleHtml: 'Каждая партия проходит строгий контроль.',
   },
   {
-    bg: asset('images/D3.jpg'),
+    bg: asset('images/D3.webp'),
     kicker: 'Каждая нить — история цвета.',
     titleHtml: 'Цвет, который держит насыщенность.',
     cardKicker: 'Крашеная пряжа премиум-класса.',
