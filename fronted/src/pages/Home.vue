@@ -373,7 +373,7 @@
         :src="asset('images/HS41.webp')"
         alt=""
         class="absolute inset-0 h-full w-full object-cover"
-        loading="eager" decoding="async"
+        loading="lazy" decoding="async"
       />
       <div class="absolute inset-0 bg-black/40"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/10"></div>
