@@ -371,7 +371,7 @@
     <div class="absolute inset-0 -z-10">
       <img
         :src="asset('images/HS41.webp')"
-        alt=""
+        alt="HS41"
         class="absolute inset-0 h-full w-full object-cover"
         loading="lazy" decoding="async"
       />
