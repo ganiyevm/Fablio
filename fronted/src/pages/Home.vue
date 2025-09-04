@@ -91,10 +91,10 @@
     </div>
 
     <!-- ✅ Bottom strip: 3 text + 3 image cards -->
-    <div class="absolute bottom-4 left-1/2 z-10 flex w-full -translate-x-1/2 items-center px-4 md:bottom-6">
+    <!-- <div class="absolute bottom-4 left-1/2 z-10 flex w-full -translate-x-1/2 items-center px-4 md:bottom-6">
       <div class="max-w-8xl mx-auto">
         <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:gap-6 no-scrollbar">
-          <!-- CARD 1 -->
+          
           <a href="#" class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
              style="--i: 0">
             <div class="grid h-full grid-cols-[1.15fr_1fr]">
@@ -118,7 +118,6 @@
             </div>
           </a>
 
-          <!-- CARD 2 -->
           <a href="#" class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
              style="--i: 1">
             <div class="grid h-full grid-cols-[1.15fr_1fr]">
@@ -142,7 +141,7 @@
             </div>
           </a>
 
-          <!-- CARD 3 -->
+         
           <a href="#" class="hero-card group h-36 w-[300px] shrink-0 snap-start overflow-hidden rounded-md bg-black/80 ring-1 ring-white/10 sm:h-[130px] sm:w-[400px]"
              style="--i: 2">
             <div class="grid h-full grid-cols-[1.15fr_1fr]">
@@ -167,7 +166,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Nav arrows -->
     <button
@@ -367,17 +366,10 @@
   </section>
 
   <!-- SECTION: Hero + Testimonial (overlap) – bitta fon manbasi -->
-  <section class="relative overflow-visible bg-neutral-700 pb-36 text-white md:pb-40">
-    <div class="absolute inset-0 -z-10">
-      <img
-        :src="asset('images/HS41.webp')"
-        alt="HS41"
-        class="absolute inset-0 h-full w-full object-cover"
-        loading="lazy" decoding="async"
-      />
-      <div class="absolute inset-0 bg-black/40"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/10"></div>
-    </div>
+  <section class="relative overflow-visible bg-neutral-700 pb-36 text-white md:pb-40"
+  :style="{ backgroundImage: `url(${asset('images/HS41.webp')})` }">
+  <div class="absolute inset-0 bg-black/40"></div>
+     
 
     <div class="relative container mx-auto px-4 py-12 md:py-16 lg:py-24">
       <div class="mx-auto grid max-w-7xl items-center gap-8 md:gap-10 lg:grid-cols-12 lg:gap-10">
@@ -415,7 +407,7 @@
 
         <div class="lg:col-span-6">
           <figure class="overflow-hidden rounded-xl border-8 border-white/10 bg-white/5 shadow-2xl">
-            <img :src="asset('images/HS41.jpg')" class="h-[360px] w-full object-cover md:h-[520px]" alt="hero2" loading="lazy" decoding="async" />
+            <img :src="asset('images/HS41.webp')" class="h-[360px] w-full object-cover md:h-[520px]" alt="hero2" loading="lazy" decoding="async" />
           </figure>
         </div>
       </div>
