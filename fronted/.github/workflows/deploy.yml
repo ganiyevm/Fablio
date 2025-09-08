@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: fronted   # <— MUHIM: fronted papkasi
+        working-directory: fronted # <— MUHIM: fronted papkasi
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'fronted/dist'   # <— MUHIM: to‘liq yo‘l
+          path: 'fronted/dist' # <— MUHIM: to‘liq yo‘l
 
   deploy:
     environment:

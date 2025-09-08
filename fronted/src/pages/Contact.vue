@@ -1,9 +1,10 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
-    <section class="relative h-75 bg-cover bg-center bg-no-repeat"
-    :style="{ backgroundImage: `url(${('images/HK1.webp')})` }"
- >
+    <section
+      class="relative h-75 bg-cover bg-center bg-no-repeat"
+      :style="{ backgroundImage: `url(${'images/HK1.webp'})` }"
+    >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
         <div class="text-center text-white">
@@ -283,19 +284,26 @@ async function submitForm() {
     const res = await fetch(`${API}/contact`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, channel: 'both' })
+      body: JSON.stringify({ ...form, channel: 'both' }),
     })
     const data = await res.json()
     console.log(data)
     alert(data.ok ? 'Yuborildi!' : 'Xatolik: ' + JSON.stringify(data.results))
-    Object.assign(form, { name:'', email:'', phone:'', company:'', subject:'', message:'', agreeToData:false })
+    Object.assign(form, {
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      subject: '',
+      message: '',
+      agreeToData: false,
+    })
   } catch (e) {
     alert('Tarmoq xatosi.')
   } finally {
     loading.value = false
   }
 }
-
 </script>
 
 <style scoped>

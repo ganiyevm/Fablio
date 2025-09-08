@@ -15,9 +15,10 @@ const routes = [
   { path: '/blog', name: 'Blog', component: Blog },
   { path: '/contact', name: 'Contact', component: Contact },
   {
-    path: '/production_information',
+    path: '/production/:id', // Dinamik yo'l, URL'dan :id parametrini oladi
     name: 'ProductionInformation',
     component: ProductionInformation,
+    props: true // Bu parametrning komponentga props sifatida o'tishini ta'minlaydi
   },
 ]
 

@@ -1,8 +1,10 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
-    <section class="relative h-75 bg-cover bg-center bg-no-repeat" 
-    :style="{ backgroundImage: `url(${('images/HK1.jpg')})` }">
+    <section
+      class="relative h-75 bg-cover bg-center bg-no-repeat"
+      :style="{ backgroundImage: `url(${'images/HK1.webp'})` }"
+    >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
         <div class="text-center text-white">
@@ -71,7 +73,7 @@
 
                   <!-- link to details (optional) -->
                   <RouterLink
-                    :to="{ name: 'ProductionInformation' }"
+                    :to="{ name: 'ProductionInformation',params: { id: p.id }  }"
                     @click.stop
                     class="rounded-md bg-amber-500 p-3 shadow-md ring-1 ring-black/10 hover:bg-emerald-950"
                     aria-label="Open details"
@@ -158,45 +160,39 @@ type Project = {
 const items: Project[] = [
   {
     id: 1,
-    title: 'Silk Fabric',
-    excerpt: 'A scelerisque purus semper eget. Placerat in egestas erat imperdiet.',
-    image:
-      'https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2021/03/1.jpg',
+    title: 'Перемотка',
+    excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.',
+    image: 'images/P1.webp',
   },
   {
     id: 2,
-    title: 'Cotton Fabric',
-    excerpt: 'Molestie a iaculis at erat. Varius vel pharetra vel turpis.',
-    image:
-      'https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2021/03/3.jpg',
+    title: 'Крашение',
+    excerpt: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.',
+    image: 'images/P2.webp',
   },
   {
     id: 3,
-    title: 'Linen Fabric',
-    excerpt: 'Varius sit amet mattis vulputate enim nulla.',
-    image:
-      'https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2021/02/9.jpg',
+    title: 'Сушка',
+    excerpt: 'Мягкость и прочность сохраняются при бережной сушке.',
+    image: 'images/P3.webp',
   },
   {
     id: 4,
-    title: 'Wool Fabric',
-    excerpt: 'Neque convallis a cras semper auctor neque tempus.',
-    image:
-      'https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2021/02/5.jpg',
+    title: 'Перемотка на картонные конусы',
+    excerpt: 'Удобный формат для вашего производства.',
+    image: 'images/HK1.webp',
   },
   {
     id: 5,
-    title: 'Leather Material',
-    excerpt: 'Augue eget arcu dictum varius duis at consectetur.',
-    image:
-      'https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2021/02/img-04.jpg',
+    title: 'Лаборатория',
+    excerpt: 'Гарантия идеального оттенка и качества каждой партии.',
+    image: 'images/P5.webp',
   },
   {
     id: 6,
-    title: 'Georgette Fabric',
-    excerpt: 'Viverra maecenas accumsan lacus vel facilisis.',
-    image:
-      'https://themetechmount.com/wordpress/fablio/demo4/wp-content/uploads/sites/15/2021/02/10.jpg',
+    title: 'Упаковка',
+    excerpt: 'Надежная защита пряжи при хранении и транспортировке.',
+    image: 'images/P6.jpg',
   },
 ]
 
