@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-white">
     <!-- <section
       class="relative h-75 bg-cover bg-center bg-no-repeat"
-      :style="{ backgroundImage: `url(${'Fablio/images/HK1.webp'})` }"
+      :style="{ backgroundImage: `url('/HK1.webp')` }"
     >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
@@ -37,7 +37,7 @@
 
           <aside class="lg:col-span-4">
             <div class="overflow-hidden rounded-xl border border-gray-200 bg-gray-100">
-              <div class="bg-green-600 py-4 text-center text-xl font-semibold text-white">
+              <div class="bg-green-600 py-7 text-center text-3xl font-semibold text-white">
                 Project Information
               </div>
 
@@ -45,12 +45,12 @@
                 <p>{{ currentProject.intro }}</p>
               </div>
 
-              <div class="px-6 pb-6">
+              <div class="px-6 pb-10">
                 <dl class="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
                   <div
                     v-for="row in infoRows"
                     :key="row.key"
-                    class="grid grid-cols-3 gap-4 p-4 sm:grid-cols-4"
+                    class="grid grid-cols-3 gap-10 p-6 sm:grid-cols-4"
                   >
                     <dt class="col-span-1 font-semibold text-gray-700">{{ row.label }}:</dt>
                     <dd class="col-span-2 text-gray-700 sm:col-span-3">{{ row.value }}</dd>
@@ -76,7 +76,7 @@
           <h3 class="text-2xl font-extrabold text-gray-900">Результаты процесса</h3>
           <p class="mt-3 max-w-5xl text-gray-600">{{ currentProject.results }}</p>
         </div>
-        
+
         <div v-if="currentProject" class="mt-16">
           <h1 class="mb-12 text-center text-3xl font-bold text-gray-800">Our Services</h1>
           <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -98,9 +98,27 @@
             </div>
           </div>
         </div>
+        <hr class="my-6 border-black" />
 
         <div v-if="currentProject" class="mt-14">
           <h3 class="text-2xl font-extrabold text-gray-900">Производства</h3>
+          <div class="flex justify-between items-center mt-6">
+            <button
+              :disabled="startIndex === 0"
+              @click="prevCards"
+              class="bg-white text-gray-800 py-2 px-6 rounded-lg border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+            Предыдущий
+            </button>
+            <button
+              :disabled="startIndex + 3 >= allRelatedWorks.length"
+              @click="nextCards"
+              class="bg-white text-gray-800 py-2 px-6 rounded-lg border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+            Следующий
+            </button>
+          </div>
+          
           <div class="mt-6 flex items-center justify-center">
             <div class="grid gap-8 md:grid-cols-3">
               <RouterLink
@@ -211,7 +229,7 @@
 </template>
 
 <script setup>
-import { computed, reactive, watch } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
@@ -225,62 +243,42 @@ const projects = [
     project: 'Перемотка суровой пряжи',
     category: 'Подготовка сырья',
     date: 'Проверка и перемотка пряжи на конусы',
-    status: 'Completed',
+    status: 'Выполняется ежедневно',
     about: 'Суровая пряжа проходит строгий контроль качества: проверяются неровности, узелки и разрывная нагрузка волокон. Затем она поступает на мотальные машины, где аккуратно перематывается на пластиковые конусы — это подготовительный этап, обеспечивающий равномерное крашение и высокое качество готовой продукции.',
     results: 'Перемотка позволяет добиться стабильного натяжения нити, идеальной основы для окрашивания и надежности в дальнейшем производстве.',
-    related: [
-      { id: 2, title: 'Крашение', image: '/Fablio/images/P2.webp', excerpt: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.' },
-      { id: 3, title: 'Сушка', image: '/Fablio/images/P3.webp', excerpt: 'Мягкость и прочность сохраняются при бережной сушке.' },
-      { id: 4, title: 'Перемотка на картонные конусы', image: '/Fablio/images/HK1.webp', excerpt: 'Удобный формат для вашего производства.' },
-    ],
   },
   {
     id: 2,
     mainImage: '/Fablio/images/P2.webp',
-    intro: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.',
+    intro: 'На этапе крашения пряжа окрашивается активным способом в выбранный оттенок, после чего образцы проходят лабораторные проверки на стойкость, равномерность и качество цвета.',
     project: 'Крашение',
-    category: 'Хлопок, Лён',
-    date: 'Крашение пряжи',
-    status: 'In Progress',
-    about: 'Наши красильные цеха оснащены высокотехнологичным оборудованием, которое позволяет добиться глубоких, стойких и равномерных цветов. Мы используем экологически чистые красители, чтобы минимизировать воздействие на окружающую среду.',
-    results: 'Мы гарантируем идеальный оттенок и качество каждой партии, а также высокий уровень экологической безопасности в процессе крашения.',
-    related: [
-      { id: 1, title: 'Перемотка', image: '/Fablio/images/P1.webp', excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.' },
-      { id: 3, title: 'Сушка', image: '/Fablio/images/P3.webp', excerpt: 'Мягкость и прочность сохраняются при бережной сушке.' },
-      { id: 5, title: 'Лаборатория', image: '/Fablio/images/P5.webp', excerpt: 'Гарантия идеального оттенка и качества каждой партии.' },
-    ],
+    category: 'Подготовка пряжи',
+    date: 'Активное крашение и контроль качества цвета',
+    status: 'Выполняется ежедневно',
+    about: 'На этапе крашения пряжа приобретает свой будущий оттенок. Мы используем активное крашение, которое обеспечивает насыщенность, равномерность и долговечность цвета. После окрашивания из каждой партии берутся образцы для лабораторных испытаний.',
+    results: 'Крашение гарантирует яркость, стойкость и соответствие международным стандартам качества, что делает нашу пряжу надежным выбором для производства тканей и трикотажа.',
   },
   {
     id: 3,
     mainImage: '/Fablio/images/P3.webp',
-    intro: 'Мягкость и прочность сохраняются при бережной сушке.',
-    project: 'Сушка',
-    category: 'Шёлк, Синтетика',
-    date: 'Сушка после крашения',
-    status: 'Completed',
-    about: 'После крашения пряжа проходит бережную сушку в специальных камерах. Этот процесс позволяет сохранить мягкость волокон и их прочность, предотвращая деформацию и усадку.',
-    results: 'Сушка на специальном оборудовании обеспечивает сохранность структуры волокон и предотвращает их деформацию.',
-    related: [
-      { id: 1, title: 'Перемотка', image: '/Fablio/images/P1.webp', excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.' },
-      { id: 4, title: 'Перемотка на картонные конусы', image: '/Fablio/images/HK1.webp', excerpt: 'Удобный формат для вашего производства.' },
-      { id: 5, title: 'Лаборатория', image: '/Fablio/images/P5.webp', excerpt: 'Гарантия идеального оттенка и качества каждой партии.' },
-    ],
+    intro: 'После успешного прохождения контроля качества окрашенная пряжа отправляется на сушку, где сохраняются её прочность, мягкость и равномерность цвета.',
+    project: 'Высушивание пряжи',
+    category: 'Завершение окрашивания',
+    date: 'Сушка окрашенной пряжи',
+    status: 'Выполняется ежедневно',
+    about: 'После положительных результатов, окрашенная пряжа поступает на сушку. Современное оборудование обеспечивает равномерное удаление влаги, сохраняя при этом прочность волокон, мягкость и стабильность оттенка. Бережная сушка гарантирует, что каждая бобина пряжи сохраняет свои свойства и готова к дальнейшей обработке.',
+    results: 'Сушка позволяет закрепить цвет, сохранить текстуру и подготовить пряжу к следующему этапу производства.',
   },
   {
     id: 4,
     mainImage: '/Fablio/images/HK1.webp',
-    intro: 'Удобный формат для вашего производства.',
-    project: 'Перемотка на картонные конусы',
-    category: 'Шерсть',
-    date: 'Конечная перемотка',
-    status: 'Completed',
-    about: 'Завершающим этапом является перемотка готовой пряжи на картонные конусы. Этот формат удобен для хранения, транспортировки и использования на швейных и вязальных производствах.',
-    results: 'Готовая пряжа в удобном формате конусов готова к отправке клиенту и использованию в производстве.',
-    related: [
-      { id: 1, title: 'Перемотка', image: '/Fablio/images/P1.webp', excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.' },
-      { id: 5, title: 'Лаборатория', image: '/Fablio/images/P5.webp', excerpt: 'Гарантия идеального оттенка и качества каждой партии.' },
-      { id: 6, title: 'Упаковка', image: '/Fablio/images/P6.jpg', excerpt: 'Надежная защита пряжи при хранении и транспортировке.' },
-    ],
+    intro: 'После сушки пряжа перематывается на картонные конусы и проходит проверку на прочность, стойкость цвета и равномерность окрашивания.',
+    project: 'Перемотка',
+    category: ' Подготовка к упаковке',
+    date: 'Перемотка и контроль качества окрашенной пряжи',
+    status: 'Выполняется ежедневно',
+    about: 'После сушки пряжа перематывается на картонные конусы — это финальная подготовка перед упаковкой и отправкой заказчику. На данном этапе дополнительно отбираются образцы для проверки качества: проводится тестирование на устойчивость к трению, цветоустойчивость и равномерность окрашивания. Также выполняется отвязывание носков на специальном аппарате, чтобы убедиться в отсутствии непрокрашенных участков по всей площади бобин.',
+    results: 'Перемотка на картонные конусы обеспечивает удобство дальнейшего использования, а контроль качества гарантирует стабильность цвета и соответствие международным стандартам.',
   },
   {
     id: 5,
@@ -292,11 +290,6 @@ const projects = [
     status: 'Completed',
     about: 'Наша лаборатория осуществляет строгий контроль качества на всех этапах производства. Мы проверяем образцы на соответствие цвету, прочность и другие параметры, чтобы гарантировать высочайшее качество каждой партии пряжи.',
     results: 'Каждая партия пряжа проходит проверку, что гарантирует её высокое качество и соответствие заявленным характеристикам.',
-    related: [
-      { id: 1, title: 'Перемотка', image: '/Fablio/images/P1.webp', excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.' },
-      { id: 2, title: 'Крашение', image: '/Fablio/images/P2.webp', excerpt: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.' },
-      { id: 6, title: 'Упаковка', image: '/Fablio/images/P6.jpg', excerpt: 'Надежная защита пряжи при хранении и транспортировке.' },
-    ],
   },
   {
     id: 6,
@@ -308,19 +301,21 @@ const projects = [
     status: 'In Progress',
     about: 'Готовая пряжа тщательно упаковывается, чтобы обеспечить её сохранность во время хранения и транспортировки. Мы используем прочные материалы, которые защищают пряжу от влаги и повреждений.',
     results: 'Упаковка обеспечивает сохранность пряжи от внешних воздействий и повреждений pri transportirovke.',
-    related: [
-      { id: 1, title: 'Перемотка', image: '/Fablio/images/P1.webp', excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.' },
-      { id: 2, title: 'Крашение', image: '/Fablio/images/P2.webp', excerpt: 'Глубокие и стойкие цвета, rojddayushchiesya v nashix krasilnix cexax.' },
-      { id: 3, title: 'Сушка', image: '/Fablio/images/P3.webp', excerpt: 'Мягкость и прочность сохраняются при бережной сушке.' },
-    ],
   },
 ];
 
-const viewer = reactive({
-  open: false,
-  src: '',
-  alt: '',
-});
+const allRelatedWorks = [
+  { id: 1, title: 'Перемотка', image: '/Fablio/images/P1.webp', excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.' },
+  { id: 2, title: 'Крашение', image: '/Fablio/images/P2.webp', excerpt: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.' },
+  { id: 3, title: 'Сушка', image: '/Fablio/images/P3.webp', excerpt: 'Мягкость и прочность сохраняются при бережной сушке.' },
+  { id: 4, title: 'Перемотка на картонные конусы', image: '/Fablio/images/HK1.webp', excerpt: 'Удобный формат для вашего производства.' },
+  { id: 5, title: 'Лаборатория', image: '/Fablio/images/P5.webp', excerpt: 'Гарантия идеального оттенка и качества каждой партии.' },
+  { id: 6, title: 'Упаковка', image: '/Fablio/images/P6.jpg', excerpt: 'Надежная защита пряжи при хранении и транспортировке.' },
+];
+
+
+
+const startIndex = ref(0);
 
 const currentProject = computed(() => {
   const projectId = Number(route.params.id);
@@ -338,8 +333,25 @@ const infoRows = computed(() => {
 });
 
 const displayedCards = computed(() => {
-  if (!currentProject.value) return [];
-  return currentProject.value.related;
+  return allRelatedWorks.slice(startIndex.value, startIndex.value + 3);
+});
+
+const nextCards = () => {
+  if (startIndex.value + 3 < allRelatedWorks.length) {
+    startIndex.value += 1;
+  }
+};
+
+const prevCards = () => {
+  if (startIndex.value > 0) {
+    startIndex.value -= 1;
+  }
+};
+
+const viewer = reactive({
+  open: false,
+  src: '',
+  alt: '',
 });
 
 const openViewer = (src, alt) => {
