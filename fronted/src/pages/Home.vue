@@ -337,7 +337,7 @@
             <h3
               class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl"
             >
-              Отгрузка
+            Продукция
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
