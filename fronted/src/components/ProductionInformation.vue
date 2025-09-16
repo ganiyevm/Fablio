@@ -642,7 +642,8 @@ textarea:focus {
                   <div v-html="service.icon" class="h-16 w-16 text-white"></div>
                 </div>
               </div>
-              <h3 class="mb-3 text-xl font-semibold text-gray-800">{{ service.title }}</h3>
+              <!-- <h3 class="mb-3 text-xl font-semibold text-gray-800">{{ service.title }}</h3> -->
+              <h3 v-html="service.title" class="mb-3 text-xl font-semibold text-gray-800"></h3>
               <p class="text-sm leading-relaxed text-gray-600">{{ service.description }}</p>
             </div>
           </div>
@@ -859,12 +860,12 @@ const projects = [
         icon: icons.icon1,
       },
       {
-        title: "Устойчивость к трению (ISO 105-X12)",
+        title: "Устойчивость к трению <br>(ISO 105-X12)",
         description: "Тестирование прочности цвета при механическом воздействии.",
         icon: icons.icon2,
       },
       {
-        title: "Цветоустойчивость (ISO 105-C05)",
+        title: "Цветоустойчивость <br>(ISO 105-C05)",
         description: "Проверка сохранения оттенка при стирке и уходе.",
         icon: icons.icon3,
       },
@@ -922,12 +923,12 @@ const projects = [
     results: 'Перемотка на картонные конусы обеспечивает удобство дальнейшего использования, а контроль качества гарантирует стабильность цвета и соответствие международным стандартам.',
     services: [
       {
-        title: "Устойчивость к трению (ISO 105-X12)",
+        title: "Устойчивость к трению <br>(ISO 105-X12)",
         description: "Тестирование сохранности окраски при механическом воздействии.",
         icon: icons.icon1,
       },
       {
-        title: "Цветоустойчивость (ISO 105-C05)",
+        title: "Цветоустойчивость <br>(ISO 105-C05)",
         description: "Проверка стойкости оттенка к стирке и уходу.",
         icon: icons.icon2,
       },
@@ -961,12 +962,12 @@ const projects = [
         icon: icons.icon1,
       },
       {
-        title: "Устойчивость к трению (ISO 105-X12)",
+        title: "Устойчивость к трению <br>(ISO 105-X12)",
         description: "Тестирование прочности окраски при механическом воздействии.",
         icon: icons.icon2,
       },
       {
-        title: "Цветоустойчивость (ISO 105-C05)",
+        title: "Цветоустойчивость <br>(ISO 105-C05)",
         description: "Испытания стойкости оттенка при стирке и уходе.",
         icon: icons.icon3,
       },

@@ -5,7 +5,11 @@ export default {
     './src/*/.{vue,js,ts,jsx,tsx}', // barcha Vue va JS fayllar uchun
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sarabun: ['Sarabun', 'Arial', 'Helvetica', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

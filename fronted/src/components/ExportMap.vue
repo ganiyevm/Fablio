@@ -337,7 +337,7 @@ const COUNTRIES: Country[] = [
   { id: 380, name: 'Италия', color: '#f97316' },
   { id: 643, name: 'Россия', color: '#ef4444' },
   { id: 398, name: 'Казахстан', color: '#c084fc' },
-  { id: 417, name: 'Киргизстан', color: '#22d3ee' },
+  { id: 417, name: 'Кыргызстан', color: '#22d3ee' },
   { id: 364, name: 'Иран', color: '#84cc16' },
   { id: 724, name: 'Испания', color: '#a78bfa' },
   { id: 620, name: 'Португалия', color: '#06b6d4' },
@@ -345,7 +345,7 @@ const COUNTRIES: Country[] = [
   { id: 276, name: 'Германия', color: '#0ea5e9' },
   { id: 616, name: 'Польша', color: '#10b981' },
   { id: 804, name: 'Украина', color: '#f43f5e' },
-  { id: 112, name: 'Белоруссия', color: '#3b82f6' },
+  { id: 112, name: 'Беларусь', color: '#3b82f6' },
   { id: 792, name: 'Турция', color: '#eab308' },
   { id: 100, name: 'Болгария', color: '#8b5cf6' },
 ]
