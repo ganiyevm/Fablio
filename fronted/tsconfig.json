@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "ESNext",
-    "moduleResolution": "Bundler", // TS5+, bo‘lmasa "Node" ham bo‘ladi
+    "moduleResolution": "Bundler",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "jsx": "preserve",
     "useDefineForClassFields": true,
@@ -11,7 +11,7 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "types": ["vite/client"], // import.meta.env tiplari
+    "types": ["vite/client"],
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {

@@ -208,7 +208,7 @@
     </section>
 
     <!-- Brand Logos Section -->
-    <section class="bg-gray-50 py-16">
+    <!-- <section class="bg-gray-50 py-16">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-2 items-center gap-8 opacity-60 md:grid-cols-5">
           <div class="text-center">
@@ -233,7 +233,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 

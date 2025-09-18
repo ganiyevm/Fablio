@@ -253,7 +253,7 @@
    -->
 <template>
   <section class="bg-neutral-900 py-16 text-white md:py-2">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto pt-20 px-4">
       <h1 class="text-4xl leading-tight font-extrabold drop-shadow sm:text-5xl xl:text-6xl">
         Мы экспортируем свою <br />
         продукцию в 17 стран, обеспечивая<br />
@@ -369,7 +369,7 @@ const activeLonLat = ref<[number, number] | null>(null) // [lon, lat]
 async function loadCountries() {
   const res = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   const topo = await res.json()
-  const fc = topojson.feature(topo, topo.objects.countries) as FeatureCollection
+  const fc = topojson.feature(topo, topo.objects.countries) as unknown as FeatureCollection
   worldFeatures.value = fc.features.map((f: any) => ({ ...f, id: Number(f.id) }))
 }
 
@@ -429,20 +429,21 @@ function init3D() {
   controls = new OrbitControls(camera!, renderer.domElement)
   controls.enableDamping = true
   controls.dampingFactor = 0.06
-  controls.enablePan = false
+  controls.enablePan = false // Harakatlantirishni o‘chirish
+  controls.enableZoom = false // Zoom qilishni o‘chirish
   controls.minDistance = 160
   controls.maxDistance = 520
-  controls.autoRotate = true
-  controls.autoRotateSpeed = 0
+  controls.autoRotate = false // Avtomatik aylanishni yoqish
+  controls.autoRotateSpeed = 0 // Aylanis tezligi
 
   controls.mouseButtons = {
-    LEFT: THREE.MOUSE.NONE,
-    MIDDLE: THREE.MOUSE.NONE,
-    RIGHT: THREE.MOUSE.NONE,
+    LEFT: null, // Sichqoncha bilan harakatlantirishni o‘chirish
+    MIDDLE: null,
+    RIGHT: null,
   }
   controls.touches = {
-    ONE: THREE.TOUCH.NONE,
-    TWO: THREE.TOUCH.NONE,
+    ONE: null,
+    TWO: null,
   }
   controls.enableZoom = false
 

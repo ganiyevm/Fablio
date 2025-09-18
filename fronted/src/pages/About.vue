@@ -58,7 +58,7 @@
     </section>
 
     <!-- New Section with Three Cards -->
-    <section class="py-(-20) bg-gray-100">
+    <section class="pb-20 bg-gray-100">
       <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
         <article
           v-for="p in items.slice(0, 3)"
@@ -115,6 +115,7 @@
               <div
                 class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               >
+              
                 <div class="pointer-events-auto flex gap-3">
                   <!-- zoom / preview -->
                   <button

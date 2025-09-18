@@ -1,5 +1,4 @@
-<template>
-  <!-- Top CTA strip -->
+<!-- <template>
   <section class="bg-amber-500 py-4 sm:py-6">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
@@ -32,14 +31,11 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-emerald-950 pt-12 pb-8 text-white">
     <div class="mx-auto max-w-7xl px-4">
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
-        <!-- Company Info -->
         <div>
           <div class="mb-4 flex items-center gap-3">
-            <!-- Vite public/ -> foydalanishda / bilan boshlang -->
             <img src="../public/logo/logo.png" alt="Rainbow-Teks" class="h-14 w-auto" />
           </div>
 
@@ -59,7 +55,7 @@
                 />
               </a>
               <a href="#" class="inline-block hover:opacity-90" aria-label="Twitter/X">
-                <img src="../public/socialicons/twitter.png" alt="" class="h-6 w-6 md:h-7 md:w-7" />
+                <img src="../public/socialicons/telegram.png" alt="" class="h-6 w-6 md:h-7 md:w-7" />
               </a>
               <a href="#" class="inline-block hover:opacity-90" aria-label="LinkedIn">
                 <img
@@ -70,7 +66,7 @@
               </a>
               <a href="#" class="inline-block hover:opacity-90" aria-label="Pinterest">
                 <img
-                  src="../public/socialicons/pinterest.png"
+                  src="../public/socialicons/instagram.png"
                   alt=""
                   class="h-6 w-6 md:h-7 md:w-7"
                 />
@@ -79,7 +75,6 @@
           </div>
         </div>
 
-        <!-- Address -->
         <div>
           <div class="mb-4 flex items-start gap-3">
             <div class="rounded-lg bg-amber-500 p-2">
@@ -98,7 +93,6 @@
           </div>
         </div>
 
-        <!-- Email -->
         <div>
           <div class="mb-4 flex items-start gap-3">
             <div class="rounded-lg bg-amber-500 p-2">
@@ -116,8 +110,8 @@
           </div>
         </div>
 
-        <!-- Gallery -->
-        <div>
+        
+         <div>
           <div class="grid grid-cols-3 gap-2 sm:gap-3">
             <div
               v-for="(g, i) in gallery"
@@ -134,7 +128,6 @@
         </div>
       </div>
 
-      <!-- Footer Links -->
       <div
         class="mt-8 grid grid-cols-2 gap-3 border-t border-gray-800 pt-8 text-sm sm:gap-4 md:grid-cols-5"
       >
@@ -147,7 +140,6 @@
         <RouterLink to="/contact" class="text-gray-400 hover:text-white">Контакты</RouterLink>
       </div>
 
-      <!-- Copyright -->
       <div
         class="mt-8 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-8 md:flex-row"
       >
@@ -167,7 +159,7 @@
           <span class="flex h-6 w-10 items-center justify-center rounded bg-blue-700 text-[10px]"
             >AMEX</span
           >
-        </div>
+        </div> 
       </div>
     </div>
   </footer>
@@ -199,4 +191,172 @@ const styleFor = (path: string) =>
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
   }) as const
-</script>
+</script> -->
+<template>
+    <section class="bg-amber-500 py-4 sm:py-6">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div class="flex items-center text-white">
+          <div class="mr-3 rounded-lg bg-gray-900/80 p-3">
+            <svg
+              class="h-6 w-6 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+              />
+            </svg>
+          </div>
+          <span class="text-base font-semibold sm:text-lg md:text-xl">
+            Хотите узнать подробнее о пряжи? Позвоните нам!
+          </span>
+        </div>
+
+        <a
+          href="tel:+998908090550"
+          class="inline-flex items-center gap-2 text-lg font-bold text-white hover:opacity-90 md:text-xl"
+        >
+          <span class="sr-only">Позвонить:</span>
+          Телефон&nbsp; +998 90 809-05-50
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-emerald-950 pt-12 pb-8 text-white">
+    <div class="mx-auto max-w-7xl px-4">
+      <!-- Grid layout -->
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <!-- 1. Company info -->
+        <div>
+          <div class="mb-4 flex items-center gap-3">
+            <img src="../public/logo/logo.png" alt="Rainbow-Teks" class="h-14 w-auto" />
+          </div>
+
+          <p class="mb-5 text-gray-400">
+            Свяжитесь с нами для консультации, подбора пряжи или оформления заказа. Мы всегда рады
+            помочь вам выбрать идеальный цвет и качество!
+          </p>
+
+          <div class="flex items-center gap-3">
+            <span class="text-sm font-semibold text-gray-300 sm:text-base">Социальные сети:</span>
+            <nav class="flex items-center gap-3">
+              <a href="#" class="inline-block hover:opacity-90" aria-label="Facebook">
+                <img
+                  src="../public/socialicons/facebook.png"
+                  alt=""
+                  class="h-6 w-6 md:h-7 md:w-7"
+                />
+              </a>
+              <a href="#" class="inline-block hover:opacity-90" aria-label="Twitter/X">
+                <img src="../public/socialicons/telegram.png" alt="" class="h-6 w-6 md:h-7 md:w-7" />
+              </a>
+              <a href="#" class="inline-block hover:opacity-90" aria-label="LinkedIn">
+                <img
+                  src="../public/socialicons/linkedin.png"
+                  alt=""
+                  class="h-6 w-6 md:h-7 md:w-7"
+                />
+              </a>
+              <a href="#" class="inline-block hover:opacity-90" aria-label="Pinterest">
+                <img
+                  src="../public/socialicons/instagram.png"
+                  alt=""
+                  class="h-6 w-6 md:h-7 md:w-7"
+                />
+              </a>
+            </nav>
+          </div>
+        </div>
+
+
+        <!-- 2. Menu links -->
+        <div class="px-24">
+          <h3 class="mb-4 font-semibold">Меню</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><RouterLink to="/" class="hover:text-white">Главная</RouterLink></li>
+            <li><RouterLink to="/about" class="hover:text-white">О нас</RouterLink></li>
+            <li><RouterLink to="/products" class="hover:text-white">Продукция</RouterLink></li>
+            <li><RouterLink to="/production" class="hover:text-white">Производство</RouterLink></li>
+            <li><RouterLink to="/contact" class="hover:text-white">Контакты</RouterLink></li>
+          </ul>
+        </div>
+
+        <!-- 3. Products links -->
+        <!-- <div>
+          <h3 class="mb-4 font-semibold">Продукция</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><RouterLink to="/products" class="hover:text-white">Меланжевая пряжа</RouterLink></li>
+            <li><RouterLink to="/products" class="hover:text-white">Крашеная пряжа</RouterLink></li>
+            <li><RouterLink to="/products" class="hover:text-white">Суровая пряжа</RouterLink></li>
+          </ul>
+        </div> -->
+
+        <!-- 4. Contacts -->
+        <!-- <div>
+          
+          <h3 class="mb-4 font-semibold">Контакты</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li>
+              <span class="block">Телефон:</span>
+              <a href="tel:+998908090550" class="hover:text-white">+998 90 809-05-50</a>
+            </li>
+            <li>
+              <span class="block">Email:</span>
+              <a href="mailto:souleymanovamir@gmail.com" class="hover:text-white">
+                souleymanovamir@gmail.com
+              </a>
+            </li>
+            <li>
+              <span class="block">Адрес:</span>
+              Республика Узбекистан, г.Ташкент,<br />
+              Мирзо-Улугбекский район, ТТЗ Промзона, ТехноПарк
+            </li>
+          </ul>
+        </div> -->
+        <div>
+          <div class="mb-4 flex items-start gap-3">
+            <div class="rounded-lg bg-amber-500 p-2">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold">Адрес: Республика Узбекистан, г. Ташкент</p>
+              <p class="text-gray-400">Мирзо-Улугбекский район, ТТЗ Промзона, ТехноПарк</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-4 flex items-start gap-3">
+            <div class="rounded-lg bg-amber-500 p-2">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold">Напишите нам</p>
+              <a href="mailto:souleymanovamir@gmail.com" class="text-gray-400 hover:text-white">
+                Mail: souleymanovamir@gmail.com
+              </a>
+             
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Copyright -->
+      <div class="mt-8 border-t border-gray-800 pt-6 text-center text-sm text-gray-400">
+        Copyright © 2025 Rainbow-Teks. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</template>

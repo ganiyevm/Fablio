@@ -256,10 +256,10 @@
           </p>
 
           <RouterLink to="/products" class="group mt-6 inline-flex items-center gap-4 sm:mt-8">
-            <span
+            <!-- <span
               class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
-            >
-              <svg
+            > -->
+              <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -270,13 +270,13 @@
                 class="h-6 w-6"
               >
                 <path d="M12 5v14M19 12H5" />
-              </svg>
-            </span>
+              </svg> -->
+            <!-- </span> -->
             <span class="text-left">
               <span
                 class="block font-semibold text-gray-900 transition-colors group-hover:text-amber-600"
               >
-                О нас & Продукция!
+              
               </span>
             </span>
           </RouterLink>
@@ -408,7 +408,7 @@
         </div>
 
         <div class="mt-8 flex justify-center md:mt-10">
-          <RouterLink to="/products" class="group inline-flex items-center gap-4">
+          <!-- <RouterLink to="/products" class="group inline-flex items-center gap-4">
             <span
               class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
             >
@@ -432,7 +432,7 @@
                 О нас & Продукция!
               </span>
             </span>
-          </RouterLink>
+          </RouterLink> -->
         </div>
       </div>
     </div>
@@ -573,8 +573,8 @@
                   />
                 </div>
                 <div class="p-6 text-center">
-                  <div class="text-lg font-semibold text-gray-900">Michal Wincent</div>
-                  <div class="text-gray-500">Product Designer</div>
+                  <!-- <div class="text-lg font-semibold text-gray-900">Michal Wincent</div>
+                  <div class="text-gray-500">Product Designer</div> -->
                 </div>
               </div>
             </div>
@@ -593,8 +593,8 @@
                   />
                 </div>
                 <div class="p-6 text-center">
-                  <div class="text-lg font-semibold text-gray-900">Andrew Jackson</div>
-                  <div class="text-gray-500">Material Designer</div>
+                  <!-- <div class="text-lg font-semibold text-gray-900"> </div>
+                  <div class="text-gray-500">Material Designer</div> -->
                 </div>
               </div>
             </div>
