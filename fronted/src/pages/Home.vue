@@ -537,7 +537,7 @@
   </section>
 
   <section class="py-50">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4"></div>
       <div class="grid gap-8 lg:grid-cols-12">
         <!-- ===== LEFT: stats + 2 cards ===== -->
         <div class="lg:col-span-8">
@@ -752,7 +752,7 @@
 
      
       </div>
-    </div>
+  
   </section>
 
   <ExportMap />
@@ -824,7 +824,7 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
-import ExportMap from '../components/exportmap.vue'
+import ExportMap from '../components/exportmap.vue';
 
 /** ====== 1) COUNTERS DATA ====== */
 const stats = reactive([
