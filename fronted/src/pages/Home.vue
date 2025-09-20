@@ -536,7 +536,8 @@
     </div>
   </section>
 
-  <section class="py-50">
+  
+    <section class="relative container mx-auto px-4 py-32 md:py-36 lg:py-44 ">
     <div class="container mx-auto px-4"></div>
       <div class="grid gap-8 lg:grid-cols-12">
         <!-- ===== LEFT: stats + 2 cards ===== -->
