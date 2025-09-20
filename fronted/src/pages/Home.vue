@@ -259,7 +259,7 @@
             <!-- <span
               class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 transition-transform group-hover:scale-105 group-active:scale-95 sm:h-12 sm:w-12"
             > -->
-              <!-- <svg
+            <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -276,7 +276,6 @@
               <span
                 class="block font-semibold text-gray-900 transition-colors group-hover:text-amber-600"
               >
-              
               </span>
             </span>
           </RouterLink>
@@ -337,7 +336,7 @@
             <h3
               class="mb-3 text-center text-lg font-semibold text-gray-900 md:text-left md:text-xl"
             >
-            Продукция
+              Продукция
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
@@ -543,7 +542,7 @@
         <!-- ===== LEFT: stats + 2 cards ===== -->
         <div class="lg:col-span-8">
           <!-- Stats -->
-          <div class="mb-10 grid grid-cols-1 gap-8 text-center sm:grid-cols-3">
+          <div class="mb-10 grid grid-cols-1 gap-8 text-center sm:grid-cols-2">
             <div
               v-for="(s, i) in stats"
               :key="s.label"
@@ -553,8 +552,10 @@
               <div class="text-5xl leading-none font-extrabold text-yellow-600 sm:text-6xl">
                 {{ displayValues[i].toLocaleString() }}
               </div>
+
               <div class="mt-2 font-medium text-gray-700">{{ s.label }}</div>
             </div>
+            <!-- <p class="mt-10 text-[30px] font-semibold text-gray-700">Стабильное качество</p> -->
           </div>
 
           <!-- 2 cards -->
@@ -573,8 +574,8 @@
                   />
                 </div>
                 <div class="p-6 text-center">
-                  <!-- <div class="text-lg font-semibold text-gray-900">Michal Wincent</div>
-                  <div class="text-gray-500">Product Designer</div> -->
+                  <!-- <div class="text-lg font-semibold text-gray-900">180 тонн в месяц</div>
+                  <div class="text-gray-500"></div>  -->
                 </div>
               </div>
             </div>
@@ -593,42 +594,163 @@
                   />
                 </div>
                 <div class="p-6 text-center">
-                  <!-- <div class="text-lg font-semibold text-gray-900"> </div>
-                  <div class="text-gray-500">Material Designer</div> -->
+                  <!-- <div class="text-lg font-semibold text-gray-900"> Стабильное качество</div> -->
+                  <!-- <div class="text-gray-500">Material Designer</div> -->
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ===== RIGHT: yellow panel ===== -->
-        <div class="lg:col-span-4">
-          <div
-            class="flex h-full flex-col rounded-xl bg-yellow-600 p-8 text-white shadow-lg lg:min-h-[570px] xl:min-h-[650px]"
-          >
-            <h2 class="mb-4 text-4xl leading-tight font-extrabold">Our Leadership<br />Team</h2>
-            <p class="mb-6 text-base text-white/90">
-              Unbeatable and more talented team work is the pillar of success & we’re thankful to
-              each member who belongs to Fablio.
-            </p>
-            <a
-              href="#"
-              class="inline-block rounded-md bg-white px-5 py-2 font-medium text-yellow-700 hover:bg-gray-100"
-            >
-              Meet Our Team
-            </a>
+<!-- ===== RIGHT: yellow panel ===== -->
+<div class="lg:col-span-4">
+  <div
+    class="relative group h-full flex-col rounded-xl bg-center p-8 text-white shadow-lg lg:min-h-[470px] xl:min-h-[550px]"
+    :style="{ backgroundImage: `url(${'images/pr6.png'})` }"
+  >
+    <!-- Qoraytiruvchi overlay -->
+    <div class="absolute inset-0 rounded-xl bg-black/70"></div>
 
-            <div class="mt-auto overflow-hidden rounded-lg">
-              <img
-                :src="asset('images/team-small.jpg')"
-                alt="Team"
-                class="h-[240px] w-full object-cover md:h-[260px] xl:h-[300px]"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+    <!-- Hoverda chiqadigan blok -->
+    <div
+      class="absolute inset-0 z-20 hidden group-hover:flex items-center justify-center"
+    >
+      <div class="w-full flex-shrink-0 p-12 bg-sky-900 rounded-xl text-white/95 shadow-lg h-full">
+        <p
+          class="text-[24px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[22px] max-md:text-[19px] text-light grid mb-5 after:h-0.5 after:bg-primary after:mt-5"
+        >
+        Гибкий подход к объёмам
+        </p>
+        <div class="grid gap-6">
+          <p
+            class="text-[24px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[22px] max-md:text-[19px] text-light"
+          >
+            Партии крашений в кг :
+          </p>
+          <p
+            class="text-[21px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[19px] max-md:text-[17px] flex gap-5 text-light"
+          >
+            <svg
+              class="w-[20px] h-[20px] stroke-primary"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 12h16m0 0-6-6m6 6-6 6"
+              ></path>
+            </svg>
+            100
+          </p>
+          <p
+            class="text-[21px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[19px] max-md:text-[17px] flex gap-5 text-light"
+          >
+            <svg
+              class="w-[20px] h-[20px] stroke-primary"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 12h16m0 0-6-6m6 6-6 6"
+              ></path>
+            </svg>
+            200
+          </p>
+          <p
+            class="text-[21px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[19px] max-md:text-[17px] flex gap-5 text-light"
+          >
+            <svg
+              class="w-[20px] h-[20px] stroke-primary"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 12h16m0 0-6-6m6 6-6 6"
+              ></path>
+            </svg>
+            300
+          </p>
+          <p
+            class="text-[21px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[19px] max-md:text-[17px] flex gap-5 text-light"
+          >
+            <svg
+              class="w-[20px] h-[20px] stroke-primary"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 12h16m0 0-6-6m6 6-6 6"
+              ></path>
+            </svg>
+            400
+          </p>
+          <p
+            class="text-[21px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[19px] max-md:text-[17px] flex gap-5 text-light"
+          >
+            <svg
+              class="w-[20px] h-[20px] stroke-primary"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 12h16m0 0-6-6m6 6-6 6"
+              ></path>
+            </svg>
+            600
+          </p>
+          <p
+            class="text-[21px] leading-[1.2] font-medium font-fira_sans text-dark max-lg:text-[19px] max-md:text-[17px] flex gap-5 text-light"
+          >
+            <svg
+              class="w-[20px] h-[20px] stroke-primary"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 12h16m0 0-6-6m6 6-6 6"
+              ></path>
+            </svg>
+            1200
+          </p>
         </div>
+      </div>
+    </div>
+
+    <!-- Asl kontent -->
+    <div class="relative z-10 pt-55 text-center">
+  <p
+    class="flex items-center justify-center font-fira_sans text-4xl font-semibold text-[#d9d9d9]"
+  >
+    ПРЯЖА ВАША КРАСКА НАША
+    <svg
+      class="w-[62px] h-[42px] stroke-current animate-bounce"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="4"
+        d="M4 12h16m0 0-6-6m6 6-6 6"
+      />
+    </svg>
+  </p>
+</div>
+
+  </div>
+</div>
+
+     
       </div>
     </div>
   </section>
@@ -702,13 +824,13 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
-import ExportMap from '../components/ExportMap.vue'
+import ExportMap from '../components/exportmap.vue'
 
 /** ====== 1) COUNTERS DATA ====== */
 const stats = reactive([
-  { label: 'Projects And Software', to: 1460 },
-  { label: 'Qualified Employers', to: 4565 },
-  { label: 'Satisfied Clients', to: 1784 },
+  { label: 'тонн в месяц ', to: 180 },
+  { label: 'стран на экспорт', to: 17 },
+  // { label: 'Satisfied Clients', to: 1784 },
 ])
 
 /** Ko‘rinishda 0 → to gacha sanaladigan qiymatlar */

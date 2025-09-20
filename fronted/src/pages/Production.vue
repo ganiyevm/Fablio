@@ -73,7 +73,7 @@
 
                   <!-- link to details (optional) -->
                   <RouterLink
-                    :to="{ name: 'ProductionInformation',params: { id: p.id }  }"
+                    :to="{ name: 'ProductionInformation', params: { id: p.id } }"
                     @click.stop
                     class="rounded-md bg-amber-500 p-3 shadow-md ring-1 ring-black/10 hover:bg-emerald-950"
                     aria-label="Open details"

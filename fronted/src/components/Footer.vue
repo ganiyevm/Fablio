@@ -193,7 +193,7 @@ const styleFor = (path: string) =>
   }) as const
 </script> -->
 <template>
-    <section class="bg-amber-500 py-4 sm:py-6">
+  <section class="bg-amber-500 py-4 sm:py-6">
     <div class="mx-auto max-w-7xl px-4">
       <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
         <div class="flex items-center text-white">
@@ -250,7 +250,11 @@ const styleFor = (path: string) =>
                 />
               </a>
               <a href="#" class="inline-block hover:opacity-90" aria-label="Twitter/X">
-                <img src="../public/socialicons/telegram.png" alt="" class="h-6 w-6 md:h-7 md:w-7" />
+                <img
+                  src="../public/socialicons/telegram.png"
+                  alt=""
+                  class="h-6 w-6 md:h-7 md:w-7"
+                />
               </a>
               <a href="#" class="inline-block hover:opacity-90" aria-label="LinkedIn">
                 <img
@@ -269,7 +273,6 @@ const styleFor = (path: string) =>
             </nav>
           </div>
         </div>
-
 
         <!-- 2. Menu links -->
         <div class="px-24">
@@ -346,11 +349,9 @@ const styleFor = (path: string) =>
               <a href="mailto:souleymanovamir@gmail.com" class="text-gray-400 hover:text-white">
                 Mail: souleymanovamir@gmail.com
               </a>
-             
             </div>
           </div>
         </div>
-        
       </div>
 
       <!-- Copyright -->

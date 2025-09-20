@@ -253,7 +253,7 @@
    -->
 <template>
   <section class="bg-neutral-900 py-16 text-white md:py-2">
-    <div class="container mx-auto pt-20 px-4">
+    <div class="container mx-auto px-4 pt-20">
       <h1 class="text-4xl leading-tight font-extrabold drop-shadow sm:text-5xl xl:text-6xl">
         Мы экспортируем свою <br />
         продукцию в 17 стран, обеспечивая<br />

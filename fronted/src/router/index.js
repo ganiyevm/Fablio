@@ -15,16 +15,25 @@ const routes = [
   // { path: '/blog', name: 'Blog', component: Blog },
   { path: '/contact', name: 'Contact', component: Contact },
   {
-    path: '/production/:id', // Dinamik yo'l, URL'dan :id parametrini oladi
+    path: '/production/:id',
     name: 'ProductionInformation',
     component: ProductionInformation,
-    props: true // Bu parametrning komponentga props sifatida o'tishini ta'minlaydi
+    props: true,
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      // back/forward bosilganda eski joyni tiklaydi
+      return savedPosition
+    } else {
+      // yangi sahifaga kirganda yuqoridan boshlaydi
+      return { top: 0 }
+    }
+  },
 })
 
 export default router

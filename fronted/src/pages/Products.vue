@@ -1,28 +1,24 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- Carousel Section -->
-    <section class="relative w-full h-screen">
+    <section class="relative h-screen w-full">
       <div
         v-for="(item, index) in items"
         :key="item.id"
         class="absolute inset-0 transition-opacity duration-1000"
         :class="{ 'opacity-100': currentIndex === index, 'opacity-0': currentIndex !== index }"
       >
-        <img
-          :src="item.image"
-          :alt="item.title"
-          class="w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-         
+        <img :src="item.image" :alt="item" class="h-full w-full object-cover" />
+        <div class="absolute inset-0 flex items-center justify-center">
+          <!-- bg-black/30 rasmni qoraytirish -->
         </div>
       </div>
       <!-- Carousel Indicators -->
-      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-2">
         <button
           v-for="(item, index) in items"
           :key="item.id"
-          class="w-3 h-3 md:w-4 md:h-4 rounded-full"
+          class="h-3 w-3 rounded-full md:h-4 md:w-4"
           :class="{ 'bg-amber-600': currentIndex === index, 'bg-white/50': currentIndex !== index }"
           @click="goToSlide(index)"
         ></button>
@@ -45,27 +41,35 @@ type Project = {
 const items: Project[] = [
   {
     id: 1,
-    image: 'images/P1.webp',
+    image: 'images/pr1.png',
   },
   {
     id: 2,
-    image: 'images/P2.webp',
+    image: 'images/pr2.png',
   },
   {
     id: 3,
-    image: 'images/P3.webp',
+    image: 'images/pr3.png',
   },
   {
     id: 4,
-    image: 'images/HK1.webp',
+    image: 'images/pr4.png',
   },
   {
     id: 5,
-    image: 'images/P5.webp',
+    image: 'images/pr5.png',
   },
   {
     id: 6,
-    image: 'images/P6.jpg',
+    image: 'images/pr6.png',
+  },
+  {
+    id: 7,
+    image: 'images/pr7.png',
+  },
+  {
+    id: 8,
+    image: 'images/pr8.png',
   },
 ]
 
