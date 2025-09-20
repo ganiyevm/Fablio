@@ -824,7 +824,7 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
-import ExportMap from '../components/exportmap.vue';
+import ExportMap from '../components/ExportMap.vue';
 
 /** ====== 1) COUNTERS DATA ====== */
 const stats = reactive([
