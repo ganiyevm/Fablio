@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <section
       class="relative h-75 bg-cover bg-center bg-no-repeat"
-      :style="{ backgroundImage: `url(${'images/HK1.webp'})` }"
+      :style="{ backgroundImage: `url(${'images/onas.webp'})` }"
     >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
