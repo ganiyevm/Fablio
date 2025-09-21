@@ -415,7 +415,7 @@
   </section>
 
   <!-- SECTION: Stats + Cards -->
-  <section class="relative container mx-auto px-4 py-32 max-md:py-16 md:py-36 lg:py-44">
+  <section class="relative container mx-auto px-4 py-32 max-md:py-26 md:py-38 lg:py-48">
     <div class="container mx-auto px-4"></div>
       <div class="grid gap-8 max-md:gap-6 lg:grid-cols-12">
         <!-- LEFT: stats + 2 cards -->
