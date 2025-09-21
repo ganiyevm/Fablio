@@ -1,7 +1,12 @@
 <template>
   <div class="min-h-screen bg-white">
     <!-- Carousel Section -->
-    <section class="relative h-screen w-full overflow-hidden">
+    <section 
+      ref="carouselRef"
+      class="relative min-h-[80vh] sm:h-screen w-full overflow-hidden"
+      role="region"
+      aria-label="Image carousel"
+    >
       <div
         v-for="(item, index) in items"
         :key="item.id"
@@ -10,16 +15,15 @@
       >
         <img 
           :src="item.image" 
-          :alt="`Carousel slide ${index + 1}`" 
+          :alt="item.alt || `Project ${index + 1}`" 
           class="h-full w-full object-cover transition-transform duration-700 hover:scale-105" 
         />
-        <!-- <div class="absolute inset-0 bg-black/20"></div> -->
       </div>
 
       <!-- Navigation Arrows -->
       <button
         @click="prevSlide"
-        class="absolute left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 sm:left-4 md:left-6 lg:p-3"
+        class="absolute left-2 top-1/2 -translate-y-1/2 transform rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 sm:left-4 md:left-6 lg:p-3"
         aria-label="Previous slide"
       >
         <svg class="h-5 w-5 md:h-6 md:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,7 +33,7 @@
 
       <button
         @click="nextSlide"
-        class="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 sm:right-4 md:right-6 lg:p-3"
+        class="absolute right-2 top-1/2 -translate-y-1/2 transform rounded-full bg-white/20 p-2 text-white backdrop-blur-sm transition duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 sm:right-4 md:right-6 lg:p-3"
         aria-label="Next slide"
       >
         <svg class="h-5 w-5 md:h-6 md:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -41,8 +45,8 @@
       <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-1.5 sm:bottom-6 sm:space-x-2 md:bottom-8">
         <button
           v-for="(item, index) in items"
-          :key="item.id"
-          class="h-2 w-2 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 lg:h-4 lg:w-4"
+          :key="`indicator-${item.id}`"
+          class="h-2 w-2 rounded-full transition duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/50 sm:h-2.5 sm:w-2.5 md:h-3 md:w-3 lg:h-4 lg:w-4"
           :class="{ 
             'bg-amber-500 scale-110': currentIndex === index, 
             'bg-white/50 hover:bg-white/70': currentIndex !== index 
@@ -59,23 +63,17 @@
           :style="{ width: `${((currentIndex + 1) / items.length) * 100}%` }"
         ></div>
       </div>
-
-      <!-- Slide Counter -->
-      <!-- <div class="absolute top-4 right-4 rounded-full bg-black/30 px-3 py-1 text-sm text-white backdrop-blur-sm sm:top-6 sm:right-6 md:px-4 md:py-2">
-        {{ currentIndex + 1 }} / {{ items.length }}
-      </div> -->
     </section>
 
-    <!-- Thumbnail Navigation (Mobile Hidden, Tablet+ Visible) -->
+    <!-- Thumbnail Navigation (Desktop only) -->
     <section class="hidden bg-gray-100 px-4 py-6 md:block lg:px-8 lg:py-8">
       <div class="mx-auto max-w-6xl">
-        <!-- <h3 class="mb-4 text-lg font-semibold text-gray-800 lg:text-xl">Gallery</h3> -->
         <div class="grid grid-cols-4 gap-3 lg:grid-cols-6 lg:gap-4 xl:grid-cols-8">
           <button
             v-for="(item, index) in items"
             :key="`thumb-${item.id}`"
             @click="goToSlide(index)"
-            class="group relative aspect-square overflow-hidden rounded-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            class="group relative aspect-square overflow-hidden rounded-lg transition duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500"
             :class="{ 
               'ring-2 ring-amber-500 scale-105': currentIndex === index,
               'hover:ring-1 hover:ring-gray-300': currentIndex !== index 
@@ -83,16 +81,9 @@
           >
             <img 
               :src="item.image" 
-              :alt="`Thumbnail ${index + 1}`"
+              :alt="item.alt || `Thumbnail ${index + 1}`"
               class="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-80"
             />
-            <div 
-              class="absolute inset-0 bg-black/0 transition-all duration-300"
-              :class="{ 
-                'bg-black/20': currentIndex === index,
-                'group-hover:bg-black/10': currentIndex !== index 
-              }"
-            ></div>
           </button>
         </div>
       </div>
@@ -106,64 +97,23 @@ import { reactive, ref, onMounted, onUnmounted } from 'vue'
 type Project = {
   id: number
   image: string
-  href?: string
+  alt?: string
 }
 
-/** Demo ma'lumotlar (rasmlarni o'zingiznikiga almashtiring) */
 const items: Project[] = [
-  {
-    id: 1,
-    image: 'images/pr1.png',
-  },
-  {
-    id: 2,
-    image: 'images/pr2.png',
-  },
-  {
-    id: 3,
-    image: 'images/pr3.png',
-  },
-  {
-    id: 4,
-    image: 'images/pr4.png',
-  },
-  {
-    id: 5,
-    image: 'images/pr5.png',
-  },
-  {
-    id: 6,
-    image: 'images/pr6.png',
-  },
-  {
-    id: 7,
-    image: 'images/pr7.png',
-  },
- 
+  { id: 1, image: 'images/pr1.png', alt: 'Project 1 preview' },
+  { id: 2, image: 'images/pr2.png', alt: 'Project 2 preview' },
+  { id: 3, image: 'images/pr3.png', alt: 'Project 3 preview' },
+  { id: 4, image: 'images/pr4.png', alt: 'Project 4 preview' },
+  { id: 5, image: 'images/pr5.png', alt: 'Project 5 preview' },
+  { id: 6, image: 'images/pr6.png', alt: 'Project 6 preview' },
+  { id: 7, image: 'images/pr7.png', alt: 'Project 7 preview' },
 ]
 
-const viewer = reactive<{ open: boolean; src: string; alt: string }>({
-  open: false,
-  src: '',
-  alt: '',
-})
-
-function openViewer(src: string, alt: string) {
-  viewer.open = true
-  viewer.src = src
-  viewer.alt = alt
-}
-
-function closeViewer() {
-  viewer.open = false
-  viewer.src = ''
-  viewer.alt = ''
-}
-
-// Carousel logic
 const currentIndex = ref(0)
 let carouselInterval: number | null = null
 const isAutoPlaying = ref(true)
+const carouselRef = ref<HTMLElement | null>(null)
 
 function goToSlide(index: number) {
   currentIndex.value = index
@@ -213,12 +163,8 @@ function handleTouchEnd(e: TouchEvent) {
   touchEndX = e.changedTouches[0].screenX
   const diff = touchStartX - touchEndX
   
-  if (Math.abs(diff) > 50) { // Minimum swipe distance
-    if (diff > 0) {
-      nextSlide()
-    } else {
-      prevSlide()
-    }
+  if (Math.abs(diff) > 50) {
+    diff > 0 ? nextSlide() : prevSlide()
   }
   
   resetAutoPlay()
@@ -237,11 +183,7 @@ function handleKeydown(e: KeyboardEvent) {
       break
     case ' ':
       e.preventDefault()
-      if (isAutoPlaying.value) {
-        stopAutoPlay()
-      } else {
-        startAutoPlay()
-      }
+      isAutoPlaying.value ? stopAutoPlay() : startAutoPlay()
       break
   }
 }
@@ -249,50 +191,31 @@ function handleKeydown(e: KeyboardEvent) {
 onMounted(() => {
   startAutoPlay()
   
-  // Add touch listeners
-  const carousel = document.querySelector('section')
-  if (carousel) {
-    carousel.addEventListener('touchstart', handleTouchStart, { passive: true })
-    carousel.addEventListener('touchend', handleTouchEnd, { passive: true })
+  if (carouselRef.value) {
+    carouselRef.value.addEventListener('touchstart', handleTouchStart, { passive: true })
+    carouselRef.value.addEventListener('touchend', handleTouchEnd, { passive: true })
+    carouselRef.value.addEventListener('mouseenter', stopAutoPlay)
+    carouselRef.value.addEventListener('mouseleave', startAutoPlay)
   }
-  
-  // Add keyboard listeners
+
   window.addEventListener('keydown', handleKeydown)
-  
-  // Pause on mouse hover
-  const carouselElement = document.querySelector('section')
-  if (carouselElement) {
-    carouselElement.addEventListener('mouseenter', stopAutoPlay)
-    carouselElement.addEventListener('mouseleave', startAutoPlay)
-  }
 })
 
 onUnmounted(() => {
-  if (carouselInterval) {
-    clearInterval(carouselInterval)
+  if (carouselInterval) clearInterval(carouselInterval)
+
+  if (carouselRef.value) {
+    carouselRef.value.removeEventListener('touchstart', handleTouchStart)
+    carouselRef.value.removeEventListener('touchend', handleTouchEnd)
+    carouselRef.value.removeEventListener('mouseenter', stopAutoPlay)
+    carouselRef.value.removeEventListener('mouseleave', startAutoPlay)
   }
-  
-  // Remove listeners
-  const carousel = document.querySelector('section')
-  if (carousel) {
-    carousel.removeEventListener('touchstart', handleTouchStart)
-    carousel.removeEventListener('touchend', handleTouchEnd)
-  }
-  
+
   window.removeEventListener('keydown', handleKeydown)
 })
 </script>
 
 <style scoped>
-* {
-  transition: all 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-}
-
 /* Custom scrollbar for thumbnail section */
 ::-webkit-scrollbar {
   height: 6px;
@@ -310,43 +233,5 @@ textarea:focus {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
-}
-
-/* Animation for smooth transitions */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.carousel-enter-active,
-.carousel-leave-active {
-  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.carousel-enter-from {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.carousel-leave-to {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-/* Responsive adjustments for very small screens */
-@media (max-width: 320px) {
-  .absolute.bottom-4 {
-    bottom: 0.75rem;
-  }
-  
-  .absolute.top-4 {
-    top: 0.75rem;
-  }
 }
 </style>
