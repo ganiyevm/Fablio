@@ -452,7 +452,7 @@
                   />
                 </div>
                 <div class="p-6 max-md:p-4 text-center">
-                  <div class="text-gray-500 max-md:text-sm">Производство</div>
+                  <!-- <div class="text-gray-500 max-md:text-sm">Производство</div> -->
                 </div>
               </div>
             </div>
@@ -471,7 +471,7 @@
                   />
                 </div>
                 <div class="p-6 max-md:p-4 text-center">
-                  <div class="text-gray-500 max-md:text-sm">Качество</div>
+                  <!-- <div class="text-gray-500 max-md:text-sm">Качество</div> -->
                 </div>
               </div>
             </div>
