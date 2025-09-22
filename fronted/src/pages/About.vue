@@ -215,7 +215,7 @@
         <div
           v-if="reviews[current]"
           :key="current"
-          class="relative flex items-center rounded-lg bg-green-500 p-20 text-white"
+          class="relative flex items-center rounded-lg bg-[#65B530] p-20 text-white"
         >
           <div class="h-80">
             <p class="text-[19px] italic">“{{ reviews[current].text }}”</p>

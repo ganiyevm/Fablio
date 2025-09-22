@@ -111,7 +111,7 @@ const items: Project[] = [
 ]
 
 const currentIndex = ref(0)
-let carouselInterval: number | null = null
+let carouselInterval: ReturnType<typeof setInterval> | null = null
 const isAutoPlaying = ref(true)
 const carouselRef = ref<HTMLElement | null>(null)
 
