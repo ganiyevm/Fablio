@@ -588,8 +588,8 @@
               <p
                 class="flex flex-col items-center justify-center font-fira_sans text-4xl max-md:text-2xl font-semibold text-[#d9d9d9]"
               >
-                <span class="mb-2 max-md:mb-1">ПРЯЖА ВАША</span>
-                <span class="mb-4 max-md:mb-2">КРАСКА НАША</span>
+                <span class="mb-2 max-md:mb-1">Добавим цвет</span>
+                <span class="mb-4 max-md:mb-2">вашей пряже</span>
                 <svg
                   class="w-[62px] h-[42px] max-md:w-8 max-md:h-6 stroke-current animate-bounce"
                   viewBox="0 0 24 24"

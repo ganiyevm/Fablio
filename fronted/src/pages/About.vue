@@ -1,4 +1,3 @@
-
 <template>
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
@@ -49,17 +48,51 @@
             class="mb-4 sm:mb-6 text-xl sm:text-2xl lg:text-[35px] leading-tight lg:leading-[55px] font-bold text-[#1b1a1a]"
             style="font-family: Sarabun, Arial, Helvetica, sans-serif"
           >
-          Почему выбирают нас:
+            Почему выбирают нас:
           </h3>
           <p class="text-base lg:text-lg leading-relaxed text-[#7f8284]">
-            * Стабильное и высокое качество сырья и окрашивания <br>
-* Современные технологии производства и контроля <br>
-* Гибкий подход к потребностям клиентов <br>
-* Конкурентные цены и прозрачные условия сотрудничества <br>
-* Оперативная логистика и поставки по СНГ и Европы <br>
-
-Индивидуальный подход, ответственность за результат и стремление к совершенству делают нас надёжным партнёром для вашего бизнеса.
-          </p>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
+    viewBox="0 0 12 12"
+    fill="currentColor"
+  >
+    <circle cx="6" cy="6" r="4" />
+  </svg> Стабильное и высокое качество сырья и окрашивания <br>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
+    viewBox="0 0 12 12"
+    fill="currentColor"
+  >
+    <circle cx="6" cy="6" r="4" />
+  </svg> Современные технологии производства и контроля <br>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
+    viewBox="0 0 12 12"
+    fill="currentColor"
+  >
+    <circle cx="6" cy="6" r="4" />
+  </svg> Гибкий подход к потребностям клиентов <br>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
+    viewBox="0 0 12 12"
+    fill="currentColor"
+  >
+    <circle cx="6" cy="6" r="4" />
+  </svg> Конкурентные цены и прозрачные условия сотрудничества <br>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
+    viewBox="0 0 12 12"
+    fill="currentColor"
+  >
+    <circle cx="6" cy="6" r="4" />
+  </svg> Оперативная логистика и поставки по СНГ и Европы <br>
+  Индивидуальный подход, ответственность за результат и стремление к совершенству делают нас надёжным партнёром для вашего бизнеса.
+</p>
         </div>
       </div>
 
@@ -223,28 +256,28 @@
       </Transition>
 
       <div
-    class="relative h-120 bg-cover bg-center bg-no-repeat"
-    :style="{ backgroundImage: `url(${'images/DSC09302.webp'})` }"
-  >
-    <div class="mx-auto max-w-3xl translate-x-80 p-30">
-      <Transition name="fade" mode="out-in">
-        <div
-          v-if="reviews[current]"
-          :key="current"
-          class="relative flex items-center rounded-lg bg-[#65B530] p-20 text-white"
-        >
-          <div class="h-60">
-            <p class="text-[19px] italic">“{{ reviews[current].text }}”</p>
-            <p class="mt-12 text-[24px] font-semibold">{{ reviews[current].name }}</p>
-            <p class="text-[22px]">{{ reviews[current].city }}</p>
-            <div class="flex text-yellow-300">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+        class="relative h-120 bg-cover bg-center bg-no-repeat"
+        :style="{ backgroundImage: `url(${'images/DSC09302.webp'})` }"
+      >
+        <div class="mx-auto max-w-3xl translate-x-80 p-30">
+          <Transition name="fade" mode="out-in">
+            <div
+              v-if="reviews[current]"
+              :key="current"
+              class="relative flex items-center rounded-lg bg-[#65B530] p-20 text-white"
+            >
+              <div class="h-60">
+                <p class="text-[19px] italic">“{{ reviews[current].text }}”</p>
+                <p class="mt-12 text-[24px] font-semibold">{{ reviews[current].name }}</p>
+                <p class="text-[22px]">{{ reviews[current].city }}</p>
+                <div class="flex text-yellow-300">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+              </div>
             </div>
-          </div>
+          </Transition>
         </div>
-      </Transition>
-    </div>
-  </div>
+      </div>
 
       <!-- News and Articles Section -->
       <div class="mx-auto max-w-7xl p-6 pt-40">
@@ -291,27 +324,27 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref, onMounted, onUnmounted, onBeforeUnmount } from 'vue'
-
 import { RouterLink } from 'vue-router'
+
 const reviews = [
   {
     name: "Анна",
-    city:"Москва",
+    city: "Москва",
     text: "Работаем с RAINBOW-TEKS уже второй год — всегда получаем стабильное качество и быструю поставку.",
   },
   {
     name: "Ойбек",
-    city:"Ташкент",
+    city: "Ташкент",
     text: "Очень нравится широкий выбор пряжи и внимательное отношение к клиентам. Заказы приходят вовремя.",
   },
   {
     name: "Мария",
-    city:"Киев",
+    city: "Киев",
     text: "Цветовая палитра действительно впечатляет! Легко подбирать нужные оттенки для коллекций.",
   },
   {
     name: "Давид",
-    city:"Стамбул",
+    city: "Стамбул",
     text: "Компания зарекомендовала себя как надежный партнёр: чёткие сроки, качественный продукт и открытость в общении.",
   },
 ];
@@ -322,7 +355,7 @@ let interval: ReturnType<typeof setInterval> | null = null;
 onMounted(() => {
   interval = setInterval(() => {
     current.value = (current.value + 1) % reviews.length;
-  }, 5000); // 3 sekundda o'zgaradi
+  }, 5000);
 });
 
 onBeforeUnmount(() => {
@@ -343,7 +376,6 @@ type Product = {
   href?: string
 }
 
-/** Demo ma'lumotlar (rasmlarni o'zingiznikiga almashtiring) */
 const stepCards = [
   {
     title: 'Надёжное качество',
@@ -412,7 +444,6 @@ const itemss = ref<Product[]>([
   { id: 5, image: 'images/pr5.png' },
   { id: 6, image: 'images/pr6.png' },
   { id: 7, image: 'images/pr7.webp' },
-  // { id: 8, image: 'images/pr8.png' },
 ])
 
 const currentIndices = ref([0, 1, 2])
@@ -468,12 +499,270 @@ textarea:focus {
 }
 
 /* Responsive breakpoint adjustments */
-@media (max-width: 640px) {
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity 0.3s;
+@media (max-width: 1024px) {
+  /* Hero Section */
+  .h-64.sm\:h-75 {
+    height: 16rem !important;
   }
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
+  h1.text-3xl.sm\:text-4xl.lg\:text-5xl {
+    font-size: 2rem !important;
+  }
+  nav.text-sm {
+    font-size: 0.875rem !important;
+  }
+
+  /* First Content Section */
+  .lg\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  .aspect-\[4\/4\] {
+    aspect-ratio: 16/9 !important;
+  }
+  h2.text-2xl.sm\:text-3xl.lg\:text-\[45px\] {
+    font-size: 1.75rem !important;
+    line-height: 2.25rem !important;
+  }
+  h3.text-xl.sm\:text-2xl.lg\:text-\[35px\] {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+  p.text-base.lg\:text-lg {
+    font-size: 0.9375rem !important;
+  }
+  .px-2.sm\:px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Three Step Cards */
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .md\:px-18 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .top-8.sm\:top-14 {
+    top: 2rem !important;
+  }
+  .-left-6.sm\:-left-12 {
+    left: -1.5rem !important;
+  }
+  .px-4.sm\:px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .py-2.sm\:py-4 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .text-lg.sm\:text-2xl {
+    font-size: 1.125rem !important;
+  }
+
+  /* Image Gallery Section */
+  h2[style*="font-size: 45px"] {
+    font-size: 2.25rem !important;
+    line-height: 2.75rem !important;
+  }
+  .flex.gap-6.overflow-x-auto {
+    flex-direction: column;
+    align-items: center;
+  }
+  article.w-106 {
+    width: 100% !important;
+    max-width: 500px;
+  }
+  .max-w-3xl.translate-x-80 {
+    transform: translateX(0) !important;
+    padding: 1rem !important;
+    max-width: 90% !important;
+  }
+  .bg-\[\#65B530\] {
+    padding: 1.5rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[19px\] {
+    font-size: 1rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[24px\] {
+    font-size: 1.25rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[22px\] {
+    font-size: 1.125rem !important;
+  }
+  .max-w-7xl {
+    padding: 1.5rem !important;
+  }
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hero Section */
+  .h-64.sm\:h-75 {
+    height: 14rem !important;
+  }
+  h1.text-3xl.sm\:text-4xl.lg\:text-5xl {
+    font-size: 1.75rem !important;
+  }
+  nav.text-sm {
+    font-size: 0.75rem !important;
+  }
+
+  /* First Content Section */
+  .py-12.sm\:py-16.lg\:py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  h2.text-2xl.sm\:text-3xl.lg\:text-\[45px\] {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+  h3.text-xl.sm\:text-2xl.lg\:text-\[35px\] {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+  p.text-base.lg\:text-lg {
+    font-size: 0.875rem !important;
+  }
+
+  /* Three Step Cards */
+  .mt-12.sm\:mt-16 {
+    margin-top: 2rem !important;
+  }
+  .md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .p-6 {
+    padding: 1rem !important;
+  }
+  h3.text-lg.sm\:text-xl {
+    font-size: 1rem !important;
+  }
+  p.text-sm.sm\:text-base {
+    font-size: 0.875rem !important;
+  }
+
+  /* Image Gallery Section */
+  h2[style*="font-size: 45px"] {
+    font-size: 1.75rem !important;
+    line-height: 2.25rem !important;
+  }
+  .container.py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  article.w-106 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .fixed.inset-0 .max-w-5xl {
+    max-width: 95% !important;
+  }
+  .h-120 {
+    height: auto !important;
+    padding-bottom: 2rem !important;
+  }
+  .bg-\[\#65B530\] {
+    padding: 1rem !important;
+  }
+  .bg-\[\#65B530\] .h-60 {
+    height: auto !important;
+  }
+  .bg-\[\#65B530\] p.text-\[19px\] {
+    font-size: 0.875rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[24px\] {
+    font-size: 1.125rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[22px\] {
+    font-size: 1rem !important;
+  }
+  .text-4xl {
+    font-size: 1.5rem !important;
+  }
+  .text-\[16px\] {
+    font-size: 0.875rem !important;
+  }
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .pt-40 {
+    padding-top: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero Section */
+  .h-64.sm\:h-75 {
+    height: 12rem !important;
+  }
+  h1.text-3xl.sm\:text-4xl.lg\:text-5xl {
+    font-size: 1.5rem !important;
+  }
+  nav.text-sm {
+    font-size: 0.6875rem !important;
+  }
+
+  /* First Content Section */
+  h2.text-2xl.sm\:text-3xl.lg\:text-\[45px\] {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+  h3.text-xl.sm\:text-2xl.lg\:text-\[35px\] {
+    font-size: 1.125rem !important;
+    line-height: 1.5rem !important;
+  }
+  p.text-base.lg\:text-lg {
+    font-size: 0.8125rem !important;
+  }
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Three Step Cards */
+  .top-8.sm\:top-14 {
+    top: 1.5rem !important;
+  }
+  .-left-6.sm\:-left-12 {
+    left: -1rem !important;
+  }
+  .px-4.sm\:px-6 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  .py-2.sm\:py-4 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  .text-lg.sm\:text-2xl {
+    font-size: 1rem !important;
+  }
+
+  /* Image Gallery Section */
+  h2[style*="font-size: 45px"] {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+  .aspect-\[16\/10\] {
+    aspect-ratio: 4/3 !important;
+  }
+  .bg-\[\#65B530\] {
+    padding: 0.75rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[19px\] {
+    font-size: 0.75rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[24px\] {
+    font-size: 1rem !important;
+  }
+  .bg-\[\#65B530\] p.text-\[22px\] {
+    font-size: 0.875rem !important;
+  }
+  .p-4 {
+    padding: 0.75rem !important;
   }
 }
 </style>
