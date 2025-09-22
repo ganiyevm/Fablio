@@ -102,12 +102,12 @@ type Project = {
 
 const items: Project[] = [
   { id: 1, image: 'images/pr1.png', alt: 'Project 1 preview' },
-  { id: 2, image: 'images/pr2.png', alt: 'Project 2 preview' },
+  { id: 2, image: 'images/pr2.webp', alt: 'Project 2 preview' },
   { id: 3, image: 'images/pr3.png', alt: 'Project 3 preview' },
   { id: 4, image: 'images/pr4.png', alt: 'Project 4 preview' },
   { id: 5, image: 'images/pr5.png', alt: 'Project 5 preview' },
   { id: 6, image: 'images/pr6.png', alt: 'Project 6 preview' },
-  { id: 7, image: 'images/pr7.png', alt: 'Project 7 preview' },
+  { id: 7, image: 'images/pr7.webp', alt: 'Project 7 preview' },
 ]
 
 const currentIndex = ref(0)

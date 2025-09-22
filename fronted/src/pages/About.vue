@@ -1,14 +1,15 @@
+
 <template>
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
     <section
-      class="relative h-75 bg-cover bg-center bg-no-repeat"
+      class="relative h-64 sm:h-75 bg-cover bg-center bg-no-repeat"
       :style="{ backgroundImage: `url(${'images/onas.webp'})` }"
     >
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
         <div class="text-center text-white">
-          <h1 class="mb-4 text-5xl font-bold">О компании</h1>
+          <h1 class="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold">О компании</h1>
           <nav class="text-sm">
             <router-link
               to="/"
@@ -24,31 +25,46 @@
     </section>
 
     <!-- First Content Section -->
-    <section class="bg-white py-20">
-      <div class="container mx-auto grid items-start gap-20 lg:grid-cols-2">
+    <section class="bg-white py-12 sm:py-16 lg:py-20">
+      <div class="container mx-auto grid items-start gap-8 lg:gap-20 lg:grid-cols-2 px-4">
         <!-- Left Image -->
-        <div class="aspect-[4/4] overflow-hidden px-6">
+        <div class="aspect-[4/4] overflow-hidden px-2 sm:px-6 order-2 lg:order-1">
           <img src="/images/prq.webp" alt="Textile Machine" class="h-full w-full object-cover" />
         </div>
 
         <!-- Right Content -->
-        <div>
+        <div class="order-1 lg:order-2">
           <h2
-            class="mb-6 text-[45px] leading-[55px] font-bold text-[#1b1a1a]"
+            class="mb-4 sm:mb-6 text-2xl sm:text-3xl lg:text-[45px] leading-tight lg:leading-[55px] font-bold text-[#1b1a1a]"
             style="font-family: Sarabun, Arial, Helvetica, sans-serif"
           >
             Яркие решения для текстиля
           </h2>
-          <p class="text-lg leading-relaxed text-[#7f8284]">
+          <p class="text-base lg:text-lg leading-relaxed text-[#7f8284] mb-6">
             ООО «RAINBOW-TEKS» более 3 лет успешно работает как на внутреннем рынке, так и за его
             пределами. Мы предлагаем окрашенную пряжу из 100% хлопка, вискозы, акрила и поли-коттона
             любых номеров, сочетая стабильное качество с современным подходом.
+          </p>
+          <h3
+            class="mb-4 sm:mb-6 text-xl sm:text-2xl lg:text-[35px] leading-tight lg:leading-[55px] font-bold text-[#1b1a1a]"
+            style="font-family: Sarabun, Arial, Helvetica, sans-serif"
+          >
+          Почему выбирают нас:
+          </h3>
+          <p class="text-base lg:text-lg leading-relaxed text-[#7f8284]">
+            * Стабильное и высокое качество сырья и окрашивания <br>
+* Современные технологии производства и контроля <br>
+* Гибкий подход к потребностям клиентов <br>
+* Конкурентные цены и прозрачные условия сотрудничества <br>
+* Оперативная логистика и поставки по СНГ и Европы <br>
+
+Индивидуальный подход, ответственность за результат и стремление к совершенству делают нас надёжным партнёром для вашего бизнеса.
           </p>
         </div>
       </div>
 
       <!-- Three Step Cards -->
-      <div class="container mx-auto mt-16 grid grid-cols-1 gap-24 px-18 md:grid-cols-3">
+      <div class="container mx-auto mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-24 px-4 md:px-18">
         <div
           v-for="(card, i) in stepCards"
           :key="i"
@@ -56,14 +72,14 @@
         >
           <!-- Number badge -->
           <div
-            class="absolute top-14 -left-12 bg-[#65B530] px-6 py-4 text-2xl font-bold text-white"
+            class="absolute top-8 sm:top-14 -left-6 sm:-left-12 bg-[#65B530] px-4 sm:px-6 py-2 sm:py-4 text-lg sm:text-2xl font-bold text-white"
           >
             {{ i + 1 }}
           </div>
-          <h3 class="mt-4 text-xl font-semibold text-gray-900">
+          <h3 class="mt-4 text-lg sm:text-xl font-semibold text-gray-900">
             {{ card.title }}
           </h3>
-          <p class="mt-2 text-gray-600">{{ card.text }}</p>
+          <p class="mt-2 text-sm sm:text-base text-gray-600">{{ card.text }}</p>
         </div>
       </div>
     </section>
@@ -210,14 +226,14 @@
     class="relative h-120 bg-cover bg-center bg-no-repeat"
     :style="{ backgroundImage: `url(${'images/DSC09302.webp'})` }"
   >
-    <div class="mx-auto max-w-4xl translate-x-80 p-20">
+    <div class="mx-auto max-w-3xl translate-x-80 p-30">
       <Transition name="fade" mode="out-in">
         <div
           v-if="reviews[current]"
           :key="current"
           class="relative flex items-center rounded-lg bg-[#65B530] p-20 text-white"
         >
-          <div class="h-80">
+          <div class="h-60">
             <p class="text-[19px] italic">“{{ reviews[current].text }}”</p>
             <p class="mt-12 text-[24px] font-semibold">{{ reviews[current].name }}</p>
             <p class="text-[22px]">{{ reviews[current].city }}</p>
@@ -303,12 +319,10 @@ const reviews = [
 const current = ref(0);
 let interval: ReturnType<typeof setInterval> | null = null;
 
-
-
 onMounted(() => {
   interval = setInterval(() => {
     current.value = (current.value + 1) % reviews.length;
-  }, 5000); // 3 sekundda o‘zgaradi
+  }, 5000); // 3 sekundda o'zgaradi
 });
 
 onBeforeUnmount(() => {
@@ -392,18 +406,17 @@ const viewer = reactive<{ open: boolean; src: string; alt: string }>({
 
 const itemss = ref<Product[]>([
   { id: 1, image: 'images/pr1.png' },
-  { id: 2, image: 'images/pr2.png' },
+  { id: 2, image: 'images/pr2.webp' },
   { id: 3, image: 'images/pr3.png' },
   { id: 4, image: 'images/pr4.png' },
   { id: 5, image: 'images/pr5.png' },
   { id: 6, image: 'images/pr6.png' },
-  { id: 7, image: 'images/pr7.png' },
+  { id: 7, image: 'images/pr7.webp' },
   // { id: 8, image: 'images/pr8.png' },
 ])
 
 const currentIndices = ref([0, 1, 2])
 let intervalId: ReturnType<typeof setInterval> | null = null;
-
 
 onMounted(() => {
   intervalId = setInterval(() => {
@@ -452,5 +465,15 @@ textarea:focus {
 .hover-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive breakpoint adjustments */
+@media (max-width: 640px) {
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.3s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
 }
 </style>

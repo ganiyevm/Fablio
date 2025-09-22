@@ -487,7 +487,7 @@
             <div
               class="absolute inset-0 z-20 hidden group-hover:flex max-md:group-active:flex items-center justify-center"
             >
-              <div class="w-full flex-shrink-0 p-12 max-md:p-6 bg-sky-900/95 rounded-xl text-white/95 shadow-lg h-full">
+              <div class="w-full flex-shrink-0 p-12 max-md:p-6 bg-emerald-950 rounded-xl text-white/95 shadow-lg h-full">
                 <p
                   class="text-[24px] max-md:text-lg leading-[1.2] font-medium font-fira_sans text-light grid mb-5 max-md:mb-3 after:h-0.5 after:bg-primary after:mt-5 max-md:after:mt-3"
                 >
