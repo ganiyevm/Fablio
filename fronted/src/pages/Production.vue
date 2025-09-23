@@ -2,35 +2,36 @@
   <div class="min-h-screen bg-white">
     <!-- Hero Section -->
     <section
-      class="relative h-75 bg-cover bg-center bg-no-repeat"
+      class="relative h-60 bg-cover bg-center bg-no-repeat sm:h-64 md:h-72 lg:h-75"
       :style="{ backgroundImage: `url(${'images/HK1.webp'})` }"
     >
       <div class="absolute inset-0 bg-black/50"></div>
-      <div class="relative container mx-auto flex h-full items-center justify-center px-4">
+      <div class="relative container mx-auto flex h-full items-center justify-center px-3 sm:px-4">
         <div class="text-center text-white">
-          <h1 class="mb-4 text-5xl font-bold">Производство</h1>
-          <nav class="text-sm">
+          <h1 class="mb-3 text-2xl font-bold sm:text-3xl sm:mb-4 md:text-4xl lg:text-5xl">Производство</h1>
+          <nav class="text-xs sm:text-sm">
             <router-link
               to="/"
               class="underline-offset-4 transition-colors hover:text-amber-600 hover:underline"
             >
               Главная
             </router-link>
-            <span class="mx-2">•</span>
+            <span class="mx-1 sm:mx-2">•</span>
             <span class="text-amber-600">Производство</span>
           </nav>
         </div>
       </div>
     </section>
-    <section class="bg-white py-12 md:py-20">
-      <div class="container mx-auto px-4">
+    
+    <section class="bg-white py-8 sm:py-10 md:py-12 lg:py-20">
+      <div class="container mx-auto px-3 sm:px-4">
         <!-- Grid -->
-        <div class="grid gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
+        <div class="grid gap-6 sm:grid-cols-2 sm:gap-7 md:gap-8 lg:grid-cols-3 lg:gap-10">
           <!-- Card -->
           <article
             v-for="p in items"
             :key="p.id"
-            class="group overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-lg"
+            class="group overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-lg sm:rounded-xl"
           >
             <!-- Image with hover overlay -->
             <div class="relative aspect-[16/10] overflow-hidden">
@@ -47,17 +48,17 @@
               <div
                 class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               >
-                <div class="pointer-events-auto flex gap-3">
+                <div class="pointer-events-auto flex gap-2 sm:gap-3">
                   <!-- zoom / preview -->
                   <button
                     @click.prevent="openViewer(p.image, p.title)"
-                    class="rounded-md bg-amber-500 p-3 shadow-md ring-1 ring-black/10 hover:bg-emerald-950"
+                    class="rounded bg-amber-500 p-2 shadow-md ring-1 ring-black/10 hover:bg-emerald-950 sm:rounded-md sm:p-3"
                     aria-label="Preview image"
                   >
                     <!-- magnifier icon -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      class="h-4 w-4 sm:h-5 sm:w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -75,13 +76,13 @@
                   <RouterLink
                     :to="{ name: 'ProductionInformation', params: { id: p.id } }"
                     @click.stop
-                    class="rounded-md bg-amber-500 p-3 shadow-md ring-1 ring-black/10 hover:bg-emerald-950"
+                    class="rounded bg-amber-500 p-2 shadow-md ring-1 ring-black/10 hover:bg-emerald-950 sm:rounded-md sm:p-3"
                     aria-label="Open details"
                   >
                     <!-- link icon -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5"
+                      class="h-4 w-4 sm:h-5 sm:w-5"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                     >
@@ -98,11 +99,11 @@
             </div>
 
             <!-- Text -->
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-900">
+            <div class="p-4 sm:p-5 md:p-6">
+              <h3 class="text-lg font-semibold text-gray-900 sm:text-xl">
                 {{ p.title }}
               </h3>
-              <p class="mt-2 text-gray-600">
+              <p class="mt-1 text-sm text-gray-600 sm:mt-2 sm:text-base">
                 {{ p.excerpt }}
               </p>
             </div>
@@ -114,21 +115,21 @@
       <Transition name="fade">
         <div
           v-if="viewer.open"
-          class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-[1px]"
+          class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-3 backdrop-blur-[1px] sm:p-4"
           @keydown.esc.window="closeViewer"
           @click.self="closeViewer"
         >
-          <figure class="relative w-full max-w-5xl">
-            <img :src="viewer.src" :alt="viewer.alt" class="h-auto w-full rounded-lg shadow-2xl" />
+          <figure class="relative w-full max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-5xl">
+            <img :src="viewer.src" :alt="viewer.alt" class="h-auto w-full rounded-md shadow-2xl sm:rounded-lg" />
             <button
               @click="closeViewer"
-              class="absolute -top-3 -right-3 rounded-full bg-white p-2 shadow ring-1 ring-black/10"
+              class="absolute -top-2 -right-2 rounded-full bg-white p-1.5 shadow ring-1 ring-black/10 sm:-top-3 sm:-right-3 sm:p-2"
               aria-label="Close preview"
               title="Close"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
+                class="h-4 w-4 sm:h-5 sm:w-5"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
