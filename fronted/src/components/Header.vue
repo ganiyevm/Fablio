@@ -21,7 +21,7 @@ function closeMenu() {
 
 <template>
   <header
-    class="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-emerald-950 backdrop-blur [--header-h:56px] sm:[--header-h:64px] md:[--header-h:88px] dark:bg-neutral-900/60"
+    class="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-emerald-950 backdrop-blur [--header-h:56px] sm:[--header-h:64px] md:[--header-h:72px] lg:[--header-h:88px] dark:bg-neutral-900/60"
   >
     <div class="mx-auto max-w-8xl px-3 sm:px-4 md:px-6 lg:px-15">
       <!-- Top bar -->
@@ -33,12 +33,12 @@ function closeMenu() {
         </RouterLink>
 
         <!-- Center: nav (desktop) -->
-        <nav class="hidden items-center gap-6 text-zinc-300 lg:gap-8 md:flex">
+        <nav class="hidden items-center gap-4 text-zinc-300 md:gap-6 lg:gap-8 lg:flex">
           <RouterLink
             v-for="item in menu"
             :key="item.to"
             :to="item.to"
-            class="text-sm font-medium transition-colors hover:text-yellow-600 lg:text-base"
+            class="text-sm font-medium transition-colors hover:text-yellow-600 md:text-sm lg:text-base"
             active-class="text-yellow-600 font-semibold"
           >
             {{ $t(item.key) }}
@@ -46,19 +46,19 @@ function closeMenu() {
         </nav>
 
         <!-- Right: language + contacts -->
-        <div class="flex items-center gap-2 sm:gap-3 md:gap-6" data-langroot>
+        <div class="flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6" data-langroot>
           <!-- Language -->
           <LanguageSwitcher class="hidden sm:block" />
 
           <!-- Contacts (desktop: to'liq; mobile: ikon) -->
           <div
-            class="hidden shrink-0 items-center divide-x divide-gray-300 overflow-hidden rounded-md border border-gray-200 bg-white/80 md:flex dark:bg-neutral-900/40"
+            class="hidden shrink-0 items-center divide-x divide-gray-300 overflow-hidden rounded-md border border-gray-200 bg-white/80 lg:flex dark:bg-neutral-900/40"
           >
             <a
               href="tel:+998908090550"
-              class="flex items-center gap-2 px-3 py-2 transition hover:bg-gray-50 lg:gap-3 lg:px-4"
+              class="flex items-center gap-2 px-2 py-1.5 transition hover:bg-gray-50 lg:gap-3 lg:px-4 lg:py-2"
             >
-              <Phone class="h-5 w-5 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
+              <Phone class="h-4 w-4 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
               <div class="leading-tight">
                 <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactText') }}</span>
                 <strong class="block text-xs text-gray-900 hover:text-yellow-600 lg:text-sm xl:text-base"
@@ -68,9 +68,9 @@ function closeMenu() {
             </a>
             <a
               href="mailto:souleymanovamir@gmail.com"
-              class="flex items-center gap-2 px-3 py-2 transition hover:bg-gray-50 lg:gap-3 lg:px-4"
+              class="flex items-center gap-2 px-2 py-1.5 transition hover:bg-gray-50 lg:gap-3 lg:px-4 lg:py-2"
             >
-              <Mail class="h-5 w-5 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
+              <Mail class="h-4 w-4 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
               <div class="leading-tight">
                 <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactMail') }}</span>
                 <strong class="block text-xs text-gray-900 hover:text-yellow-600 lg:text-sm xl:text-base"
@@ -80,8 +80,8 @@ function closeMenu() {
             </a>
           </div>
 
-          <!-- Mobile: language small + contact icons -->
-          <div class="flex items-center gap-1 sm:gap-2 md:hidden">
+          <!-- Mobile + Tablet: language small + contact icons -->
+          <div class="flex items-center gap-1 sm:gap-2 lg:hidden">
             <LanguageSwitcher class="sm:hidden" />
             <a href="tel:+998908090550" class="rounded p-1.5 hover:bg-black/5 sm:p-2" aria-label="Call">
               <Phone class="h-4 w-4 text-yellow-600 sm:h-5 sm:w-5" />
@@ -122,7 +122,7 @@ function closeMenu() {
       <div
         v-show="isOpen"
         id="mobile-menu"
-        class="border-t border-black/10 bg-white/95 backdrop-blur md:hidden dark:bg-neutral-900/95"
+        class="border-t border-black/10 bg-white/95 backdrop-blur lg:hidden dark:bg-neutral-900/95"
       >
         <div class="mx-auto max-w-7xl px-3 py-3 sm:px-4 sm:py-4 lg:px-8">
           <nav class="grid gap-1 sm:gap-2">
