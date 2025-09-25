@@ -55,14 +55,14 @@ function closeMenu() {
             class="hidden shrink-0 items-center divide-x divide-gray-300 overflow-hidden rounded-md border border-gray-200 bg-white/80 lg:flex dark:bg-neutral-900/40"
           >
             <a
-              href="tel:+998908090550"
+              href="tel:+998555087440"
               class="flex items-center gap-2 px-2 py-1.5 transition hover:bg-gray-50 lg:gap-3 lg:px-4 lg:py-2"
             >
               <Phone class="h-4 w-4 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
               <div class="leading-tight">
                 <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactText') }}</span>
                 <strong class="block text-xs text-gray-900 hover:text-yellow-600 lg:text-sm xl:text-base"
-                  >+998908090550</strong
+                  >+998555087440</strong
                 >
               </div>
             </a>
@@ -83,7 +83,7 @@ function closeMenu() {
           <!-- Mobile + Tablet: language small + contact icons -->
           <div class="flex items-center gap-1 sm:gap-2 lg:hidden">
             <LanguageSwitcher class="sm:hidden" />
-            <a href="tel:+998908090550" class="rounded p-1.5 hover:bg-black/5 sm:p-2" aria-label="Call">
+            <a href="tel:+998555087440" class="rounded p-1.5 hover:bg-black/5 sm:p-2" aria-label="Call">
               <Phone class="h-4 w-4 text-yellow-600 sm:h-5 sm:w-5" />
             </a>
             <a
@@ -141,11 +141,11 @@ function closeMenu() {
           <!-- Mobile contact block -->
           <div class="mt-3 grid gap-1 sm:mt-4 sm:gap-2">
             <a
-              href="tel:+998908090550"
+              href="tel:+998555087440"
               class="flex items-center gap-2 rounded px-2 py-1.5 hover:bg-black/5 sm:gap-3 sm:py-2"
             >
               <Phone class="h-4 w-4 text-yellow-600 sm:h-5 sm:w-5" />
-              <span class="text-xs sm:text-sm">+998908090550</span>
+              <span class="text-xs sm:text-sm">+998555087440</span>
             </a>
             <a
               href="mailto:souleymanovamir@gmail.com"
