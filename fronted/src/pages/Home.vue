@@ -513,7 +513,7 @@
                         d="M4 12h16m0 0-6-6m6 6-6 6"
                       ></path>
                     </svg>
-                    200
+                    50
                   </p>
                   <p
                     class="text-[21px] max-md:text-sm leading-[1.2] font-medium font-fira_sans flex gap-5 max-md:gap-3 text-light"
@@ -529,7 +529,23 @@
                         d="M4 12h16m0 0-6-6m6 6-6 6"
                       ></path>
                     </svg>
-                    300
+                    100
+                  </p>
+                  <p
+                    class="text-[21px] max-md:text-sm leading-[1.2] font-medium font-fira_sans flex gap-5 max-md:gap-3 text-light"
+                  >
+                    <svg
+                      class="w-[20px] h-[20px] max-md:w-4 max-md:h-4 stroke-primary"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="3"
+                        d="M4 12h16m0 0-6-6m6 6-6 6"
+                      ></path>
+                    </svg>
+                    200
                   </p>
                   <p
                     class="text-[21px] max-md:text-sm leading-[1.2] font-medium font-fira_sans flex gap-5 max-md:gap-3 text-light"
@@ -588,8 +604,8 @@
               <p
                 class="flex flex-col items-center justify-center font-fira_sans text-4xl max-md:text-2xl font-semibold text-[#d9d9d9]"
               >
-                <span class="mb-2 max-md:mb-1">Добавим цвет</span>
-                <span class="mb-4 max-md:mb-2">вашей пряже</span>
+                <span class="mb-2 max-md:mb-1">Окрашивание партий</span>
+                <!-- <span class="mb-4 max-md:mb-2">вашей пряже</span> -->
                 <svg
                   class="w-[62px] h-[42px] max-md:w-8 max-md:h-6 stroke-current animate-bounce"
                   viewBox="0 0 24 24"
