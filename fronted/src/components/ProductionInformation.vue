@@ -620,12 +620,12 @@ textarea:focus {
         </div>
 
         <div v-if="currentProject" class="mt-16">
-          <h3 class="text-2xl font-extrabold text-gray-900">Результаты процесса</h3>
+          <h3 class="text-2xl font-extrabold text-gray-900">{{ $t('product.information1') }}</h3>
           <p class="mt-3 max-w-5xl text-gray-600">{{ currentProject.results }}</p>
         </div>
 
         <div v-if="currentProject" class="mt-16">
-          <h3 class="text-2xl font-extrabold text-gray-900">Услуги</h3>
+          <h3 class="text-2xl font-extrabold text-gray-900">{{ $t('product.information2') }}</h3>
           <div class="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div
               v-for="(service, index) in currentProject.services"
@@ -660,14 +660,14 @@ textarea:focus {
               @click="prevCards"
               class="rounded-lg border border-gray-300 bg-white px-6 py-2 text-gray-800 transition-colors hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Предыдущий
+              {{ $t('product.prev') }}
             </button>
             <button
             :disabled="startIndex + 3 >= (allRelatedWorks.length || 0)"
               @click="nextCards"
               class="rounded-lg border border-gray-300 bg-white px-6 py-2 text-gray-800 transition-colors hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Следующий
+              {{ $t('product.next') }}
             </button>
           </div>
 
@@ -820,12 +820,12 @@ const currentProject = computed(() => {
     const projectId = route.params.id
     if (!projectId || isNaN(Number(projectId))) return null
     const id = Number(projectId)
-    if (![1,2,3,4,5,6].includes(id)) return null
+    if (![0,1,2,3,4,5].includes(id)) return null
     
     return {
       id,
       title: t(`projectsss.${id}.title`) || `Project ${id}`,  // projectss → projectsss, fallback
-      mainImage: `/Fablio/images/${id === 4 ? 'HK1' : 'P' + id}.${id === 6 ? 'jpg' : 'webp'}`,
+      mainImage: `/Fablio/images/${id === 3 ? 'HK1' : 'P' + id}.${id === 5 ? 'jpg' : 'webp'}`,
       intro: t(`projectsss.${id}.intro`) || '',
       project: t(`projectsss.${id}.project`) || '',
       category: t(`projectsss.${id}.category`) || '',
@@ -876,10 +876,10 @@ const infoRows = computed(() => {
 // All related works (try-catch bilan)
 const allRelatedWorks = computed(() => {
   try {
-    return [1, 2, 3, 4, 5, 6].map(id => ({
+    return [0,1, 2, 3, 4, 5].map(id => ({
       id,
       title: t(`relatedWorks.${id}.title`) || `Related ${id}`,
-      image: `/Fablio/images/${id === 4 ? 'HK1' : 'P' + id}.${id === 6 ? 'jpg' : 'webp'}`,
+      image: `/Fablio/images/${id === 3 ? 'HK1' : 'P' + id}.${id === 5 ? 'jpg' : 'webp'}`,
       excerpt: t(`relatedWorks.${id}.excerpt`) || '',
     }))
   } catch (error) {

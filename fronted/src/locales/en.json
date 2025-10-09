@@ -11,16 +11,16 @@
     "title": "Contacts",
     "breadcrumbHome": "Home",
     "breadcrumbContact": "Contacts",
-    "formTitle": "Get in Touch",
+    "formTitle": "Contact Us",
     "formEmail": "Email Us",
-    "formSubtitle": "We are always happy to help you choose yarn and answer your questions.",
+    "formSubtitle": "We are always happy to help you choose the right yarn and answer any questions you may have.",
     "inputName": "Name",
     "inputEmail": "Email",
     "inputPhone": "Phone",
     "inputCompany": "Company",
     "inputSubject": "Subject",
     "inputMessage": "Message",
-    "agreeText": "Leave your message — we will contact you soon.",
+    "agreeText": "Leave your message — we’ll get back to you.",
     "submit": "Send!",
     "mapTitle": "Contact us instantly!",
     "mapText": "Leave a message or call us — we’ll respond as soon as possible.",
@@ -172,40 +172,40 @@
   ],
   "projects": [
     {
-      "id": 1,
+      "id": 0,
       "title": "Reliable Quality",
       "excerpt": "We control every stage of production to ensure a stable result.",
+      "image": "images/P0.webp"
+    },
+    {
+      "id": 1,
+      "title": "Wide Range",
+      "excerpt": "We offer yarn of any numbers from cotton, viscose, acrylic, and poly-cotton.",
       "image": "images/P1.webp"
     },
     {
       "id": 2,
-      "title": "Wide Range",
-      "excerpt": "We offer yarn of any numbers from cotton, viscose, acrylic, and poly-cotton.",
+      "title": "For Domestic and Export Markets",
+      "excerpt": "With over 3 years of experience, we supply our products both locally and internationally.",
       "image": "images/P2.webp"
     },
     {
       "id": 3,
-      "title": "For Domestic and Export Markets",
-      "excerpt": "With over 3 years of experience, we supply our products both locally and internationally.",
-      "image": "images/P3.webp"
-    },
-    {
-      "id": 4,
       "title": "Rewinding on Cardboard Cones",
       "excerpt": "Convenient format for your production needs.",
       "image": "images/HK1.webp"
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Laboratory",
       "excerpt": "Guaranteed perfect shades and consistent quality in every batch.",
-      "image": "images/P5.webp"
+      "image": "images/P4.webp"
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Packaging",
       "excerpt": "Reliable protection of yarn during storage and transportation.",
-      "image": "images/P6.jpg"
+      "image": "images/P5.jpg"
     }
   ],
   "reviewss": [
@@ -232,49 +232,256 @@
   ],
   "projectss": [
     {
-      "id": 1,
+      "id": 0,
       "title": "Rewinding",
       "excerpt": "Precise preparation of yarn for flawless dyeing.",
+      "image": "images/P0.webp"
+    },
+    {
+      "id": 1,
+      "title": "Dyeing",
+      "excerpt": "Deep and long-lasting colors created in our dyeing facilities.",
       "image": "images/P1.webp"
     },
     {
       "id": 2,
-      "title": "Dyeing",
-      "excerpt": "Deep and long-lasting colors created in our dyeing facilities.",
+      "title": "Drying",
+      "excerpt": "Gentle drying preserves the yarn’s softness and strength.",
       "image": "images/P2.webp"
     },
     {
       "id": 3,
-      "title": "Drying",
-      "excerpt": "Gentle drying preserves the yarn’s softness and strength.",
-      "image": "images/P3.webp"
-    },
-    {
-      "id": 4,
       "title": "Rewinding on Cardboard Cones",
       "excerpt": "A convenient format for your production needs.",
       "image": "images/HK1.webp"
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Laboratory",
       "excerpt": "Guaranteed perfect shades and consistent quality in every batch.",
-      "image": "images/P5.webp"
+      "image": "images/P4.webp"
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Packaging",
       "excerpt": "Reliable protection of yarn during storage and transportation.",
-      "image": "images/P6.jpg"
+      "image": "images/P5.jpg"
     }
   ],
   "product": {
     "information": "Process Information",
+    "information1": "Process Results",
+    "information2": "Services",
+    "prev": "Previous",
+    "next": "Next",
     "relatedWorks": "Production"
   },
   "projectsss": [
     {
       "id": 1,
+      "title": "Rewinding",
+      "mainImage": "/Fablio/images/P1.webp",
+      "intro": "The raw yarn undergoes quality inspection and is rewound onto cones, ensuring stability and readiness for dyeing.",
+      "project": "Rewinding of raw yarn",
+      "category": "Raw material preparation",
+      "date": "Inspection and rewinding of yarn onto cones",
+      "status": "Performed daily",
+      "about": "The raw yarn undergoes strict quality control — checking for irregularities, knots, and fiber tensile strength. It is then fed into winding machines, where it is carefully rewound onto plastic cones. This is a preparatory stage that ensures even dyeing and high-quality finished products.",
+      "results": "Rewinding ensures stable yarn tension, an ideal base for dyeing, and reliability in subsequent production stages.",
+      "services": [
+        {
+          "title": "Quality Control",
+          "description": "Inspection of yarn for defects and compliance with strength standards.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Rewinding onto Cones",
+          "description": "Forming convenient yarn packages for a stable dyeing process.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Even Tension",
+          "description": "Ensuring proper yarn structure and density.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Preparation for Dyeing",
+          "description": "Creating the perfect foundation for subsequent technological stages.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dyeing",
+      "mainImage": "/Fablio/images/P2.webp",
+      "intro": "At the dyeing stage, the yarn is colored using the reactive dyeing method in the selected shade. Afterward, samples undergo laboratory tests to ensure color fastness, uniformity, and overall quality.",
+      "project": "Dyeing",
+      "category": "Yarn Preparation",
+      "date": "Active Dyeing and Color Quality Control",
+      "status": "Performed Daily",
+      "about": "At the dyeing stage, the yarn acquires its final shade. We use reactive dyeing, which ensures rich, even, and long-lasting color. After dyeing, samples from each batch are taken for laboratory testing.",
+      "results": "The dyeing process guarantees brightness, durability, and compliance with international quality standards, making our yarn a reliable choice for fabric and knitwear production.",
+      "services": [
+        {
+          "title": "Color Uniformity Inspection",
+          "description": "Control of color consistency on each yarn cone.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Rubbing Fastness <br/> (ISO 105-X12)",
+          "description": "Testing color resistance to mechanical friction.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Color Fastness <br/>(ISO 105-C05)",
+          "description": "Evaluating shade retention during washing and care.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Spirality (ISO 3071)",
+          "description": "Measuring the stability of the shape and structure of the dyed yarn.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Drying",
+      "mainImage": "/Fablio/images/P3.webp",
+      "intro": "After successfully passing quality control, the dyed yarn is sent for drying, where its strength, softness, and color uniformity are preserved.",
+      "project": "Yarn Drying",
+      "category": "Dyeing Completion",
+      "date": "Drying Dyed Yarn",
+      "status": "Performed Daily",
+      "about": "After successful testing, the dyed yarn proceeds to the drying stage. Modern equipment ensures even moisture removal while preserving fiber strength, softness, and color stability. Gentle drying guarantees that each yarn cone retains its properties and is ready for further processing.",
+      "results": "Drying helps fix the color, maintain the texture, and prepare the yarn for the next stage of production.",
+      "services": [
+        {
+          "title": "Even Drying",
+          "description": "Moisture removal without compromising fiber quality or softness.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Color Preservation",
+          "description": "Fixing the depth and durability of the dyed yarn’s color.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Moisture Control",
+          "description": "Maintaining the optimal level of humidity for further processing.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Preparation for Next Stage",
+          "description": "Creating the perfect base for winding onto cardboard cones.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Rewinding on Cardboard Cones",
+      "mainImage": "/Fablio/images/HK1.webp",
+      "intro": "After drying, the yarn is rewound onto cardboard cones and undergoes testing for strength, color fastness, and dye uniformity.",
+      "project": "Rewinding",
+      "category": "Preparation for Packaging",
+      "date": "Rewinding and Quality Control of Dyed Yarn",
+      "status": "Performed Daily",
+      "about": "After drying, the yarn is rewound onto cardboard cones — this is the final stage before packaging and shipment to the customer. At this stage, additional quality checks are carried out: samples are tested for rubbing fastness, color fastness, and dye uniformity. A special unwinding test is also performed to ensure there are no undyed areas throughout the entire cone.",
+      "results": "Rewinding onto cardboard cones ensures convenient further use, while quality control guarantees color consistency and compliance with international standards.",
+      "services": [
+        {
+          "title": "Rub Resistance <br/>(ISO 105-X12)",
+          "description": "Testing color resistance to mechanical friction.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Color Fastness <br/>(ISO 105-C05)",
+          "description": "Checking the durability of the shade during washing and care.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Dyeing Uniformity Inspection",
+          "description": "Unwinding tests to detect any undyed areas.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Winding onto Cardboard Cones",
+          "description": "Convenient cone formation for storage, transportation, and further use.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Laboratory",
+      "mainImage": "/Fablio/images/P5.webp",
+      "intro": "In the laboratory, each batch of yarn undergoes detailed testing — including shade verification, rubbing fastness, and color fastness — ensuring consistent product quality.",
+      "project": "Laboratory",
+      "category": "Quality Control",
+      "date": "Testing of Dyed Yarn According to International Standards",
+      "status": "Performed Daily",
+      "about": "In the laboratory, each batch of dyed yarn undergoes detailed quality control. The shade, dye uniformity, rubbing fastness, and washing resistance are tested. International testing standards are applied to ensure consistent characteristics and high product quality.",
+      "results": "Laboratory testing confirms that the yarn meets customer requirements and international standards, ensuring the reliability of every batch.",
+      "services": [
+        {
+          "title": "Shade Verification",
+          "description": "Control of color accuracy and uniformity.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Rub Fastness <br/>(ISO 105-X12)",
+          "description": "Testing the durability of the dye under mechanical friction.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Color Fastness <br/>(ISO 105-C05)",
+          "description": "Testing shade resistance during washing and care.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Standards Compliance",
+          "description": "Certification of product quality according to international testing methods.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Packaging",
+      "mainImage": "/Fablio/images/P6.jpg",
+      "intro": "After the final quality control, each yarn cone is labeled, securely packed, and placed into cardboard boxes, ensuring reliable protection and easy product identification.",
+      "project": "Packaging",
+      "category": "Final Production Stage",
+      "date": " Labeling and Packaging of Yarn into Individual and Transport Boxes",
+      "status": "Performed Daily",
+      "about": "After passing the final quality control, the yarn proceeds to the packaging stage. Each cone is labeled with the customer’s name, yarn count, color, color code, and batch number. The cones are then packed in cellophane bags and stacked into cardboard boxes. The boxes are also labeled with customer details, yarn count, batch number, color, as well as net and gross weight.",
+      "results": "Packaging ensures reliable protection of the yarn during storage and transportation, as well as convenient product identification throughout the entire supply chain.",
+      "services": [
+        {
+          "title": "Cone Labeling",
+          "description": "Applying information about the customer, yarn count, batch number, and color.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Individual Packaging",
+          "description": "Each cone is securely sealed in a cellophane bag.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Box Formation",
+          "description": "Cones are carefully stacked and placed into cardboard boxes.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Box Labeling",
+          "description": "Indicating customer details, batch number, color, and weight for accurate identification.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },   {
+      "id": 7,
       "title": "Rewinding",
       "mainImage": "/Fablio/images/P1.webp",
       "intro": "Raw yarn undergoes quality control and is rewound onto cones, ensuring stability and readiness for dyeing.",
@@ -306,220 +513,53 @@
           "icon": "icons.icon4"
         }
       ]
-    },
-    {
-      "id": 2,
-      "title": "Dyeing",
-      "mainImage": "/Fablio/images/P2.webp",
-      "intro": "During the dyeing stage, yarn is dyed using an active method in the selected shade, after which samples undergo laboratory checks for durability, uniformity, and color quality.",
-      "project": "Dyeing",
-      "category": "Yarn Preparation",
-      "date": "Active Dyeing and Color Quality Control",
-      "status": "Performed Daily",
-      "about": "During the dyeing stage, yarn acquires its future shade. We use active dyeing, which ensures saturation, uniformity, and durability of the color. After dyeing, samples from each batch are taken for laboratory tests.",
-      "results": "Dyeing guarantees brightness, durability, and compliance with international quality standards, making our yarn a reliable choice for fabric and knitwear production.",
-      "services": [
-        {
-          "title": "Dyeing Check",
-          "description": "Control of color uniformity on each bobbin.",
-          "icon": "icons.icon1"
-        },
-        {
-          "title": "Rub Resistance <br/>(ISO 105-X12)",
-          "description": "Testing color strength under mechanical impact.",
-          "icon": "icons.icon2"
-        },
-        {
-          "title": "Color Fastness <br/>(ISO 105-C05)",
-          "description": "Checking shade retention during washing and care.",
-          "icon": "icons.icon3"
-        },
-        {
-          "title": "Spirality (ISO 3071)",
-          "description": "Measuring stability of shape and structure of dyed yarn.",
-          "icon": "icons.icon4"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Drying",
-      "mainImage": "/Fablio/images/P3.webp",
-      "intro": "After successful quality control, the dyed yarn is sent for drying, where its strength, softness, and color uniformity are preserved.",
-      "project": "Yarn Drying",
-      "category": "Dyeing Completion",
-      "date": "Drying Dyed Yarn",
-      "status": "Performed Daily",
-      "about": "After positive results, the dyed yarn goes to drying. Modern equipment ensures uniform moisture removal, preserving fiber strength, softness, and shade stability. Gentle drying guarantees that each bobbin retains its properties and is ready for further processing.",
-      "results": "Drying fixes the color, preserves texture, and prepares yarn for the next production stage.",
-      "services": [
-        {
-          "title": "Uniform Drying",
-          "description": "Moisture removal without loss of quality and fiber softness.",
-          "icon": "icons.icon1"
-        },
-        {
-          "title": "Color Preservation",
-          "description": "Fixing saturation and durability of dyed yarn.",
-          "icon": "icons.icon2"
-        },
-        {
-          "title": "Moisture Control",
-          "description": "Maintaining optimal level for further processing.",
-          "icon": "icons.icon3"
-        },
-        {
-          "title": "Preparation for Next Stage",
-          "description": "Creating an ideal base for rewinding onto cardboard cones.",
-          "icon": "icons.icon4"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Rewinding on Cardboard Cones",
-      "mainImage": "/Fablio/images/HK1.webp",
-      "intro": "After drying, the yarn is rewound onto cardboard cones and undergoes strength, color durability, and dyeing uniformity checks.",
-      "project": "Rewinding",
-      "category": "Preparation for Packaging",
-      "date": "Rewinding and Quality Control of Dyed Yarn",
-      "status": "Performed Daily",
-      "about": "After drying, the yarn is rewound onto cardboard cones — this is the final preparation before packaging and shipping to the customer. At this stage, additional samples are taken for quality checks: testing for rub resistance, color fastness, and dyeing uniformity is conducted. Sock unwinding is also performed on a special device to ensure no undyed areas across the entire bobbin surface.",
-      "results": "Rewinding onto cardboard cones ensures convenience for further use, and quality control guarantees color stability and compliance with international standards.",
-      "services": [
-        {
-          "title": "Rub Resistance <br/>(ISO 105-X12)",
-          "description": "Testing color preservation under mechanical impact.",
-          "icon": "icons.icon1"
-        },
-        {
-          "title": "Color Fastness <br/>(ISO 105-C05)",
-          "description": "Checking shade durability to washing and care.",
-          "icon": "icons.icon2"
-        },
-        {
-          "title": "Dyeing Uniformity Check",
-          "description": "Sock unwinding to detect undyed areas.",
-          "icon": "icons.icon3"
-        },
-        {
-          "title": "Forming on Cardboard Cones",
-          "description": "Convenient winding form for storage, transportation, and further use.",
-          "icon": "icons.icon4"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Laboratory",
-      "mainImage": "/Fablio/images/P5.webp",
-      "intro": "In the laboratory, each batch of yarn undergoes detailed control: shade check, rub resistance, and color fastness, guaranteeing stable product quality.",
-      "project": "Laboratory",
-      "category": "Quality Control",
-      "date": "Testing Dyed Yarn According to International Standards",
-      "status": "Performed Daily",
-      "about": "In the laboratory, each batch of dyed yarn undergoes detailed quality control. Shade, dyeing uniformity, rub resistance, and washing impact are checked. International testing standards are used, guaranteeing stable characteristics and high product quality.",
-      "results": "Laboratory tests confirm yarn compliance with customer requirements and international standards, ensuring reliability of each batch.",
-      "services": [
-        {
-          "title": "Shade Check",
-          "description": "Control of color accuracy and uniformity.",
-          "icon": "icons.icon1"
-        },
-        {
-          "title": "Rub Resistance <br/>(ISO 105-X12)",
-          "description": "Testing color strength under mechanical impact.",
-          "icon": "icons.icon2"
-        },
-        {
-          "title": "Color Fastness <br/>(ISO 105-C05)",
-          "description": "Testing shade durability during washing and care.",
-          "icon": "icons.icon3"
-        },
-        {
-          "title": "Standards Compliance",
-          "description": "Confirming product quality according to international methods.",
-          "icon": "icons.icon4"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "Packaging",
-      "mainImage": "/Fablio/images/P6.jpg",
-      "intro": "After final quality control, each yarn bobbin is labeled, hermetically packaged, and placed in cardboard boxes, ensuring reliable protection and convenient product identification.",
-      "project": "Packaging",
-      "category": "Final Production Stage",
-      "date": "Labeling and Packaging Yarn in Individual and Transport Packages",
-      "status": "Performed Daily",
-      "about": "After positive quality control results, yarn goes to packaging. Each bobbin is labeled with buyer, yarn number, color, color code, and batch number. Then bobbins are packaged in cellophane bags and stacked in cardboard boxes. Boxes are also labeled with buyer, yarn number, batch, color, and net/gross weight.",
-      "results": "Packaging ensures reliable yarn protection during storage and transportation, as well as convenient identification throughout the supply chain.",
-      "services": [
-        {
-          "title": "Bobbin Labeling",
-          "description": "Applying buyer, yarn number, batch, and color data.",
-          "icon": "icons.icon1"
-        },
-        {
-          "title": "Individual Packaging",
-          "description": "Each bobbin is hermetically packaged in a cellophane bag.",
-          "icon": "icons.icon2"
-        },
-        {
-          "title": "Box Forming",
-          "description": "Bobbins are neatly stacked and placed in cardboard boxes.",
-          "icon": "icons.icon3"
-        },
-        {
-          "title": "Box Labeling",
-          "description": "Marking buyer, batch number, color, and weight for accurate identification.",
-          "icon": "icons.icon4"
-        }
-      ]
     }
   ],
   "relatedWorks": [
     {
-      "id": 1,
+      "id": 0,
       "title": "Rewinding",
       "image": "/Fablio/images/P1.webp",
       "excerpt": "Precise preparation of yarn for impeccable dyeing."
     },
     {
-      "id": 2,
+      "id": 1,
       "title": "Dyeing",
       "image": "/Fablio/images/P2.webp",
       "excerpt": "Deep and fast colors born in our dyeing workshops."
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "Drying",
       "image": "/Fablio/images/P3.webp",
       "excerpt": "Softness and strength are preserved with gentle drying."
     },
     {
-      "id": 4,
+      "id": 3,
       "title": "Rewinding onto Cardboard Cones",
       "image": "/Fablio/images/HK1.webp",
       "excerpt": "Convenient format for your production."
     },
     {
-      "id": 5,
+      "id": 4,
       "title": "Laboratory",
       "image": "/Fablio/images/P5.webp",
       "excerpt": "Guarantee of perfect shade and quality of each batch."
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "Packaging",
       "image": "/Fablio/images/P6.jpg",
       "excerpt": "Reliable protection of yarn during storage and transportation."
+      
     }
+  
+    
   ],
   "labels": {
     "process": "Process",
     "category": "Category",
-    "stage": "Date",
+    "stage": "Stage",
     "status": "Status"
   }
 }
