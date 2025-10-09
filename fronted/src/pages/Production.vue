@@ -8,16 +8,16 @@
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-3 sm:px-4">
         <div class="text-center text-white">
-          <h1 class="mb-3 text-2xl font-bold sm:text-3xl sm:mb-4 md:text-4xl lg:text-5xl">Производство</h1>
+          <h1 class="mb-3 text-2xl font-bold sm:text-3xl sm:mb-4 md:text-4xl lg:text-5xl">{{ $t('menu.production') }}</h1>
           <nav class="text-xs sm:text-sm">
             <router-link
               to="/"
               class="underline-offset-4 transition-colors hover:text-amber-600 hover:underline"
             >
-              Главная
+              {{ $t('menu.home') }}
             </router-link>
             <span class="mx-1 sm:mx-2">•</span>
-            <span class="text-amber-600">Производство</span>
+            <span class="text-amber-600">{{ $t('menu.production') }}</span>
           </nav>
         </div>
       </div>
@@ -148,6 +148,9 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { tm,t } = useI18n()
 
 type Project = {
   id: number
@@ -158,44 +161,7 @@ type Project = {
 }
 
 /** Demo ma'lumotlar (rasmlarni o'zingiznikiga almashtiring) */
-const items: Project[] = [
-  {
-    id: 1,
-    title: 'Перемотка',
-    excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.',
-    image: 'images/P1.webp',
-  },
-  {
-    id: 2,
-    title: 'Крашение',
-    excerpt: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.',
-    image: 'images/P2.webp',
-  },
-  {
-    id: 3,
-    title: 'Сушка',
-    excerpt: 'Мягкость и прочность сохраняются при бережной сушке.',
-    image: 'images/P3.webp',
-  },
-  {
-    id: 4,
-    title: 'Перемотка на картонные конусы',
-    excerpt: 'Удобный формат для вашего производства.',
-    image: 'images/HK1.webp',
-  },
-  {
-    id: 5,
-    title: 'Лаборатория',
-    excerpt: 'Гарантия идеального оттенка и качества каждой партии.',
-    image: 'images/P5.webp',
-  },
-  {
-    id: 6,
-    title: 'Упаковка',
-    excerpt: 'Надежная защита пряжи при хранении и транспортировке.',
-    image: 'images/P6.jpg',
-  },
-]
+const items = computed(() => tm('projectss') as Project[])
 
 const viewer = reactive<{ open: boolean; src: string; alt: string }>({
   open: false,

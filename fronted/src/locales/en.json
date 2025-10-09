@@ -1,46 +1,525 @@
 {
   "menu": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "production": "Production",
     "products": "Products",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Contacts"
   },
-  "welcome": "Welcome to Zelal Tekstil",
-  "aboutText": "Zelal Tekstil is a leading textile manufacturer in Uzbekistan.",
-  "productionText": "High quality production.",
-  "productsText": "Our Products",
-  "blogText": "Latest News",
-  "contactText": "Contact Us",
-  "contactMail": "Talk to us",
-  "name": "Name",
-  "email": "Email",
-  "message": "Message",
-  "send": "Send",
-
-  "bread": { "home": "Home", "contact": "Contact Us" },
-  "contact": {
-    "title": "Contact Us",
-    "formTitle": "Contact Form",
-    "formSubtitle": "Feel free to contact us through Twitter or Facebook if you prefer.",
+  "contactPage": {
+    "title": "Contacts",
+    "breadcrumbHome": "Home",
+    "breadcrumbContact": "Contacts",
+    "formTitle": "Get in Touch",
+    "formEmail": "Email Us",
+    "formSubtitle": "We are always happy to help you choose yarn and answer your questions.",
+    "inputName": "Name",
+    "inputEmail": "Email",
+    "inputPhone": "Phone",
+    "inputCompany": "Company",
+    "inputSubject": "Subject",
+    "inputMessage": "Message",
+    "agreeText": "Leave your message — we will contact you soon.",
+    "submit": "Send!",
+    "mapTitle": "Contact us instantly!",
+    "mapText": "Leave a message or call us — we’ll respond as soon as possible.",
     "headOffice": "Head Office",
-    "branchOffice": "Branch Office",
-    "address": "Address",
-    "callEmail": "Call Us / Email"
+    "address": "Address:",
+    "uzbekistanAddress1": "Republic of Uzbekistan, Tashkent city",
+    "uzbekistanAddress2": "Mirzo-Ulugbek district, TTZ Industrial Zone, TechnoPark",
+    "contactInfo": "Phone / Email"
   },
-  "form": {
-    "name": "Your Name*",
-    "email": "Your Email*",
-    "phone": "Phone Number*",
-    "company": "Company Name*",
-    "subject": "Subject*",
-    "message": "Message*",
-    "consent": "I agree that my submitted data is being collected and stored.",
-    "sendNow": "Send Now!"
+  "homePage": {
+    "details": "Learn more",
+    "contact": "Contact us.",
+    "title": "Fablio",
+    "textileFactory": "Quality that stands out at first glance.",
+    "textileFactoryText": "Perfect texture and rich color make your products truly premium.",
+    "products": "Our products",
+    "fromIdeaToBatch": "From idea to finished batch",
+    "fromIdeaToBatchText": "We transform yarn into colors that will delight you for years to come. Every stage — from shade development to delivery — is carried out with meticulous attention to detail and strict quality <br /> control.",
+    "fabricPrinting": "Yarn Dyeing",
+    "fabricDyeing": "Laboratory",
+    "engineering": "Products",
+    "fiber": "Fiber <br /> Selection",
+    "yarn": "Shade <br /> Development",
+    "quality": "Testing &<br />Quality Control",
+    "logistics": "Order <br /> Logistics",
+    "hero": "Dyed yarn — more than just color",
+    "highQuality": "Color Trend Solutions",
+    "test": "Lab Tested",
+    "heroText": "We create not just threads, but the foundation for inspiring collections. Our shades combine aesthetics, durability, and sustainability — so your products stand out from the rest.",
+    "machine": "With over <span class='font-semibold text-green-400 underline'>3+ years</span> of experience, we guarantee consistent dyed yarn quality for textile manufacturers and industrial clients.",
+    "ready": "Batch dyeing",
+    "value": "Flexible approach to volumes",
+    "value1": "Dyeing batches in kilograms:",
+    "home": "Color born in production",
+    "home1": "Each batch <span class='text-amber-500'>goes through a full journey</span> from raw material to <br class='hidden sm:block' /> a unique shade created for <span class='text-amber-500'>your order</span>",
+    "subtitle": "Unique shades — tailored to your request and style.",
+    "button": "Order Now"
   },
   "cta": {
     "left": "New Services Fablio? No Problem",
     "right": "Just Call Us!"
+  },
+  "slides": [
+    {
+      "bg": "images/D1.webp",
+      "kicker": "Dyed yarn. The color you can trust.",
+      "titleHtml": "Unique shades — tailored to your request and style.",
+      "cardKicker": "Quality proven by testing.",
+      "cardTitleHtml": "Each batch undergoes strict quality control."
+    },
+    {
+      "bg": "images/D2.webp",
+      "kicker": "Every thread — a story of color.",
+      "titleHtml": "A color that preserves its richness.",
+      "cardKicker": "Premium dyed yarn.",
+      "cardTitleHtml": "Each batch undergoes strict quality control."
+    },
+    {
+      "bg": "images/D3.webp",
+      "kicker": "Every thread — a story of color.",
+      "titleHtml": "A color that preserves its richness.",
+      "cardKicker": "Premium dyed yarn.",
+      "cardTitleHtml": "Each batch undergoes strict quality control."
+    }
+  ],
+  "reviews": [
+    {
+      "text": "We have been working with RAINBOW-TEKS for over a year. The quality of the dyed yarn is always consistent, the shades fully meet our requirements, and deliveries are always on time. I highly recommend them as a reliable supplier!",
+      "img": "images/rflag.png",
+      "name": "Russia"
+    },
+    {
+      "text": "We ordered cotton and viscose yarn for our sweater collection. The colors are vibrant, the threads are soft, and they work perfectly on our factory’s equipment. The service is excellent — the managers are always available and responsive.",
+      "img": "images/iflag.png",
+      "name": "Italy"
+    },
+    {
+      "text": "RAINBOW-TEKS is a partner you can trust. Orders for acrylic and poly-cotton yarn always arrive quickly and without defects. We especially appreciate the company’s flexibility in selecting the right counts and shades.",
+      "img": "images/tflag.png",
+      "name": "Turkey"
+    }
+  ],
+  "stats": [
+    {
+      "label": "tons per month",
+      "to": 180
+    },
+    {
+      "label": "countries in export",
+      "to": 17
+    }
+  ],
+  "exportCountries": [
+    { "id": 410, "name": "Republic of Korea", "color": "#22c55e" },
+    { "id": 818, "name": "Egypt", "color": "#14b8a6" },
+    { "id": 504, "name": "Morocco", "color": "#f59e0b" },
+    { "id": 380, "name": "Italy", "color": "#f97316" },
+    { "id": 643, "name": "Russia", "color": "#ef4444" },
+    { "id": 398, "name": "Kazakhstan", "color": "#c084fc" },
+    { "id": 417, "name": "Kyrgyzstan", "color": "#22d3ee" },
+    { "id": 364, "name": "Iran", "color": "#84cc16" },
+    { "id": 724, "name": "Spain", "color": "#a78bfa" },
+    { "id": 620, "name": "Portugal", "color": "#06b6d4" },
+    { "id": 56, "name": "Belgium", "color": "#2563eb" },
+    { "id": 276, "name": "Germany", "color": "#0ea5e9" },
+    { "id": 616, "name": "Poland", "color": "#10b981" },
+    { "id": 804, "name": "Ukraine", "color": "#f43f5e" },
+    { "id": 112, "name": "Belarus", "color": "#3b82f6" },
+    { "id": 792, "name": "Turkey", "color": "#eab308" },
+    { "id": 100, "name": "Bulgaria", "color": "#8b5cf6" }
+  ],
+  "exportSection": {
+    "title": "We export our products <br> to 17 countries, ensuring a high  <br> level of partnership."
+  },
+  "footer": {
+    "title": "Want to learn more about our yarn? Call us!",
+    "call": "Call:",
+    "label": "Phone",
+    "text": "Contact us for a consultation, yarn selection, or to place an order. We’re always happy to help you choose the perfect color and quality!",
+    "social": "Social media:"
+  },
+  "about": {
+    "text": "Vibrant solutions for textiles",
+    "text1": "For over 3 years, RAINBOW-TEKS LLC has been successfully operating both in the domestic and international markets. We offer dyed yarn made from 100% cotton, viscose, acrylic, and poly-cotton of any count — combining consistent quality with a modern approach.",
+    "text2": "Why choose us:",
+    "text3": "100% cotton: from Ne10/1 to Ne50/1 — single or multi-ply twist, tailored for any application.",
+    "text4": "All products meet ISO 9001:2015 and OEKO-TEX® Standard 100 standards — ensuring safety and consistent quality.",
+    "text5": "We manufacture premium-quality products in accordance with international standards.",
+    "text6": "An individual approach to every client — adapting to your requirements and deadlines.",
+    "text7": "Reliable supply, strict adherence to delivery schedules, and long-term partnerships.",
+    "text8": "We match shades using Pantone, color charts, or your own samples — with maximum accuracy and speed.",
+    "text9": "Our Production Facilities",
+    "text10": "Products that speak for themselves",
+    "text11": "We specialize in dyeing yarn made from 100% natural cotton. Each thread retains its strength and softness, while the color preserves its richness and durability."
+  },
+  "stepCards": [
+    {
+      "title": "Daily capacity",
+      "text": "The facility is capable of producing up to 10 tons of products per day."
+    },
+    {
+      "title": "Annual output",
+      "text": "The total production capacity reaches 3,600 tons per year."
+    },
+    {
+      "title": "Shade Development",
+      "text": "Creating new color samples takes no more than 3 working days."
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Reliable Quality",
+      "excerpt": "We control every stage of production to ensure a stable result.",
+      "image": "images/P1.webp"
+    },
+    {
+      "id": 2,
+      "title": "Wide Range",
+      "excerpt": "We offer yarn of any numbers from cotton, viscose, acrylic, and poly-cotton.",
+      "image": "images/P2.webp"
+    },
+    {
+      "id": 3,
+      "title": "For Domestic and Export Markets",
+      "excerpt": "With over 3 years of experience, we supply our products both locally and internationally.",
+      "image": "images/P3.webp"
+    },
+    {
+      "id": 4,
+      "title": "Rewinding on Cardboard Cones",
+      "excerpt": "Convenient format for your production needs.",
+      "image": "images/HK1.webp"
+    },
+    {
+      "id": 5,
+      "title": "Laboratory",
+      "excerpt": "Guaranteed perfect shades and consistent quality in every batch.",
+      "image": "images/P5.webp"
+    },
+    {
+      "id": 6,
+      "title": "Packaging",
+      "excerpt": "Reliable protection of yarn during storage and transportation.",
+      "image": "images/P6.jpg"
+    }
+  ],
+  "reviewss": [
+    {
+      "name": "Anna",
+      "city": "Moscow",
+      "text": "We’ve been working with RAINBOW-TEKS for the second year — always receiving consistent quality and fast delivery."
+    },
+    {
+      "name": "Oybek",
+      "city": "Tashkent",
+      "text": "I really appreciate the wide selection of yarn and the attentive customer service. Orders always arrive on time."
+    },
+    {
+      "name": "Maria",
+      "city": "Kyiv",
+      "text": "The color palette is truly impressive! It’s easy to find the right shades for our collections."
+    },
+    {
+      "name": "David",
+      "city": "Istanbul",
+      "text": "The company has proven itself as a reliable partner — precise deadlines, high-quality products, and open communication."
+    }
+  ],
+  "projectss": [
+    {
+      "id": 1,
+      "title": "Rewinding",
+      "excerpt": "Precise preparation of yarn for flawless dyeing.",
+      "image": "images/P1.webp"
+    },
+    {
+      "id": 2,
+      "title": "Dyeing",
+      "excerpt": "Deep and long-lasting colors created in our dyeing facilities.",
+      "image": "images/P2.webp"
+    },
+    {
+      "id": 3,
+      "title": "Drying",
+      "excerpt": "Gentle drying preserves the yarn’s softness and strength.",
+      "image": "images/P3.webp"
+    },
+    {
+      "id": 4,
+      "title": "Rewinding on Cardboard Cones",
+      "excerpt": "A convenient format for your production needs.",
+      "image": "images/HK1.webp"
+    },
+    {
+      "id": 5,
+      "title": "Laboratory",
+      "excerpt": "Guaranteed perfect shades and consistent quality in every batch.",
+      "image": "images/P5.webp"
+    },
+    {
+      "id": 6,
+      "title": "Packaging",
+      "excerpt": "Reliable protection of yarn during storage and transportation.",
+      "image": "images/P6.jpg"
+    }
+  ],
+  "product": {
+    "information": "Process Information",
+    "relatedWorks": "Production"
+  },
+  "projectsss": [
+    {
+      "id": 1,
+      "title": "Rewinding",
+      "mainImage": "/Fablio/images/P1.webp",
+      "intro": "Raw yarn undergoes quality control and is rewound onto cones, ensuring stability and readiness for dyeing.",
+      "project": "Rewinding Raw Yarn",
+      "category": "Raw Material Preparation",
+      "date": "Yarn Inspection and Rewinding onto Cones",
+      "status": "Performed Daily",
+      "about": "Raw yarn undergoes strict quality control: irregularities, knots, and fiber breaking load are checked. Then it goes to winding machines, where it is carefully rewound onto plastic cones — this preparatory stage ensures even dyeing and high quality of the finished product.",
+      "results": "Rewinding achieves stable thread tension, an ideal base for dyeing, and reliability in further production.",
+      "services": [
+        {
+          "title": "Quality Control",
+          "description": "Checking yarn for defects and compliance with strength standards.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Rewinding onto Cones",
+          "description": "Forming convenient bobbins for stable dyeing process.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Uniform Tension",
+          "description": "Ensuring proper structure and density of the thread.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Preparation for Dyeing",
+          "description": "Creating an ideal base for further technological stages.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Dyeing",
+      "mainImage": "/Fablio/images/P2.webp",
+      "intro": "During the dyeing stage, yarn is dyed using an active method in the selected shade, after which samples undergo laboratory checks for durability, uniformity, and color quality.",
+      "project": "Dyeing",
+      "category": "Yarn Preparation",
+      "date": "Active Dyeing and Color Quality Control",
+      "status": "Performed Daily",
+      "about": "During the dyeing stage, yarn acquires its future shade. We use active dyeing, which ensures saturation, uniformity, and durability of the color. After dyeing, samples from each batch are taken for laboratory tests.",
+      "results": "Dyeing guarantees brightness, durability, and compliance with international quality standards, making our yarn a reliable choice for fabric and knitwear production.",
+      "services": [
+        {
+          "title": "Dyeing Check",
+          "description": "Control of color uniformity on each bobbin.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Rub Resistance <br/>(ISO 105-X12)",
+          "description": "Testing color strength under mechanical impact.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Color Fastness <br/>(ISO 105-C05)",
+          "description": "Checking shade retention during washing and care.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Spirality (ISO 3071)",
+          "description": "Measuring stability of shape and structure of dyed yarn.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Drying",
+      "mainImage": "/Fablio/images/P3.webp",
+      "intro": "After successful quality control, the dyed yarn is sent for drying, where its strength, softness, and color uniformity are preserved.",
+      "project": "Yarn Drying",
+      "category": "Dyeing Completion",
+      "date": "Drying Dyed Yarn",
+      "status": "Performed Daily",
+      "about": "After positive results, the dyed yarn goes to drying. Modern equipment ensures uniform moisture removal, preserving fiber strength, softness, and shade stability. Gentle drying guarantees that each bobbin retains its properties and is ready for further processing.",
+      "results": "Drying fixes the color, preserves texture, and prepares yarn for the next production stage.",
+      "services": [
+        {
+          "title": "Uniform Drying",
+          "description": "Moisture removal without loss of quality and fiber softness.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Color Preservation",
+          "description": "Fixing saturation and durability of dyed yarn.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Moisture Control",
+          "description": "Maintaining optimal level for further processing.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Preparation for Next Stage",
+          "description": "Creating an ideal base for rewinding onto cardboard cones.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Rewinding on Cardboard Cones",
+      "mainImage": "/Fablio/images/HK1.webp",
+      "intro": "After drying, the yarn is rewound onto cardboard cones and undergoes strength, color durability, and dyeing uniformity checks.",
+      "project": "Rewinding",
+      "category": "Preparation for Packaging",
+      "date": "Rewinding and Quality Control of Dyed Yarn",
+      "status": "Performed Daily",
+      "about": "After drying, the yarn is rewound onto cardboard cones — this is the final preparation before packaging and shipping to the customer. At this stage, additional samples are taken for quality checks: testing for rub resistance, color fastness, and dyeing uniformity is conducted. Sock unwinding is also performed on a special device to ensure no undyed areas across the entire bobbin surface.",
+      "results": "Rewinding onto cardboard cones ensures convenience for further use, and quality control guarantees color stability and compliance with international standards.",
+      "services": [
+        {
+          "title": "Rub Resistance <br/>(ISO 105-X12)",
+          "description": "Testing color preservation under mechanical impact.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Color Fastness <br/>(ISO 105-C05)",
+          "description": "Checking shade durability to washing and care.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Dyeing Uniformity Check",
+          "description": "Sock unwinding to detect undyed areas.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Forming on Cardboard Cones",
+          "description": "Convenient winding form for storage, transportation, and further use.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Laboratory",
+      "mainImage": "/Fablio/images/P5.webp",
+      "intro": "In the laboratory, each batch of yarn undergoes detailed control: shade check, rub resistance, and color fastness, guaranteeing stable product quality.",
+      "project": "Laboratory",
+      "category": "Quality Control",
+      "date": "Testing Dyed Yarn According to International Standards",
+      "status": "Performed Daily",
+      "about": "In the laboratory, each batch of dyed yarn undergoes detailed quality control. Shade, dyeing uniformity, rub resistance, and washing impact are checked. International testing standards are used, guaranteeing stable characteristics and high product quality.",
+      "results": "Laboratory tests confirm yarn compliance with customer requirements and international standards, ensuring reliability of each batch.",
+      "services": [
+        {
+          "title": "Shade Check",
+          "description": "Control of color accuracy and uniformity.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Rub Resistance <br/>(ISO 105-X12)",
+          "description": "Testing color strength under mechanical impact.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Color Fastness <br/>(ISO 105-C05)",
+          "description": "Testing shade durability during washing and care.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Standards Compliance",
+          "description": "Confirming product quality according to international methods.",
+          "icon": "icons.icon4"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Packaging",
+      "mainImage": "/Fablio/images/P6.jpg",
+      "intro": "After final quality control, each yarn bobbin is labeled, hermetically packaged, and placed in cardboard boxes, ensuring reliable protection and convenient product identification.",
+      "project": "Packaging",
+      "category": "Final Production Stage",
+      "date": "Labeling and Packaging Yarn in Individual and Transport Packages",
+      "status": "Performed Daily",
+      "about": "After positive quality control results, yarn goes to packaging. Each bobbin is labeled with buyer, yarn number, color, color code, and batch number. Then bobbins are packaged in cellophane bags and stacked in cardboard boxes. Boxes are also labeled with buyer, yarn number, batch, color, and net/gross weight.",
+      "results": "Packaging ensures reliable yarn protection during storage and transportation, as well as convenient identification throughout the supply chain.",
+      "services": [
+        {
+          "title": "Bobbin Labeling",
+          "description": "Applying buyer, yarn number, batch, and color data.",
+          "icon": "icons.icon1"
+        },
+        {
+          "title": "Individual Packaging",
+          "description": "Each bobbin is hermetically packaged in a cellophane bag.",
+          "icon": "icons.icon2"
+        },
+        {
+          "title": "Box Forming",
+          "description": "Bobbins are neatly stacked and placed in cardboard boxes.",
+          "icon": "icons.icon3"
+        },
+        {
+          "title": "Box Labeling",
+          "description": "Marking buyer, batch number, color, and weight for accurate identification.",
+          "icon": "icons.icon4"
+        }
+      ]
+    }
+  ],
+  "relatedWorks": [
+    {
+      "id": 1,
+      "title": "Rewinding",
+      "image": "/Fablio/images/P1.webp",
+      "excerpt": "Precise preparation of yarn for impeccable dyeing."
+    },
+    {
+      "id": 2,
+      "title": "Dyeing",
+      "image": "/Fablio/images/P2.webp",
+      "excerpt": "Deep and fast colors born in our dyeing workshops."
+    },
+    {
+      "id": 3,
+      "title": "Drying",
+      "image": "/Fablio/images/P3.webp",
+      "excerpt": "Softness and strength are preserved with gentle drying."
+    },
+    {
+      "id": 4,
+      "title": "Rewinding onto Cardboard Cones",
+      "image": "/Fablio/images/HK1.webp",
+      "excerpt": "Convenient format for your production."
+    },
+    {
+      "id": 5,
+      "title": "Laboratory",
+      "image": "/Fablio/images/P5.webp",
+      "excerpt": "Guarantee of perfect shade and quality of each batch."
+    },
+    {
+      "id": 6,
+      "title": "Packaging",
+      "image": "/Fablio/images/P6.jpg",
+      "excerpt": "Reliable protection of yarn during storage and transportation."
+    }
+  ],
+  "labels": {
+    "process": "Process",
+    "category": "Category",
+    "stage": "Date",
+    "status": "Status"
   }
 }

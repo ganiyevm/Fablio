@@ -1,11 +1,9 @@
 <template>
   <section class="bg-neutral-900 py-16 text-white md:py-2">
     <div class="container mx-auto px-4 pt-20">
-      <h1 class="text-4xl leading-tight font-extrabold drop-shadow sm:text-5xl xl:text-6xl">
-        Мы экспортируем свою <br />
-        продукцию в 17 стран, обеспечивая<br />
-        высокий уровень партнёрства.
-      </h1>
+      <h1 class="text-4xl leading-tight font-extrabold drop-shadow sm:text-5xl xl:text-6xl"
+      v-html="$t('exportSection.title')">
+</h1>
 
       <div class="grid min-h-[90vh] items-center gap-30 lg:grid-cols-14">
         <!-- 3D GLOBUS (SAL KICHIKROQ + RESPONSIVE) -->
@@ -37,7 +35,7 @@
         <div class="lg:col-span-4">
           <ul class="grid grid-cols-2 gap-x-30 gap-y-3 md:grid-cols-3 md:gap-y-5">
             <li
-              v-for="c in COUNTRIES"
+              v-for="c in exportCountries"
               :key="c.id"
               class="flex cursor-pointer items-center gap-2 rounded-lg p-2 transition hover:bg-white/5"
               @mouseenter="focusCountry(c.id)"
@@ -65,7 +63,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, shallowRef } from 'vue'
+import { onMounted, onBeforeUnmount, ref, shallowRef, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import * as THREE from 'three'
 import ThreeGlobe from 'three-globe'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -76,29 +75,16 @@ type Feature = GeoJSON.Feature<GeoJSON.MultiPolygon | GeoJSON.Polygon, any>
 type FeatureCollection = GeoJSON.FeatureCollection<GeoJSON.Geometry, any>
 type Country = { id: number; name: string; color: string }
 
-// 17 ta eksport davlatlari (Oʻzbekiston roʻyxatda yoʻq, markazda turadi)
-const COUNTRIES: Country[] = [
-  { id: 410, name: 'Республика Корея', color: '#22c55e' },
-  { id: 818, name: 'Египет', color: '#14b8a6' },
-  { id: 504, name: 'Марокко', color: '#f59e0b' },
-  { id: 380, name: 'Италия', color: '#f97316' },
-  { id: 643, name: 'Россия', color: '#ef4444' },
-  { id: 398, name: 'Казахстан', color: '#c084fc' },
-  { id: 417, name: 'Кыргызстан', color: '#22d3ee' },
-  { id: 364, name: 'Иран', color: '#84cc16' },
-  { id: 724, name: 'Испания', color: '#a78bfa' },
-  { id: 620, name: 'Португалия', color: '#06b6d4' },
-  { id: 56, name: 'Бельгия', color: '#2563eb' },
-  { id: 276, name: 'Германия', color: '#0ea5e9' },
-  { id: 616, name: 'Польша', color: '#10b981' },
-  { id: 804, name: 'Украина', color: '#f43f5e' },
-  { id: 112, name: 'Беларусь', color: '#3b82f6' },
-  { id: 792, name: 'Турция', color: '#eab308' },
-  { id: 100, name: 'Болгария', color: '#8b5cf6' },
-]
+const { t, tm } = useI18n()
 
-// Oʻzbekiston markaziy davlat sifatida
-const UZBEKISTAN = { id: 860, name: 'Узбекистан', color: '#073814' }
+const exportCountries = computed(() => tm('exportCountries'))  // JSON dan massiv
+
+// Oʻzbekiston markaziy davlat sifatida (i18n bilan)
+const UZBEKISTAN = computed(() => ({ 
+  id: 860, 
+  name: t('uzbekistan'), 
+  color: '#073814' 
+}))
 
 const globeEl = ref<HTMLDivElement | null>(null)
 const labelCv = ref<HTMLCanvasElement | null>(null)
@@ -130,7 +116,7 @@ function getArcsData() {
 
   const [uzLon, uzLat] = geoCentroid(uzbekistanFeature) as [number, number]
 
-  return COUNTRIES.map((country) => {
+  return exportCountries.value.map((country) => {
     const countryFeature = worldFeatures.value.find((f) => Number(f.id) === country.id)
     if (!countryFeature) return null
 
@@ -285,13 +271,13 @@ function updatePolygonStyles() {
   globe
     .polygonCapColor((d: any) => {
       const id = Number(d.id)
-      if (id === 860) return UZBEKISTAN.color // Oʻzbekiston yashil
+      if (id === 860) return UZBEKISTAN.value.color // Oʻzbekiston yashil
       if (activeId.value && id === activeId.value) {
-        const meta = COUNTRIES.find((c) => c.id === activeId.value)
+        const meta = exportCountries.value.find((c) => c.id === activeId.value)
         return meta?.color || '#2dd4bf'
       }
       // Eksport davlatlari kulrang rangda
-      const exportCountry = COUNTRIES.find((c) => c.id === id)
+      const exportCountry = exportCountries.value.find((c) => c.id === id)
       if (exportCountry) return '#9ca3af' // Kulrang
       return '#e5e7eb' // Default kulrang
     })
@@ -299,7 +285,7 @@ function updatePolygonStyles() {
       const id = Number(d.id)
       if (id === 860) return 0.04 // Oʻzbekiston balandroq
       if (id === activeId.value) return 0.025
-      const exportCountry = COUNTRIES.find((c) => c.id === id)
+      const exportCountry = exportCountries.value.find((c) => c.id === id)
       return exportCountry ? 0.015 : 0.005
     })
 }
@@ -439,7 +425,7 @@ function drawLabelOverlay() {
   lx = Math.min(Math.max(pad, lx), maxX - pad)
   ly = Math.min(Math.max(pad, ly), maxY - pad)
 
-  const meta = COUNTRIES.find((c) => c.id === activeId.value)!
+  const meta = exportCountries.value.find((c) => c.id === activeId.value)!
   ctx.save()
   ctx.font = `800 ${fontPx}px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial`
   ctx.textBaseline = 'top'
@@ -485,7 +471,7 @@ function drawLabelOverlay() {
 // API
 function focusCountry(id: number) {
   const feat = worldFeatures.value.find((f) => Number(f.id) === id)
-  const meta = COUNTRIES.find((c) => c.id === id)
+  const meta = exportCountries.value.find((c) => c.id === id)
   if (!feat || !meta) return
 
   activeId.value = id

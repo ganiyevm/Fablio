@@ -8,16 +8,16 @@
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
         <div class="text-center text-white">
-          <h1 class="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold">О компании</h1>
+          <h1 class="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold">{{ $t('menu.about') }}</h1>
           <nav class="text-sm">
             <router-link
               to="/"
               class="underline-offset-4 transition-colors hover:text-amber-600 hover:underline"
             >
-              Главная
+              {{$t ('menu.home')}}
             </router-link>
             <span class="mx-2">•</span>
-            <span class="text-amber-600">О компании</span>
+            <span class="text-amber-600">{{ $t('menu.about') }}</span>
           </nav>
         </div>
       </div>
@@ -37,18 +37,16 @@
             class="mb-4 sm:mb-6 text-2xl sm:text-3xl lg:text-[45px] leading-tight lg:leading-[55px] font-bold text-[#1b1a1a]"
             style="font-family: Sarabun, Arial, Helvetica, sans-serif"
           >
-            Яркие решения для текстиля
+            {{ $t('about.text') }}
           </h2>
           <p class="text-base lg:text-lg leading-relaxed text-[#7f8284] mb-6">
-            ООО «RAINBOW-TEKS» более 3 лет успешно работает как на внутреннем рынке, так и за его
-            пределами. Мы предлагаем окрашенную пряжу из 100% хлопка, вискозы, акрила и поли-коттона
-            любых номеров, сочетая стабильное качество с современным подходом.
+            {{ $t('about.text1') }}
           </p>
           <h3
             class="mb-4 sm:mb-6 text-xl sm:text-2xl lg:text-[35px] leading-tight lg:leading-[55px] font-bold text-[#1b1a1a]"
             style="font-family: Sarabun, Arial, Helvetica, sans-serif"
           >
-            Почему выбирают нас:
+            {{ $t('about.text2') }}
           </h3>
           <p class="text-base lg:text-lg leading-relaxed text-[#7f8284]">
   <svg
@@ -58,7 +56,7 @@
     fill="currentColor"
   >
     <circle cx="6" cy="6" r="4" />
-  </svg> 100% хлопок: от Ne10/1 до Ne50/1 — в одно сложение и кручёная в несколько сложений под любые задачи.
+  </svg> {{ $t('about.text3') }}
  <br>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +65,7 @@
     fill="currentColor"
   >
     <circle cx="6" cy="6" r="4" />
-  </svg> Вся продукция соответствует стандартам ISO 9001:2015 и OEKO-TEX® Standard 100 — безопасность и стабильное качество.
+  </svg> {{ $t('about.text4') }}
  <br>
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +74,7 @@
     fill="currentColor"
   >
     <circle cx="6" cy="6" r="4" />
-  </svg> Мы производим продукцию премиум-качества по международным стандартам.<br>
+  </svg> {{ $t('about.text5') }}<br>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
@@ -84,7 +82,7 @@
     fill="currentColor"
   >
     <circle cx="6" cy="6" r="4" />
-  </svg> Индивидуальный подход к каждому клиенту, адаптация под ваши запросы и сроки. <br>
+  </svg> {{ $t('about.text6') }} <br>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="inline-block mr-2 h-2.5 w-2.5 text-[#7f8284]"
@@ -92,7 +90,7 @@
     fill="currentColor"
   >
     <circle cx="6" cy="6" r="4" />
-  </svg> Стабильные поставки, точное соблюдение сроков и долгосрочное партнёрство. <br>
+  </svg> {{ $t('about.text7') }} <br>
   <!-- Индивидуальный подход, ответственность за результат и стремление к совершенству делают нас надёжным партнёром для вашего бизнеса. -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +99,7 @@
     fill="currentColor"
   >
     <circle cx="6" cy="6" r="4" />
-  </svg>Подбираем оттенки по Pantone, цветовым картам или по вашему образцу — максимально точно и быстро.
+  </svg> {{ $t('about.text8') }}
  <br>
 </p>
         </div>
@@ -140,7 +138,7 @@
           text-align: center;
         "
       >
-        Наши производственные цеха
+        {{ $t('about.text9') }}
       </h2>
       <div class="container mx-auto px-4 py-20">
         <div class="flex gap-6 overflow-x-auto pb-4 lg:grid-cols-3">
@@ -293,10 +291,9 @@
       <!-- News and Articles Section -->
       <div class="mx-auto max-w-7xl p-6 pt-40">
         <div class="mb-6 flex flex-col justify-between md:flex-row">
-          <h2 class="text-4xl font-bold">Продукция, которая говорит сама за себя</h2>
+          <h2 class="text-4xl font-bold">{{ $t('about.text10') }}</h2>
           <p class="mt-2 pb-10 text-[16px] text-gray-500 md:w-2/3">
-            Мы специализируемся на окрашивании пряжи из натурального 100% хлопка. Каждая нить
-            сохраняет прочность и мягкость, а цвет — насыщенность и стойкость.
+            {{ $t('about.text11') }}
           </p>
         </div>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -336,42 +333,31 @@
 <script setup lang="ts">
 import { computed, reactive, ref, onMounted, onUnmounted, onBeforeUnmount } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
-const reviews = [
-  {
-    name: "Анна",
-    city: "Москва",
-    text: "Работаем с RAINBOW-TEKS уже второй год — всегда получаем стабильное качество и быструю поставку.",
-  },
-  {
-    name: "Ойбек",
-    city: "Ташкент",
-    text: "Очень нравится широкий выбор пряжи и внимательное отношение к клиентам. Заказы приходят вовремя.",
-  },
-  {
-    name: "Мария",
-    city: "Киев",
-    text: "Цветовая палитра действительно впечатляет! Легко подбирать нужные оттенки для коллекций.",
-  },
-  {
-    name: "Давид",
-    city: "Стамбул",
-    text: "Компания зарекомендовала себя как надежный партнёр: чёткие сроки, качественный продукт и открытость в общении.",
-  },
-];
+const { tm,t } = useI18n()
 
-const current = ref(0);
-let interval: ReturnType<typeof setInterval> | null = null;
+const reviews = computed(() => tm('reviewss')) 
+
+
+const current = ref(0)
+let interval: ReturnType<typeof setInterval> | null = null
+
 
 onMounted(() => {
   interval = setInterval(() => {
-    current.value = (current.value + 1) % reviews.length;
-  }, 5000);
-});
+    if (reviews.value.length > 0) { 
+      current.value = (current.value + 1) % reviews.value.length
+    }
+  }, 5000)
+})
 
 onBeforeUnmount(() => {
-  clearInterval(interval!);
-});
+  if (interval) {
+    clearInterval(interval)
+    interval = null
+  }
+})
 
 type Project = {
   id: number
@@ -387,59 +373,9 @@ type Product = {
   href?: string
 }
 
-const stepCards = [
-  {
-    title: 'Суточная мощность',
-    text: 'Предприятие способно производить до 10 тонн продукции в сутки.',
-  },
-  {
-    title: 'Годовой объём',
-    text: 'Общая производственная мощность достигает 3600 тонн в год.',
-  },
-  {
-    title: 'Разработка выкрасов',
-    text: 'Создание новых образцов занимает не более 3 рабочих дней.',
-  },
-]
+const stepCards = computed(() => tm('stepCards'))
 
-const items: Project[] = [
-  {
-    id: 1,
-    title: 'Надёжное качество',
-    excerpt: 'Мы контролируем каждый этап производства, чтобы гарантировать стабильный результат.',
-    image: 'images/P1.webp',
-  },
-  {
-    id: 2,
-    title: 'Широкий ассортимент',
-    excerpt: 'Предлагаем пряжу любых номеров из хлопка, вискозы, акрила и поли-коттона.',
-    image: 'images/P2.webp',
-  },
-  {
-    id: 3,
-    title: 'Для рынка и экспорта',
-    excerpt: 'Работаем более 3 лет, поставляя продукцию как внутри страны, так и за её пределами.',
-    image: 'images/P3.webp',
-  },
-  {
-    id: 4,
-    title: 'Перемотка на картонные конусы',
-    excerpt: 'Удобный формат для вашего производства.',
-    image: 'images/HK1.webp',
-  },
-  {
-    id: 5,
-    title: 'Лаборатория',
-    excerpt: 'Гарантия идеального оттенка и качества каждой партии.',
-    image: 'images/P5.webp',
-  },
-  {
-    id: 6,
-    title: 'Упаковка',
-    excerpt: 'Надежная защита пряжи при хранении и транспортировке.',
-    image: 'images/P6.jpg',
-  },
-]
+const items = computed(() => tm('projects') as Project[])
 
 const viewer = reactive<{ open: boolean; src: string; alt: string }>({
   open: false,

@@ -613,7 +613,7 @@ textarea:focus {
         </div>
 
         <div v-if="currentProject" class="mt-12">
-          <h2 class="text-3xl font-extrabold text-gray-900">Информация о процессе</h2>
+          <h2 class="text-3xl font-extrabold text-gray-900">{{ $t('product.information') }}</h2>
           <p class="mt-4 max-w-4xl text-gray-600">
             {{ currentProject.about }}
           </p>
@@ -653,7 +653,7 @@ textarea:focus {
         <hr class="my-6 border-black" />
 
         <div v-if="currentProject" class="mt-14">
-          <h3 class="text-2xl font-extrabold text-gray-900">Производства</h3>
+          <h3 class="text-2xl font-extrabold text-gray-900">{{ $t('product.relatedWorks') }}</h3>
           <div class="mt-6 flex items-center justify-between">
             <button
               :disabled="startIndex === 0"
@@ -663,7 +663,7 @@ textarea:focus {
               Предыдущий
             </button>
             <button
-              :disabled="startIndex + 3 >= allRelatedWorks.length"
+            :disabled="startIndex + 3 >= (allRelatedWorks.length || 0)"
               @click="nextCards"
               class="rounded-lg border border-gray-300 bg-white px-6 py-2 text-gray-800 transition-colors hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
             >
@@ -783,6 +783,9 @@ textarea:focus {
 <script setup>
 import { computed, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { tm,t } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -809,295 +812,94 @@ const icons = {
   icon4: `<svg viewBox="0 -12.5 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#65B530" stroke="#65B530"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Iron</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Iron" sketch:type="MSLayerGroup" transform="translate(1.000000, 2.000000)" stroke="#ffffff" stroke-width="2"> <path d="M54,28 L56,28 C57.1,28 58,27.1 58,26 L58,7.2 L54.2,3.3 L20,8 C20,8 0,31.9 0,33 L0,34 C0,35.1 0.9,36 2,36 L47.9,36 C47.9,32 49,28 54,28 L54,28 Z" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M0,33 L47.6,33" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M51,16 C51,17.1 50.1,17 49,17 L21.4,17 C21.2,17.2 26,11 26,11 L49,8 C50.1,8 51,7.7 51,8.8 L51,16 L51,16 Z" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M33,15 L41,15" id="Shape" sketch:type="MSShapeGroup"> </path> <path d="M56.4,4.8 L59.1,1.7 C59.1,1.7 61.9,-1.5 61.9,0.6 C61.9,2.8 62,20.1 62,20.1" id="Shape" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>`,
 }
 
-const projects = [
-  {
-    id: 1,
-    title: 'Перемотка',
-    mainImage: '/Fablio/images/P1.webp',
-    intro:
-      'Суровая пряжа проходит проверку качества и перематывается на конусы, что обеспечивает стабильность и готовность к окрашиванию.',
-    project: 'Перемотка суровой пряжи',
-    category: 'Подготовка сырья',
-    date: 'Проверка и перемотка пряжи на конусы',
-    status: 'Выполняется ежедневно',
-    about:
-      'Суровая пряжа проходит строгий контроль качества: проверяются неровности, узелки и разрывная нагрузка волокон. Затем она поступает на мотальные машины, где аккуратно перематывается на пластиковые конусы — это подготовительный этап, обеспечивающий равномерное крашение и высокое качество готовой продукции.',
-    results:
-      'Перемотка позволяет добиться стабильного натяжения нити, идеальной основы для окрашивания и надежности в дальнейшем производстве.',
-    services: [
-      {
-        title: 'Контроль качества',
-        description: 'Проверка пряжи на наличие дефектов и соответствие стандартам прочности.',
-        icon: icons.icon1,
-      },
-      {
-        title: 'Перемотка на конусы',
-        description: 'Формирование удобных мотков для стабильного процесса окрашивания.',
-        icon: icons.icon2,
-      },
-      {
-        title: 'Равномерное натяжение',
-        description: 'Обеспечение правильной структуры и плотности нити.',
-        icon: icons.icon3,
-      },
-      {
-        title: 'Подготовка к крашению',
-        description: 'Создание идеальной основы для дальнейших технологических этапов.',
-        icon: icons.icon4,
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: 'Крашение',
-    mainImage: '/Fablio/images/P2.webp',
-    intro:
-      'На этапе крашения пряжа окрашивается активным способом в выбранный оттенок, после чего образцы проходят лабораторные проверки на стойкость, равномерность и качество цвета.',
-    project: 'Крашение',
-    category: 'Подготовка пряжи',
-    date: 'Активное крашение и контроль качества цвета',
-    status: 'Выполняется ежедневно',
-    about:
-      'На этапе крашения пряжа приобретает свой будущий оттенок. Мы используем активное крашение, которое обеспечивает насыщенность, равномерность и долговечность цвета. После окрашивания из каждой партии берутся образцы для лабораторных испытаний.',
-    results:
-      'Крашение гарантирует яркость, стойкость и соответствие международным стандартам качества, что делает нашу пряжу надежным выбором для производства тканей и трикотажа.',
-    services: [
-      {
-        title: 'Проверка окрашенности',
-        description: 'Контроль равномерности цвета на каждой бобине.',
-        icon: icons.icon1,
-      },
-      {
-        title: 'Устойчивость к трению <br>(ISO 105-X12)',
-        description: 'Тестирование прочности цвета при механическом воздействии.',
-        icon: icons.icon2,
-      },
-      {
-        title: 'Цветоустойчивость <br>(ISO 105-C05)',
-        description: 'Проверка сохранения оттенка при стирке и уходе.',
-        icon: icons.icon3,
-      },
-      {
-        title: 'Спиральность (ISO 3071)',
-        description: 'Измерение стабильности формы и структуры окрашенной пряжи.',
-        icon: icons.icon4,
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: 'Сушка',
-    mainImage: '/Fablio/images/P3.webp',
-    intro:
-      'После успешного прохождения контроля качества окрашенная пряжа отправляется на сушку, где сохраняются её прочность, мягкость и равномерность цвета.',
-    project: 'Высушивание пряжи',
-    category: 'Завершение окрашивания',
-    date: 'Сушка окрашенной пряжи',
-    status: 'Выполняется ежедневно',
-    about:
-      'После положительных результатов, окрашенная пряжа поступает на сушку. Современное оборудование обеспечивает равномерное удаление влаги, сохраняя при этом прочность волокон, мягкость и стабильность оттенка. Бережная сушка гарантирует, что каждая бобина пряжи сохраняет свои свойства и готова к дальнейшей обработке.',
-    results:
-      'Сушка позволяет закрепить цвет, сохранить текстуру и подготовить пряжу к следующему этапу производства.',
-    services: [
-      {
-        title: 'Равномерное высушивание',
-        description: 'Удаление влаги без потери качества и мягкости волокна.',
-        icon: icons.icon1,
-      },
-      {
-        title: 'Сохранение цвета',
-        description: ' Закрепление насыщенности и стойкости окрашенной пряжи.',
-        icon: icons.icon2,
-      },
-      {
-        title: 'Контроль влажности',
-        description: 'Поддержание оптимального уровня для дальнейшей обработки.',
-        icon: icons.icon3,
-      },
-      {
-        title: 'Подготовка к следующему этапу ',
-        description: 'Создание идеальной базы для перемотки на картонные конусы.',
-        icon: icons.icon4,
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: 'Перемотка на картонные конусы',
-    mainImage: '/Fablio/images/HK1.webp',
-    intro:
-      'После сушки пряжа перематывается на картонные конусы и проходит проверку на прочность, стойкость цвета и равномерность окрашивания.',
-    project: 'Перемотка',
-    category: ' Подготовка к упаковке',
-    date: 'Перемотка и контроль качества окрашенной пряжи',
-    status: 'Выполняется ежедневно',
-    about:
-      'После сушки пряжа перематывается на картонные конусы — это финальная подготовка перед упаковкой и отправкой заказчику. На данном этапе дополнительно отбираются образцы для проверки качества: проводится тестирование на устойчивость к трению, цветоустойчивость и равномерность окрашивания. Также выполняется отвязывание носков на специальном аппарате, чтобы убедиться в отсутствии непрокрашенных участков по всей площади бобин.',
-    results:
-      'Перемотка на картонные конусы обеспечивает удобство дальнейшего использования, а контроль качества гарантирует стабильность цвета и соответствие международным стандартам.',
-    services: [
-      {
-        title: 'Устойчивость к трению <br>(ISO 105-X12)',
-        description: 'Тестирование сохранности окраски при механическом воздействии.',
-        icon: icons.icon1,
-      },
-      {
-        title: 'Цветоустойчивость <br>(ISO 105-C05)',
-        description: 'Проверка стойкости оттенка к стирке и уходу.',
-        icon: icons.icon2,
-      },
-      {
-        title: 'Проверка равномерности окраса',
-        description: 'Отвязывание носков для выявления непрокрашенных участков.',
-        icon: icons.icon3,
-      },
-      {
-        title: 'Формирование на картонные конусы',
-        description:
-          'Удобная форма намотки для хранения, транспортировки и дальнейшего использования.',
-        icon: icons.icon4,
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: 'Лаборатория',
-    mainImage: '/Fablio/images/P5.webp',
-    intro:
-      'В лаборатории каждая партия пряжи проходит детальный контроль: проверку оттенка, устойчивости к трению и цветоустойчивости, что гарантирует стабильное качество продукции.',
-    project: 'Лаборатория',
-    category: 'Контроль качества',
-    date: 'Тестирование окрашенной пряжи по международным стандартам',
-    status: 'Выполняется ежедневно',
-    about:
-      'В лаборатории каждая партия окрашенной пряжи проходит детальный контроль качества. Проверяются оттенок, равномерность окрашивания, устойчивость к трению и воздействию стирки. Используются международные стандарты испытаний, что гарантирует стабильность характеристик и высокое качество продукции.',
-    results:
-      'Лабораторные испытания подтверждают соответствие пряжи требованиям клиентов и международным стандартам, обеспечивая надежность каждой партии.',
-    services: [
-      {
-        title: 'Проверка оттенка',
-        description: 'Контроль точности и равномерности цвета.',
-        icon: icons.icon1,
-      },
-      {
-        title: 'Устойчивость к трению <br>(ISO 105-X12)',
-        description: 'Тестирование прочности окраски при механическом воздействии.',
-        icon: icons.icon2,
-      },
-      {
-        title: 'Цветоустойчивость <br>(ISO 105-C05)',
-        description: 'Испытания стойкости оттенка при стирке и уходе.',
-        icon: icons.icon3,
-      },
-      {
-        title: 'Соответствие стандартам',
-        description: 'Подтверждение качества продукции по международным методикам.',
-        icon: icons.icon4,
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: 'Упаковка',
-    mainImage: '/Fablio/images/P6.jpg',
-    intro:
-      'После окончательного контроля качества каждая бобина пряжи маркируется, герметично упаковывается и укладывается в картонные коробки, что обеспечивает надежную защиту и удобную идентификацию продукции',
-    project: 'Упаковка',
-    category: 'Завершающий этап производства',
-    date: 'Маркировка и упаковка пряжи в индивидуальные и транспортные упаковки',
-    status: 'Выполняется ежедневно',
-    about:
-      'После получения положительных результатов контроля качества пряжа поступает на этап упаковки. Каждая бобина маркируется с указанием покупателя, номера пряжи, цвета, кода цвета и номера партии. Затем бобины упаковываются в целлофановые пакеты и штабелируются в картонные коробки. Коробки также маркируются данными о покупателе, номере пряжи, партии, цвете, а также весом нетто и брутто.',
-    results:
-      'Упаковка обеспечивает надежную защиту пряжи при хранении и транспортировке, а также удобную идентификацию продукции по всей цепочке поставок.',
-    services: [
-      {
-        title: 'Маркировка бобин',
-        description: 'Нанесение данных о покупателе, номере пряжи, партии и цвете.',
-        icon: icons.icon1,
-      },
-      {
-        title: 'Индивидуальная упаковка',
-        description: 'Каждая бобина герметично упаковывается в целлофановый пакет.',
-        icon: icons.icon2,
-      },
-      {
-        title: 'Формирование коробок',
-        description: 'Бобины аккуратно штабелируются и укладываются в картонные коробки.',
-        icon: icons.icon3,
-      },
-      {
-        title: 'Маркировка коробок',
-        description:
-          'Обозначение покупателя, номера партии, цвета и веса для точной идентификации.',
-        icon: icons.icon4,
-      },
-    ],
-  },
-]
-
-const allRelatedWorks = [
-  {
-    id: 1,
-    title: 'Перемотка',
-    image: '/Fablio/images/P1.webp',
-    excerpt: 'Точная подготовка пряжи к безупречному окрашиванию.',
-  },
-  {
-    id: 2,
-    title: 'Крашение',
-    image: '/Fablio/images/P2.webp',
-    excerpt: 'Глубокие и стойкие цвета, рождающиеся в наших красильных цехах.',
-  },
-  {
-    id: 3,
-    title: 'Сушка',
-    image: '/Fablio/images/P3.webp',
-    excerpt: 'Мягкость и прочность сохраняются при бережной сушке.',
-  },
-  {
-    id: 4,
-    title: 'Перемотка на картонные конусы',
-    image: '/Fablio/images/HK1.webp',
-    excerpt: 'Удобный формат для вашего производства.',
-  },
-  {
-    id: 5,
-    title: 'Лаборатория',
-    image: '/Fablio/images/P5.webp',
-    excerpt: 'Гарантия идеального оттенка и качества каждой партии.',
-  },
-  {
-    id: 6,
-    title: 'Упаковка',
-    image: '/Fablio/images/P6.jpg',
-    excerpt: 'Надежная защита пряжи при хранении и транспортировке.',
-  },
-]
-
 const startIndex = ref(0)
 
+// Current project from route param
 const currentProject = computed(() => {
-  const projectId = Number(route.params.id)
-  return projects.find((p) => p.id === projectId)
+  try {
+    const projectId = route.params.id
+    if (!projectId || isNaN(Number(projectId))) return null
+    const id = Number(projectId)
+    if (![1,2,3,4,5,6].includes(id)) return null
+    
+    return {
+      id,
+      title: t(`projectsss.${id}.title`) || `Project ${id}`,  // projectss → projectsss, fallback
+      mainImage: `/Fablio/images/${id === 4 ? 'HK1' : 'P' + id}.${id === 6 ? 'jpg' : 'webp'}`,
+      intro: t(`projectsss.${id}.intro`) || '',
+      project: t(`projectsss.${id}.project`) || '',
+      category: t(`projectsss.${id}.category`) || '',
+      date: t(`projectsss.${id}.date`) || '',
+      status: t(`projectsss.${id}.status`) || '',
+      about: t(`projectsss.${id}.about`) || '',
+      results: t(`projectsss.${id}.results`) || '',
+      services: [
+        {
+          title: t(`projectsss.${id}.services.0.title`) || '',
+          description: t(`projectsss.${id}.services.0.description`) || '',  // Indeks tuzatildi
+          icon: icons.icon1,
+        },
+        {
+          title: t(`projectsss.${id}.services.1.title`) || '',
+          description: t(`projectsss.${id}.services.1.description`) || '',  // Indeks tuzatildi
+          icon: icons.icon2,
+        },
+        {
+          title: t(`projectsss.${id}.services.2.title`) || '',
+          description: t(`projectsss.${id}.services.2.description`) || '',  // Indeks tuzatildi
+          icon: icons.icon3,
+        },
+        {
+          title: t(`projectsss.${id}.services.3.title`) || '',
+          description: t(`projectsss.${id}.services.3.description`) || '',  // Indeks tuzatildi
+          icon: icons.icon4,
+        },
+      ],
+    }
+  } catch (error) {
+    console.error('currentProject error:', error)
+    return null
+  }
 })
 
+// Info rows
 const infoRows = computed(() => {
   if (!currentProject.value) return []
   return [
-    { key: 'project', label: 'Процесс', value: currentProject.value.project },
-    { key: 'category', label: 'Категория', value: currentProject.value.category },
-    { key: 'date', label: 'Этап', value: currentProject.value.date },
-    { key: 'status', label: 'Статус', value: currentProject.value.status },
+    { key: 'project', label: t('labels.process') || 'Процесс', value: currentProject.value.project },
+    { key: 'category', label: t('labels.category') || 'Категория', value: currentProject.value.category },
+    { key: 'date', label: t('labels.stage') || 'Этап', value: currentProject.value.date },
+    { key: 'status', label: t('labels.status') || 'Статус', value: currentProject.value.status },
   ]
 })
 
+// All related works (try-catch bilan)
+const allRelatedWorks = computed(() => {
+  try {
+    return [1, 2, 3, 4, 5, 6].map(id => ({
+      id,
+      title: t(`relatedWorks.${id}.title`) || `Related ${id}`,
+      image: `/Fablio/images/${id === 4 ? 'HK1' : 'P' + id}.${id === 6 ? 'jpg' : 'webp'}`,
+      excerpt: t(`relatedWorks.${id}.excerpt`) || '',
+    }))
+  } catch (error) {
+    console.error('allRelatedWorks error:', error)
+    return []  // Bo'sh array, length=0
+  }
+})
+
+// Displayed cards
 const displayedCards = computed(() => {
-  return allRelatedWorks.slice(startIndex.value, startIndex.value + 3)
+  try {
+    return allRelatedWorks.value?.slice(startIndex.value, startIndex.value + 3) || []
+  } catch (error) {
+    console.error('displayedCards error:', error)
+    return []
+  }
 })
 
 const nextCards = () => {
-  if (startIndex.value + 3 < allRelatedWorks.length) {
+  if (startIndex.value + 3 < (allRelatedWorks.value?.length || 0)) {
     startIndex.value += 1
   }
 }
@@ -1108,6 +910,7 @@ const prevCards = () => {
   }
 }
 
+// Image viewer
 const viewer = reactive({
   open: false,
   src: '',

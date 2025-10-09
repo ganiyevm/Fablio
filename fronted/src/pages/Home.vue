@@ -39,7 +39,7 @@
               to="/contact"
               class="mt-6 max-md:mt-4 inline-flex items-center gap-2 max-md:gap-1 rounded-md bg-yellow-600 px-6 max-md:px-4 py-2.5 max-md:py-2 text-base max-md:text-sm text-white hover:bg-black transition-colors sm:mt-8 sm:px-8 sm:py-3 sm:text-xl"
             >
-              <span>Подробно</span>
+              <span>{{ $t('homePage.details') }}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5 max-md:h-4 max-md:w-4"
@@ -96,7 +96,7 @@
                         </svg>
                       </span>
                       <span class="text-lg max-md:text-base font-medium sm:text-lg"
-                        >Свяжитесь</span
+                        >{{ $t('homePage.contact') }}</span
                       >
                     </RouterLink>
                   </div>
@@ -169,11 +169,11 @@
         <!-- Right: text & CTA -->
         <div class="md:col-span-6 md:border-l md:border-gray-200 md:pl-10 max-md:order-1">
           <h1 class="text-2xl max-md:text-xl max-sm:text-lg leading-tight font-extrabold text-gray-900 sm:text-3xl md:text-5xl">
-            Качество, заметное с первого взгляда.
+            {{ $t('homePage.textileFactory') }}
           </h1>
 
           <p class="mt-3 max-w-2xl text-gray-600 max-md:text-sm sm:mt-4">
-            Идеальная текстура и насыщенность цвета делают ваши изделия премиальными.
+            {{ $t('homePage.textileFactoryText') }}
           </p>
 
           <RouterLink to="/products" class="group mt-6 max-md:mt-4 inline-flex items-center gap-4 sm:mt-8">
@@ -181,7 +181,7 @@
               <span
                 class="block font-semibold text-gray-900 max-md:text-sm transition-colors group-hover:text-amber-600"
               >
-                Наши продукты
+                {{ $t('homePage.products') }}
               </span>
             </span>
           </RouterLink>
@@ -195,12 +195,11 @@
     <div class="container mx-auto w-full px-4">
       <div class="mx-auto max-w-7xl py-12 max-md:py-8 md:py-16 lg:py-20">
         <h2 class="text-center text-2xl max-md:text-xl max-sm:text-lg font-extrabold text-gray-900 sm:text-3xl md:text-5xl">
-          От идеи до готовой партии
+          {{ $t('homePage.fromIdeaToBatch') }}
         </h2>
-        <p class="mx-auto mt-3 max-w-3xl text-center text-gray-600 max-md:text-sm sm:mt-4">
-          Мы превращаем пряжу в цвет, который будет радовать вас долгие годы. Каждый этап — от
-          разработки оттенка до доставки — проходит с вниманием к деталям и строгим контролем
-          качества.
+        <p class="mx-auto mt-3 max-w-3xl text-center text-gray-600 max-md:text-sm sm:mt-4 " v-html="$t('homePage.fromIdeaToBatchText')">
+          
+          
         </p>
 
         <div class="mt-8 max-md:mt-6 grid items-start gap-6 max-md:gap-4 max-sm:grid-cols-1 sm:grid-cols-3 md:mt-12 md:gap-8">
@@ -208,7 +207,7 @@
             <h3
               class="mb-3 max-md:mb-2 text-center text-lg max-md:text-base font-semibold text-gray-900 md:text-left md:text-xl"
             >
-              Окрашивание пряжи
+              {{ $t('homePage.fabricPrinting') }}
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
@@ -225,7 +224,7 @@
             <h3
               class="mb-3 max-md:mb-2 text-center text-lg max-md:text-base font-semibold text-gray-900 md:text-left md:text-xl"
             >
-              Лаборатория
+              {{ $t('homePage.fabricDyeing') }}
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
@@ -242,7 +241,7 @@
             <h3
               class="mb-3 max-md:mb-2 text-center text-lg max-md:text-base font-semibold text-gray-900 md:text-left md:text-xl"
             >
-              Продукция
+              {{ $t('homePage.engineering') }}
             </h3>
             <figure class="group overflow-hidden rounded-lg shadow-sm">
               <img
@@ -269,7 +268,7 @@
               decoding="async"
               class="mx-auto mb-4 max-md:mb-2 h-14 w-14 max-md:h-10 max-md:w-10 transform-gpu will-change-transform group-hover:animate-[spin-y_1s_linear_1] md:h-16 md:w-16"
             />
-            <div class="font-semibold text-gray-900 max-md:text-sm">Выбор <br />волокна</div>
+            <div class="font-semibold text-gray-900 max-md:text-sm" v-html="$t('homePage.fiber')"></div>
           </div>
 
           <div
@@ -282,7 +281,7 @@
               decoding="async"
               class="mx-auto mb-4 max-md:mb-2 h-14 w-14 max-md:h-10 max-md:w-10 transform-gpu will-change-transform group-hover:animate-[spin-y_1s_linear_1] md:h-16 md:w-16"
             />
-            <div class="font-semibold text-gray-900 max-md:text-sm">Разработка<br />оттенка</div>
+            <div class="font-semibold text-gray-900 max-md:text-sm" v-html="$t('homePage.yarn')"></div>
           </div>
 
           <div
@@ -295,7 +294,7 @@
               decoding="async"
               class="mx-auto mb-4 max-md:mb-2 h-14 w-14 max-md:h-10 max-md:w-10 transform-gpu will-change-transform group-hover:animate-[spin-y_1s_linear_1] md:h-16 md:w-16"
             />
-            <div class="font-semibold text-gray-900 max-md:text-sm">Тестирование &<br />качества</div>
+            <div class="font-semibold text-gray-900 max-md:text-sm" v-html="$t('homePage.quality')"></div>
           </div>
 
           <div
@@ -308,7 +307,7 @@
               decoding="async"
               class="mx-auto mb-4 max-md:mb-2 h-14 w-14 max-md:h-10 max-md:w-10 transform-gpu will-change-transform group-hover:animate-[spin-y_1s_linear_1] md:h-16 md:w-16"
             />
-            <div class="font-semibold text-gray-900 max-md:text-sm">Логистика<br />заказа</div>
+            <div class="font-semibold text-gray-900 max-md:text-sm" v-html="$t('homePage.logistics')"></div>
           </div>
         </div>
       </div>
@@ -325,14 +324,11 @@
     <div class="relative container mx-auto px-4 py-12 max-md:py-8 md:py-16 lg:py-24">
       <div class="mx-auto grid max-w-7xl items-center gap-8 max-md:gap-6 md:gap-10 lg:grid-cols-12 lg:gap-10">
         <div class="lg:col-span-6">
-          <h2 class="text-3xl max-md:text-xl max-sm:text-lg leading-tight font-extrabold md:text-5xl">
-            Окрашенная пряжа — больше,<br />
-            чем цвет
+          <h2 class="text-3xl max-md:text-xl max-sm:text-lg leading-tight font-extrabold md:text-5xl" v-html="$t('homePage.hero')">
+            
           </h2>
           <p class="mt-3 max-w-2xl text-lg max-md:text-base text-white/80 md:mt-4">
-            Мы создаём не просто нити, а основу для вдохновляющих коллекций. Наши оттенки сочетают в
-            себе эстетику, долговечность и экологичность, чтобы ваши изделия выделялись среди
-            остальных.
+            {{ $t('homePage.heroText') }}
           </p>
 
           <div class="mt-6 max-md:mt-4 grid gap-3 max-md:gap-2 sm:grid-cols-2 max-sm:grid-cols-1 md:mt-8 md:gap-4">
@@ -343,7 +339,7 @@
                 class="inline-flex h-6 w-6 max-md:h-5 max-md:w-5 items-center justify-center rounded-full bg-amber-500"
                 >›</span
               >
-              <span class="text-xl max-md:text-base font-semibold">Тенденции цветовых решений</span>
+              <span class="text-xl max-md:text-base font-semibold">{{ $t('homePage.highQuality') }}</span>
             </div>
             <div
               class="flex items-center gap-3 max-md:gap-2 rounded-lg bg-white/10 px-4 max-md:px-3 py-3 max-md:py-2 backdrop-blur md:px-5 md:py-4"
@@ -352,7 +348,7 @@
                 class="inline-flex h-6 w-6 max-md:h-5 max-md:w-5 items-center justify-center rounded-full bg-amber-500"
                 >›</span
               >
-              <span class="text-xl max-md:text-base font-semibold">Лабораторно протестировано</span>
+              <span class="text-xl max-md:text-base font-semibold">{{ $t('homePage.test') }}</span>
             </div>
           </div>
 
@@ -364,11 +360,7 @@
               loading="lazy"
               decoding="async"
             />
-            <p class="text-lg max-md:text-sm text-white/90">
-              Мы имеем <span class="font-semibold text-green-400 underline">3+ лет</span> опыта,
-              чтобы гарантировать стабильное качество окрашенной пряжи для текстильных производств и
-              промышленных заказчиков
-            </p>
+            <p class="text-lg max-md:text-sm text-white/90" v-html="$t('homePage.machine')"></p>
           </div>
         </div>
 
@@ -491,13 +483,13 @@
                 <p
                   class="text-[24px] max-md:text-lg leading-[1.2] font-medium font-fira_sans text-light grid mb-5 max-md:mb-3 after:h-0.5 after:bg-primary after:mt-5 max-md:after:mt-3"
                 >
-                Гибкий подход к объёмам
+                  {{ $t('homePage.value') }}
                 </p>
                 <div class="grid gap-6 max-md:gap-3">
                   <p
                     class="text-[24px] max-md:text-base leading-[1.2] font-medium font-fira_sans text-light"
                   >
-                    Партии крашений в кг :
+                    {{ $t('homePage.value1') }}
                   </p>
                   <p
                     class="text-[21px] max-md:text-sm leading-[1.2] font-medium font-fira_sans flex gap-5 max-md:gap-3 text-light"
@@ -604,7 +596,7 @@
               <p
                 class="flex flex-col items-center justify-center font-fira_sans text-4xl max-md:text-2xl font-semibold text-[#d9d9d9]"
               >
-                <span class="mb-2 max-md:mb-1">Окрашивание партий</span>
+                <span class="mb-2 max-md:mb-1">{{ $t('homePage.ready') }}</span>
                 <!-- <span class="mb-4 max-md:mb-2">вашей пряже</span> -->
                 <svg
                   class="w-[62px] h-[42px] max-md:w-8 max-md:h-6 stroke-current animate-bounce"
@@ -655,22 +647,20 @@
           href="#"
           class="inline-block text-sm max-md:text-xs underline decoration-white/70 underline-offset-4 hover:text-amber-400 transition-colors md:text-base"
         >
-          Цвет, рождённый в производстве
+          {{ $t('homePage.home') }}
         </a>
 
         <h1
           class="md:6xl mt-3 max-md:mt-2 text-3xl max-md:text-xl max-sm:text-lg leading-tight font-extrabold tracking-tight md:mt-4 md:text-6xl"
-        >
-          Каждая партия <span class="text-amber-500">проходит путь</span> от сырья до
-          <br class="hidden sm:block" />
-          уникального оттенка под <span class="text-amber-500">ваш заказ</span>
+        v-html="$t('homePage.home1')">
+          
         </h1>
 
         <a
           href="#"
           class="mt-6 max-md:mt-4 inline-flex items-center gap-3 max-md:gap-2 rounded-md border border-white/70 px-5 max-md:px-4 py-2.5 max-md:py-2 text-white max-md:text-sm hover:bg-white/10 transition-all duration-300 md:mt-8 md:px-6 md:py-3"
         >
-          Подробно
+          {{ $t('homePage.details') }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-4 w-4"
@@ -694,16 +684,21 @@
 <script setup lang="ts">
 import { reactive, ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
 import ExportMap from '../components/ExportMap.vue';
+import { useI18n } from 'vue-i18n'
+const { tm } = useI18n()
 
 /** ====== COUNTERS DATA ====== */
-const stats = reactive([
-  { label: 'тонн в месяц ', to: 180 },
-  { label: 'стран на экспорт', to: 17 },
-])
+const stats = computed(() => tm('stats'))  // JSON dan massiv oling
 
 /** Display values for counters animation */
-const displayValues = ref<number[]>(stats.map(() => 0))
-const statEls = ref<(HTMLElement | null)[]>([] as unknown as (HTMLElement | null)[])
+const displayValues = ref<number[]>([])  // Bo'sh boshlang
+const statEls = ref<(HTMLElement | null)[]>([])
+
+// Locale o'zgarganda displayValues ni reset qiling
+watch(stats, (newStats) => {
+  displayValues.value = newStats.map(() => 0)
+  statEls.value = []  // Stat elementlarini ham reset qiling
+}, { immediate: true })  // Birinchi yuklashda ishga tushsin
 
 /** Smooth animation easing */
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
@@ -725,51 +720,35 @@ onMounted(() => {
     (entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return
-        const idx = (statEls.value as HTMLElement[]).findIndex((el) => el === e.target)
+        const idx = statEls.value.findIndex((el) => el === e.target)
         if (idx !== -1 && displayValues.value[idx] === 0) {
-          startCount(idx, stats[idx].to, 1600)
+          startCount(idx, stats.value[idx].to, 1600)  // .value qo'shildi!
         }
       })
     },
     { threshold: 0.35 }
   )
-  ;(statEls.value as unknown as HTMLElement[]).forEach((el) => el && io.observe(el))
-})
+  // Elementlarni kuzatish uchun watch qo'shing (computed o'zgarganda)
+  watch(stats, () => {
+    statEls.value.forEach((el) => el && io.observe(el))  // Yangi elementlarni qo'shing
+  }, { immediate: true })
 
+  // Cleanup
+  onBeforeUnmount(() => io.disconnect())
+})
 /** Asset path helper */
 const asset = (p: string) =>
   `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${p.replace(/^\//, '')}`
 
 /* Reviews carousel (changes every 5 seconds) */
-const reviews = [
-  {
-    text:
-      'Сотрудничаем с RAINBOW-TEKS уже больше года. Качество окрашенной пряжи всегда стабильное, ' +
-      'оттенки соответствуют нашим требованиям, а доставка происходит вовремя. Рекомендую как надежного поставщика!',
-    img: asset('images/rflag.png'),
-    name: 'Россия',
-  },
-  {
-    text:
-      'Заказывали пряжу из хлопка и вискозы для нашей коллекции свитеров. Цвета яркие, нити мягкие, ' +
-      'отлично подходят для работы на нашей фабрике. Обслуживание на высшем уровне, менеджеры всегда на связи.',
-    img: asset('images/iflag.png'),
-    name: 'Италия',
-  },
-  {
-    text:
-      'RAINBOW-TEKS — партнер, которому можно доверять. Заказы на акриловую и поли-коттон пряжу приходят быстро, без брака. ' +
-      'Особенно нравится гибкость компании в подборе нужных номеров и оттенков.',
-    img: asset('images/tflag.png'),
-    name: 'Турция',
-  },
-]
+const reviews = computed(() => tm('reviews'))  // JSON dan massiv oling
+
 const index = ref(0)
-const currentReview = computed(() => reviews[index.value])
+const currentReview = computed(() => reviews.value[index.value] || {})
 let reviewTimer: number | null = null
 onMounted(() => {
   reviewTimer = window.setInterval(() => {
-    index.value = (index.value + 1) % reviews.length
+    index.value = (index.value + 1) % reviews.value.length  // .value qo'shing
   }, 5000)
 })
 onBeforeUnmount(() => {
@@ -777,40 +756,20 @@ onBeforeUnmount(() => {
 })
 
 /* Hero slides with autoplay (12 seconds) */
-const slides = [
-  {
-    bg: asset('images/D1.webp'),
-    kicker: 'Крашеная пряжа. Цвет, которому доверяют.',
-    titleHtml: 'Уникальные оттенки — под ваш запрос и стиль',
-    cardKicker: 'Качество, подтверждённое испытаниями',
-    cardTitleHtml: 'Каждая партия проходит строгий контроль.',
-  },
-  {
-    bg: asset('images/D2.webp'),
-    kicker: 'Каждая нить — история цвета.',
-    titleHtml: 'Цвет, который держит насыщенность.',
-    cardKicker: 'Крашеная пряжа премиум-класса.',
-    cardTitleHtml: 'Каждая партия проходит строгий контроль.',
-  },
-  {
-    bg: asset('images/D3.webp'),
-    kicker: 'Каждая нить — история цвета.',
-    titleHtml: 'Цвет, который держит насыщенность.',
-    cardKicker: 'Крашеная пряжа премиум-класса.',
-    cardTitleHtml: 'Каждая партия проходит строгий контроль.',
-  },
-]
+const slides = computed(() => {
+  const slideData = tm('slides')
+  return slideData || []  // Xavfsizlik uchun
+})
+const currentSlide = computed(() => slides.value[idx.value] || {})
 const idx = ref(0)
-const currentSlide = computed(() => slides[idx.value])
+
 
 function goNext() {
-  idx.value = (idx.value + 1) % slides.length
-  restartAutoplay()
+  idx.value = (idx.value + 1) % slides.value.length
 }
 
 function goPrev() {
-  idx.value = (idx.value - 1 + slides.length) % slides.length
-  restartAutoplay()
+  idx.value = (idx.value - 1 + slides.value.length) % slides.value.length
 }
 
 let slideTimer: number | null = null

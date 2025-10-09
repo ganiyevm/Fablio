@@ -8,16 +8,16 @@
       <div class="absolute inset-0 bg-black/50"></div>
       <div class="relative container mx-auto flex h-full items-center justify-center px-4">
         <div class="text-center text-white">
-          <h1 class="mb-4 text-5xl font-bold">Контакты</h1>
+          <h1 class="mb-4 text-5xl font-bold">{{ $t('contactPage.title') }}</h1>
           <nav class="text-sm">
             <router-link
               to="/"
               class="underline-offset-4 transition-colors hover:text-amber-600 hover:underline"
             >
-              Главная
+            {{ $t('contactPage.breadcrumbHome') }}
             </router-link>
             <span class="mx-2">•</span>
-            <span class="text-amber-600">Контакты</span>
+            <span class="text-amber-600">{{ $t('contactPage.breadcrumbContact') }}</span>
           </nav>
         </div>
       </div>
@@ -27,9 +27,9 @@
     <section class="bg-gray-50 py-16">
       <div class="container mx-auto px-4">
         <div class="mb-12 text-center">
-          <h2 class="mb-4 text-5xl font-bold text-gray-800">Свяжитесь с нами</h2>
+          <h2 class="mb-4 text-5xl font-bold text-gray-800">{{ $t('contactPage.formTitle') }}</h2>
           <p class="text-gray-600">
-            Мы всегда рады помочь с выбором пряжи и ответить на ваши вопросы.
+            {{ $t('contactPage.formSubtitle') }}
           </p>
         </div>
 
@@ -39,21 +39,21 @@
               <input
                 v-model="form.name"
                 type="text"
-                placeholder="Имя"
+                :placeholder="$t('contactPage.inputName')"
                 class="w-full rounded-lg border border-gray-300 p-4 focus:border-transparent focus:ring-2 focus:ring-amber-500"
                 required
               />
               <input
                 v-model="form.email"
                 type="email"
-                placeholder="Email"
+                :placeholder="$t('contactPage.inputEmail')"
                 class="w-full rounded-lg border border-gray-300 p-4 focus:border-transparent focus:ring-2 focus:ring-amber-500"
                 required
               />
               <input
                 v-model="form.phone"
                 type="tel"
-                placeholder="Телефон"
+                :placeholder="$t('contactPage.inputPhone')"
                 class="w-full rounded-lg border border-gray-300 p-4 focus:border-transparent focus:ring-2 focus:ring-amber-500"
                 required
               />
@@ -63,14 +63,14 @@
               <input
                 v-model="form.company"
                 type="text"
-                placeholder="Компания"
+                :placeholder="$t('contactPage.inputCompany')"
                 class="w-full rounded-lg border border-gray-300 p-4 focus:border-transparent focus:ring-2 focus:ring-amber-500"
                 required
               />
               <input
                 v-model="form.subject"
                 type="text"
-                placeholder="Вопрос"
+                :placeholder="$t('contactPage.inputSubject')"
                 class="w-full rounded-lg border border-gray-300 p-4 focus:border-transparent focus:ring-2 focus:ring-amber-500"
                 required
               />
@@ -79,7 +79,7 @@
             <div class="mb-6">
               <textarea
                 v-model="form.message"
-                placeholder="Сообщение"
+                :placeholder="$t('contactPage.inputMessage')"
                 rows="6"
                 class="w-full resize-none rounded-lg border border-gray-300 p-4 focus:border-transparent focus:ring-2 focus:ring-amber-500"
                 required
@@ -94,7 +94,7 @@
                   class="mr-3 h-4 w-4 rounded border border-gray-300 text-green-500 focus:ring-amber-500"
                   required
                 />
-                <span class="text-gray-600">Оставьте своё сообщение — мы свяжемся с вами.</span>
+                <span class="text-gray-600">{{ $t('contactPage.agreeText') }}</span>
               </label>
             </div>
 
@@ -103,7 +103,7 @@
                 type="submit"
                 class="rounded-lg bg-amber-500 px-8 py-3 font-semibold text-white transition duration-300 hover:bg-amber-600"
               >
-                Отправить!
+              {{ $t('contactPage.submit') }}
               </button>
             </div>
           </form>
@@ -128,14 +128,14 @@
 
           <!-- Contact Info -->
           <div>
-            <h2 class="mb-6 text-4xl font-bold text-gray-800">Свяжитесь мгновенно!</h2>
+            <h2 class="mb-6 text-4xl font-bold text-gray-800">{{ $t('contactPage.mapTitle') }}</h2>
             <p class="mb-8 text-gray-600">
-              Оставьте сообщение или позвоните — мы ответим в ближайшее время.
+              {{ $t('contactPage.mapText') }}
             </p>
 
             <!-- Head Office -->
             <div class="mb-8">
-              <h3 class="mb-4 text-2xl font-bold text-gray-800">Head Office</h3>
+              <h3 class="mb-4 text-2xl font-bold text-gray-800">{{ $t('contactPage.headOffice') }}</h3>
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div class="flex items-start">
                   <div class="mt-1 mr-4 rounded-lg bg-green-100 p-2">
@@ -148,9 +148,9 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="mb-1 font-semibold text-gray-800">Адрес</h4>
-                    <p class="text-gray-600">Республика Узбекистан, г.Ташкент</p>
-                    <p class="text-gray-600">Мирзо-улугбекский район, ТТЗ Промзона, ТехноПарк</p>
+                    <h4 class="mb-1 font-semibold text-gray-800">{{ $t('contactPage.address') }}</h4>
+                    <p class="text-gray-600">{{ $t('contactPage.uzbekistanAddress1') }}т</p>
+                    <p class="text-gray-600">{{ $t('contactPage.uzbekistanAddress2') }}</p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -163,7 +163,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h4 class="mb-1 font-semibold text-gray-800">Телефон / Email</h4>
+                    <h4 class="mb-1 font-semibold text-gray-800">{{ $t('contactPage.contactInfo') }}</h4>
                     <p class="text-gray-600">+99890 809-05-50</p>
                     <p class="text-gray-600">souleymanovamir@gmail.com</p>
                   </div>

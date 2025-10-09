@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Phone, Mail, Menu, X } from 'lucide-vue-next'
-import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 const isOpen = ref(false)
 
@@ -60,7 +60,7 @@ function closeMenu() {
             >
               <Phone class="h-4 w-4 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
               <div class="leading-tight">
-                <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactText') }}</span>
+                <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactPage.formTitle') }}</span>
                 <strong class="block text-xs text-gray-900 hover:text-yellow-600 lg:text-sm xl:text-base"
                   >+998555087440</strong
                 >
@@ -72,7 +72,7 @@ function closeMenu() {
             >
               <Mail class="h-4 w-4 text-yellow-600 lg:h-6 lg:w-6 xl:h-7 xl:w-7" />
               <div class="leading-tight">
-                <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactMail') }}</span>
+                <span class="text-xs text-gray-700 lg:text-sm">{{ $t('contactPage.formEmail') }}</span>
                 <strong class="block text-xs text-gray-900 hover:text-yellow-600 lg:text-sm xl:text-base"
                   >souleymanovamir@gmail.com</strong
                 >

@@ -17,18 +17,19 @@
             </svg>
           </div>
           <span class="text-center text-sm font-semibold sm:text-left sm:text-base md:text-lg lg:text-xl">
-            Хотите узнать подробнее о пряжи? Позвоните нам!
+            {{ $t('footer.title') }}
           </span>
         </div>
 
         <a
-          href="tel:+998555087440"
-          class="inline-flex items-center gap-1 text-base font-bold text-white hover:opacity-90 sm:gap-2 sm:text-lg md:text-xl"
-        >
-          <span class="sr-only">Позвонить:</span>
-          <span class="hidden sm:inline">Телефон&nbsp;</span>
-          +998 55 508-74-40
-        </a>
+  href="tel:+998555087440"
+  class="inline-flex items-center gap-1 text-base font-bold text-white hover:opacity-90 sm:gap-2 sm:text-lg md:text-xl"
+  aria-label="$t('phone.call')"
+>
+  <span class="sr-only">{{ $t('footer.call') }}</span>
+  <span class="hidden sm:inline">{{ $t('footer.label') }}&nbsp;</span>
+  +998 55 508-74-40
+</a>
       </div>
     </div>
   </section>
@@ -44,12 +45,11 @@
           </div>
 
           <p class="mb-4 text-center text-sm text-gray-400 sm:text-left sm:text-base sm:mb-5">
-            Свяжитесь с нами для консультации, подбора пряжи или оформления заказа. Мы всегда рады
-            помочь вам выбрать идеальный цвет и качество!
+            {{ $t('footer.text') }}
           </p>
 
           <div class="flex flex-col items-center gap-2 sm:flex-row sm:items-center sm:gap-3">
-            <span class="text-xs font-semibold text-gray-300 sm:text-sm md:text-base">Социальные сети:</span>
+            <span class="text-xs font-semibold text-gray-300 sm:text-sm md:text-base">{{ $t('footer.social') }}</span>
             <nav class="flex items-center gap-2 sm:gap-3">
               <a href="#" class="inline-block hover:opacity-90" aria-label="Facebook">
                 <img
@@ -87,11 +87,11 @@
         <div class="text-center sm:text-left md:px-24">
           <h3 class="mb-3 font-semibold sm:mb-4">Меню</h3>
           <ul class="space-y-1 text-sm text-gray-400 sm:space-y-2 sm:text-base">
-            <li><RouterLink to="/" class="hover:text-white">Главная</RouterLink></li>
-            <li><RouterLink to="/about" class="hover:text-white">О нас</RouterLink></li>
-            <li><RouterLink to="/products" class="hover:text-white">Продукция</RouterLink></li>
-            <li><RouterLink to="/production" class="hover:text-white">Производство</RouterLink></li>
-            <li><RouterLink to="/contact" class="hover:text-white">Контакты</RouterLink></li>
+            <li><RouterLink to="/" class="hover:text-white">{{ $t('menu.home') }}</RouterLink></li>
+            <li><RouterLink to="/about" class="hover:text-white">{{ $t('menu.about') }}</RouterLink></li>
+            <li><RouterLink to="/products" class="hover:text-white">{{ $t('menu.products') }}</RouterLink></li>
+            <li><RouterLink to="/production" class="hover:text-white">{{ $t('menu.production') }}</RouterLink></li>
+            <li><RouterLink to="/contact" class="hover:text-white">{{ $t('menu.contact') }}</RouterLink></li>
           </ul>
         </div>
 
@@ -108,8 +108,8 @@
               </svg>
             </div>
             <div>
-              <p class="text-sm font-semibold sm:text-base">Адрес: Республика Узбекистан, г. Ташкент</p>
-              <p class="text-xs text-gray-400 sm:text-sm">Мирзо-Улугбекский район, ТТЗ Промзона, ТехноПарк</p>
+              <p class="text-sm font-semibold sm:text-base">{{ $t('contactPage.address') }} {{ $t('contactPage.uzbekistanAddress1') }}</p>
+              <p class="text-xs text-gray-400 sm:text-sm">{{ $t('contactPage.uzbekistanAddress2') }}</p>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@
               </svg>
             </div>
             <div>
-              <p class="text-sm font-semibold sm:text-base">Напишите нам</p>
+              <p class="text-sm font-semibold sm:text-base">{{ $t('contactPage.formEmail') }}</p>
               <a href="mailto:souleymanovamir@gmail.com" class="text-xs text-gray-400 hover:text-white sm:text-sm">
                 Mail: souleymanovamir@gmail.com
               </a>
